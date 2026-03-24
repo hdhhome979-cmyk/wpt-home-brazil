@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WPT HOME 合作方激励 ROI 计算器 v3</title>
+<title>FIVE 合作方激励 ROI 计算器 v3</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--bg4:#232A36;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,.08);--red:#E85D4A;--red-bg:rgba(232,93,74,.1);--green:#4ADE80;--green-bg:rgba(74,222,128,.08);--blue:#60A5FA;--blue-bg:rgba(96,165,250,.08);--purple:#A78BFA;--purple-bg:rgba(167,139,250,.08);--teal:#2DD4BF;--teal-bg:rgba(45,212,191,.08);--orange:#FB923C;--orange-bg:rgba(251,146,60,.08);--r:10px;--rl:14px}
@@ -41,7 +41,7 @@
 <h1>合作方激励费用 ROI 计算器</h1>
 <div class="sub">三层佣金结构 · 破冰溢价 · 增长追加 ｜ 渠道合伙人 · KOL · 转介绍 ｜ <strong>通用框架</strong></div>
 </div>
-<div class="conf"><span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>内部机密 — 仅限管理层 / 发行负责人使用</div>
+<div class="conf"><span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>内部工具 — 仅限管理层 / 发行负责人使用</div>
 
 <!-- Three Layer Overview -->
 <div class="sec"><div class="st">佣金三层结构</div>
@@ -90,8 +90,8 @@
 <!-- 1. Base Rate Table -->
 <div class="sec"><div class="st">一、基础层佣金速查表</div><div id="baseTable"></div></div>
 
-<!-- 2. Craig Scenario -->
-<div class="sec"><div class="st">二、案例模拟 · Craig（澳洲渠道合伙人 · 新市场破冰）</div><div id="craigSection"></div></div>
+<!-- 2. Partner-A Scenario -->
+<div class="sec"><div class="st">二、案例模拟 · Partner-A（澳洲渠道合伙人 · 新市场破冰）</div><div id="craigSection"></div></div>
 
 <!-- 3. KOL -->
 <div class="sec"><div class="st">三、KOL合作ROI对照</div><div id="kolSection"></div></div>
@@ -147,7 +147,7 @@ function calc(){
   bt+=`<div class="al s"><strong>读法：</strong>一个有20个活跃玩家的中型Club，如果是新市场第一个Club，佣金 = 28人 × $${rate} × ${m1} = $${Math.round(28*rate*m1)}。如果是第4个以上，佣金 = 28人 × $${rate} × 1 = $${Math.round(28*rate)}。后续Club玩家增长到40人时，追加 (40-28) × $${rate} = $${Math.round(12*rate)}。</div>`;
   document.getElementById('baseTable').innerHTML=bt;
 
-  // 2. Craig Scenario
+  // 2. Partner-A Scenario
   const craigClubs=[
     {name:'Club 1 — 首个破冰',d14:12,d45:20,d90:28,mult:m1,cls:'ok'},
     {name:'Club 2 — 早期开拓',d14:8,d45:14,d90:18,mult:m2,cls:''},
@@ -156,7 +156,7 @@ function calc(){
     {name:'Club 5 — 常规',d14:6,d45:10,d90:12,mult:1,cls:''},
   ];
   let totalPay=0,totalPlayers=0;
-  let ct=`<div class="card"><div class="card-t">Craig · 澳洲 · 5个Club场景模拟<span class="card-b" style="background:var(--blue-bg);color:var(--blue)">新市场</span></div>`;
+  let ct=`<div class="card"><div class="card-t">Partner-A · 澳洲 · 5个Club场景模拟<span class="card-b" style="background:var(--blue-bg);color:var(--blue)">新市场</span></div>`;
   ct+=`<div class="stw"><table class="stb"><thead><tr><th>Club</th><th>倍率</th><th>D14验证<br><span style="font-weight:400;text-transform:none">(玩家→佣金)</span></th><th>D45追加<br><span style="font-weight:400;text-transform:none">(增长→佣金)</span></th><th>D90追加<br><span style="font-weight:400;text-transform:none">(增长→佣金)</span></th><th>总佣金</th><th>最终玩家</th></tr></thead><tbody>`;
   craigClubs.forEach(c=>{
     const d14Pay=Math.round(c.d14*rate*c.mult);
@@ -176,7 +176,7 @@ function calc(){
   const videoBudget=500;
   ct+=`<div class="mg"><div class="mt"><div class="ml">Club佣金总计</div><div class="mv" style="color:var(--accent)">$${totalPay}</div></div><div class="mt"><div class="ml">视频内容(另算)</div><div class="mv" style="color:var(--text2)">$${videoBudget}</div></div><div class="mt"><div class="ml">$/有效玩家</div><div class="mv" style="color:var(--green)">$${(totalPay/totalPlayers).toFixed(1)}</div></div><div class="mt"><div class="ml">vs 原方案$300/Club</div><div class="mv" style="color:var(--green)">省$${2000-totalPay}</div></div></div>`;
   
-  ct+=`<div class="g2"><div class="gc"><div class="gc-t">给Craig的谈判话术</div>
+  ct+=`<div class="g2"><div class="gc"><div class="gc-t">给Partner-A的谈判话术</div>
 <div class="row"><span class="row-l">结算方式</span><span class="row-v a">按Club达标人数×$${rate}结算</span></div>
 <div class="row"><span class="row-l">破冰激励</span><span class="row-v g">前3个Club有${m1}-${m2}倍加成</span></div>
 <div class="row"><span class="row-l">增长追加</span><span class="row-v">Club规模扩大→追加结算差额</span></div>
@@ -201,14 +201,14 @@ function calc(){
   document.getElementById('kolSection').innerHTML=`
 <div class="al i" style="margin-bottom:12px"><strong>KOL的成本不能只用$/DAU衡量</strong> — 同时承担品牌背书、内容产出、社交证据等无法量化的价值。以下仅作参考。</div>
 <div class="kol-g">
-<div class="kol-c"><div class="kol-n">Fernando (Club运营型)</div><div class="kol-tp">$2,500底薪 + $1,500绩效 = $4,000/月</div>
+<div class="kol-c"><div class="kol-n">KOL-A (Club运营型)</div><div class="kol-tp">$2,500底薪 + $1,500绩效 = $4,000/月</div>
 <div class="row"><span class="row-l">月均DAU</span><span class="row-v a">${kolC.avg.toFixed(1)}</span></div>
 <div class="row"><span class="row-l">纯DAU价值</span><span class="row-v">$${fVal.toFixed(0)}/月</span></div>
 <div class="row"><span class="row-l">实际成本</span><span class="row-v r">$${fCost}/月</span></div>
 <div class="row"><span class="row-l">溢价倍数</span><span class="row-v big r">${(fCost/fVal).toFixed(1)}×</span></div>
 <div style="margin-top:10px;padding:10px;background:var(--accent-bg);border-radius:8px;font-size:12px;color:var(--accent);line-height:1.5">溢价含：WSOP参赛、品牌大使、Club示范、内容产出。绩效$1500挂钩100+有效活跃/月。</div>
 </div>
-<div class="kol-c"><div class="kol-n">Edit / guridopoker (内容带量型)</div><div class="kol-tp">$1,200/月</div>
+<div class="kol-c"><div class="kol-n">KOL-B / KOL-C (内容带量型)</div><div class="kol-tp">$1,200/月</div>
 <div class="row"><span class="row-l">月均DAU（估算）</span><span class="row-v a">${kolCt.avg.toFixed(1)}</span></div>
 <div class="row"><span class="row-l">纯DAU价值</span><span class="row-v">$${eVal.toFixed(0)}/月</span></div>
 <div class="row"><span class="row-l">实际成本</span><span class="row-v">${eCost<=eVal*3?'<span class="a">':'<span class="r">'}$${eCost}</span>/月</span></div>
@@ -230,9 +230,9 @@ function calc(){
   // 5. Summary
   document.getElementById('summarySection').innerHTML=`
 <div class="stw"><table class="stb"><thead><tr><th>合作类型</th><th>计费方式</th><th>小Club(10人)佣金</th><th>中Club(28人)佣金</th><th>大Club(50人)佣金</th><th>特殊机制</th></tr></thead><tbody>
-<tr><td><strong>渠道合伙人</strong><br><span style="font-size:11px;color:var(--text3)">Craig类型</span></td><td>$${rate}/人<br>三层结构</td><td>$${Math.round(10*rate)} ~ $${Math.round(10*rate*m1)}</td><td>$${Math.round(28*rate)} ~ $${Math.round(28*rate*m1)}</td><td>$${Math.round(50*rate)} ~ $${Math.round(50*rate*m1)}</td><td>破冰${m1}×、增长追加、里程碑</td></tr>
-<tr><td><strong>KOL·Club型</strong><br><span style="font-size:11px;color:var(--text3)">Fernando类型</span></td><td>月薪制<br>底薪+绩效</td><td colspan="3" style="text-align:center">$4,000/月（绩效挂钩100+活跃/月）</td><td>品牌+内容+组织示范</td></tr>
-<tr><td><strong>KOL·内容型</strong><br><span style="font-size:11px;color:var(--text3)">Edit类型</span></td><td>固定月薪</td><td colspan="3" style="text-align:center">$1,200/月（前3月验证后决定续签）</td><td>视频/直播带量</td></tr>
+<tr><td><strong>渠道合伙人</strong><br><span style="font-size:11px;color:var(--text3)">Partner-A类型</span></td><td>$${rate}/人<br>三层结构</td><td>$${Math.round(10*rate)} ~ $${Math.round(10*rate*m1)}</td><td>$${Math.round(28*rate)} ~ $${Math.round(28*rate*m1)}</td><td>$${Math.round(50*rate)} ~ $${Math.round(50*rate*m1)}</td><td>破冰${m1}×、增长追加、里程碑</td></tr>
+<tr><td><strong>KOL·Club型</strong><br><span style="font-size:11px;color:var(--text3)">KOL-A类型</span></td><td>月薪制<br>底薪+绩效</td><td colspan="3" style="text-align:center">$4,000/月（绩效挂钩100+活跃/月）</td><td>品牌+内容+组织示范</td></tr>
+<tr><td><strong>KOL·内容型</strong><br><span style="font-size:11px;color:var(--text3)">KOL-B类型</span></td><td>固定月薪</td><td colspan="3" style="text-align:center">$1,200/月（前3月验证后决定续签）</td><td>视频/直播带量</td></tr>
 <tr><td><strong>转介绍</strong><br><span style="font-size:11px;color:var(--text3)">老房主推新房主</span></td><td>$${refRate.toFixed(1)}/人<br>混合激励</td><td>$${Math.round(10*refRate)}</td><td>$${Math.round(28*refRate)}</td><td>$${Math.round(50*refRate)}</td><td>USDT+钻石+荣誉称号</td></tr>
 </tbody></table></div>
 <div class="al s"><strong>核心原则：</strong>所有合作类型的佣金都基于同一个锚点 — <strong>$${rate}/有效活跃玩家</strong>。渠道合伙人拿全价+破冰溢价，转介绍拿40%折扣价。KOL因附加品牌价值走月薪制。运营补贴（Overlay/Freeroll）、内容产出费用（$100/期）单独预算，不混算。</div>`;
