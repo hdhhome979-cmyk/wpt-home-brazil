@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPT HOME 合作方激励 ROI 计算器 v3</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--bg4:#232A36;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,.08);--red:#E85D4A;--red-bg:rgba(232,93,74,.1);--green:#4ADE80;--green-bg:rgba(74,222,128,.08);--blue:#60A5FA;--blue-bg:rgba(96,165,250,.08);--purple:#A78BFA;--purple-bg:rgba(167,139,250,.08);--teal:#2DD4BF;--teal-bg:rgba(45,212,191,.08);--orange:#FB923C;--orange-bg:rgba(251,146,60,.08);--r:10px;--rl:14px}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}.ctn{max-width:1080px;margin:0 auto;padding:24px 20px 60px}
+.tip{border-bottom:1px dashed var(--text3);cursor:help;display:inline}#ttg{display:none;position:fixed;background:#1E2330;border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--text2);line-height:1.6;width:300px;max-width:90vw;z-index:9999;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.hdr{margin-bottom:28px}.hdr .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);padding:4px 12px;border-radius:20px;margin-bottom:12px}.hdr h1{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.hdr .sub{font-size:14px;color:var(--text2)}.hdr .sub strong{color:var(--accent2)}
+.conf{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--red-bg);border:1px solid rgba(232,93,74,.15);border-radius:var(--r);margin-bottom:28px;font-size:12px;color:var(--red)}
+.sec{margin-bottom:28px}.st{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:8px}.st::before{content:'';width:14px;height:1px;background:var(--text3)}
+.pg{display:grid;gap:8px;margin-bottom:16px}.pg4{grid-template-columns:repeat(4,1fr)}.pg3{grid-template-columns:repeat(3,1fr)}.pg5{grid-template-columns:repeat(5,1fr)}.pc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;text-align:center}.pl{font-size:11px;color:var(--text3);margin-bottom:3px}.pin{width:60px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;color:var(--accent2);font-size:14px;font-family:'DM Mono',monospace;text-align:center;outline:none;font-weight:600}.pin:focus{border-color:var(--accent)}.pu{font-size:12px;color:var(--text3)}
+.al{padding:12px 16px;border-radius:var(--r);margin-bottom:16px;font-size:13px;line-height:1.6}.al.w{background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);color:var(--accent)}.al.d{background:var(--red-bg);border:1px solid rgba(232,93,74,.15);color:var(--red)}.al.i{background:var(--blue-bg);border:1px solid rgba(96,165,250,.15);color:var(--blue)}.al.s{background:var(--green-bg);border:1px solid rgba(74,222,128,.15);color:var(--green)}.al strong{filter:brightness(1.2)}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:16px}.card-t{font-size:15px;font-weight:600;margin-bottom:14px}.card-b{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em;margin-left:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.gc{background:var(--bg3);border-radius:var(--r);padding:14px}.gc-t{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px}.row:last-child{border-bottom:none}.row-l{color:var(--text2)}.row-v{font-family:'DM Mono',monospace;font-weight:500}.row-v.g{color:var(--green)}.row-v.r{color:var(--red)}.row-v.a{color:var(--accent2)}.row-v.big{font-size:16px;font-weight:700}
+/* Layer cards */
+.layer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}.layer{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;position:relative;overflow:hidden}.layer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}.layer.l1::before{background:var(--green)}.layer.l2::before{background:var(--accent)}.layer.l3::before{background:var(--blue)}.layer-num{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}.layer.l1 .layer-num{color:var(--green)}.layer.l2 .layer-num{color:var(--accent)}.layer.l3 .layer-num{color:var(--blue)}.layer-name{font-size:16px;font-weight:700;margin-bottom:4px}.layer-desc{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px}.layer-formula{background:var(--bg3);border-radius:8px;padding:10px 12px;font-size:13px;font-family:'DM Mono',monospace;color:var(--accent2)}.layer-note{font-size:11px;color:var(--text3);margin-top:10px;line-height:1.5}
+/* Scenario table */
+.stw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow-x:auto;margin-bottom:16px}.stb{width:100%;border-collapse:collapse;min-width:700px}.stb th{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;padding:10px 12px;text-align:center;background:var(--bg3);border-bottom:1px solid var(--border)}.stb th:first-child{text-align:left}.stb td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);font-size:13px;font-family:'DM Mono',monospace}.stb td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-weight:500;font-size:12px}.stb tr:last-child td{border-bottom:none}.stb .tot{font-weight:700;background:var(--bg3)}.hi{color:var(--accent2);font-weight:600}.ok{color:var(--green)}.wr{color:var(--red)}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}.mt{background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center}.mt .ml{font-size:11px;color:var(--text3);margin-bottom:4px}.mt .mv{font-size:20px;font-weight:700;font-family:'DM Mono',monospace}
+/* KOL */
+.kol-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}.kol-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:16px}.kol-n{font-size:14px;font-weight:600;margin-bottom:2px}.kol-tp{font-size:11px;color:var(--text3);margin-bottom:10px}
+/* Referral */
+.ref-g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.ref-c{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center}.ref-t{font-size:12px;font-weight:600;margin-bottom:4px}.ref-p{font-size:20px;font-weight:700;font-family:'DM Mono',monospace;margin-bottom:4px}.ref-d{font-size:11px;color:var(--text3);line-height:1.5}
+.rcb{display:flex;justify-content:center;margin:16px 0}.rcbt{background:var(--accent);color:var(--bg);font-size:14px;font-weight:600;padding:10px 32px;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}.rcbt:hover{background:var(--accent2);transform:translateY(-1px)}
+.note{font-size:12px;color:var(--text3);line-height:1.7;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r)}.note strong{color:var(--text2)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+@media(max-width:768px){.pg4,.pg3,.mg{grid-template-columns:repeat(2,1fr)}.layer-grid,.g2,.kol-g{grid-template-columns:1fr}.ref-g{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="ttg"></div>
+<div class="ctn">
+
+<div class="hdr">
+<div class="badge">Internal · Partnership Economics · v3</div>
+<h1>合作方激励费用 ROI 计算器</h1>
+<div class="sub">三层佣金结构 · 破冰溢价 · 增长追加 ｜ 渠道合伙人 · KOL · 转介绍 ｜ <strong>通用框架</strong></div>
+</div>
+<div class="conf"><span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>内部机密 — 仅限管理层 / 发行负责人使用</div>
+
+<!-- Three Layer Overview -->
+<div class="sec"><div class="st">佣金三层结构</div>
+<div class="layer-grid">
+<div class="layer l1">
+<div class="layer-num">Layer 1 · 基础层</div>
+<div class="layer-name">按人头付费</div>
+<div class="layer-desc">按Club验证达标后的有效活跃玩家数结算。Club越大、玩家越多、佣金越高。所有合作类型通用。</div>
+<div class="layer-formula">佣金 = 有效玩家数 × 单价$/人</div>
+<div class="layer-note">验证标准：14天内≥3天有局，每天≥30手。有效活跃玩家 = 周手牌数>50手。</div>
+</div>
+<div class="layer l2">
+<div class="layer-num">Layer 2 · 破冰层</div>
+<div class="layer-name">开拓溢价</div>
+<div class="layer-desc">新区域/新市场的前几个Club有额外战略价值：信任锚点、案例模板、口碑起点。给予基础佣金的倍数溢价。</div>
+<div class="layer-formula">第1个Club: 基础 × 倍率<br>第2-3个: 基础 × 次级倍率<br>第4个起: 基础 × 1.0</div>
+<div class="layer-note">仅适用于渠道合伙人在新市场的首批Club。已有基础的市场不适用。</div>
+</div>
+<div class="layer l3">
+<div class="layer-num">Layer 3 · 增长层</div>
+<div class="layer-name">规模追加</div>
+<div class="layer-desc">Club不是一步到位的。大Club迁移过来一开始可能只有10人试水，后续扩到50人。追加结算增量部分。</div>
+<div class="layer-formula">D45检查: (新增玩家) × 单价<br>D90检查: (新增玩家) × 单价</div>
+<div class="layer-note">解决"大Club一开始只来少量人"的问题。合作方有动力持续推动Club扩大规模。</div>
+</div>
+</div></div>
+
+<!-- Parameters -->
+<div class="sec"><div class="st">核心参数（可编辑）</div>
+<div class="pg pg4">
+<div class="pc"><div class="pl"><span class="tip" data-tip="每个验证通过的有效活跃玩家，支付给合作方的基础佣金。是整个体系的定价锚点。">单价 $/人</span></div><input class="pin" type="number" id="p_rate" value="3" step="0.5"><span class="pu">$</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="新市场第1个Club的佣金倍率。体现破冰价值。">首Club倍率</span></div><input class="pin" type="number" id="p_m1" value="2.0" step="0.5"><span class="pu">×</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="新市场第2-3个Club的佣金倍率。仍有早期开拓价值。">次级倍率</span></div><input class="pin" type="number" id="p_m2" value="1.5" step="0.5"><span class="pu">×</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="累计促成N个以上有效Club后的里程碑奖励，按基础佣金的倍数计算。">里程碑倍数</span></div><input class="pin" type="number" id="p_ms" value="1.5" step="0.5"><span class="pu">×</span></div>
+</div>
+<div class="pg pg4">
+<div class="pc"><div class="pl"><span class="tip" data-tip="被邀请玩家中进入房间的比例。影响Club DAU估值。">入局转化率</span></div><input class="pin" type="number" id="p_enter" value="50" step="5"><span class="pu">%</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="进房玩家完成至少一整局的比例。">首局完成率</span></div><input class="pin" type="number" id="p_finish" value="80" step="5"><span class="pu">%</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="新玩家30天后仍活跃的比例。">D30留存</span></div><input class="pin" type="number" id="p_d30" value="35" step="5"><span class="pu">%</span></div>
+<div class="pc"><div class="pl"><span class="tip" data-tip="目标$/DAU上限，用于ROI验证。">目标$/DAU</span></div><input class="pin" type="number" id="p_cpd" value="4" step="0.5"><span class="pu">$</span></div>
+</div>
+</div>
+
+<div class="rcb"><button class="rcbt" onclick="calc()">计算全部</button></div>
+
+<!-- 1. Base Rate Table -->
+<div class="sec"><div class="st">一、基础层佣金速查表</div><div id="baseTable"></div></div>
+
+<!-- 2. Craig Scenario -->
+<div class="sec"><div class="st">二、案例模拟 · Craig（澳洲渠道合伙人 · 新市场破冰）</div><div id="craigSection"></div></div>
+
+<!-- 3. KOL -->
+<div class="sec"><div class="st">三、KOL合作ROI对照</div><div id="kolSection"></div></div>
+
+<!-- 4. Referral -->
+<div class="sec"><div class="st">四、Club Host转介绍标准</div><div id="refSection"></div></div>
+
+<!-- 5. Summary -->
+<div class="sec"><div class="st">五、全类型对照总览</div><div id="summarySection"></div></div>
+
+<div class="note">
+<strong>三层佣金逻辑说明：</strong><br>
+Layer 1（基础层）是定价锚点：$X/有效活跃玩家，所有合作类型通用。Club越大玩家越多佣金越高，直觉正确。<br>
+Layer 2（破冰层）解决"新市场第一个Club的战略价值远超DAU"的问题：第一个Club是信任锚点、案例模板、后续所有合作的起点，值得2倍溢价。<br>
+Layer 3（增长层）解决"大Club不会一步到位"的问题：初始只来10人按10人结算，后续扩到50人再追加差额。合作方有动力持续推动Club成长。<br><br>
+<strong>运营补贴（Overlay/Freeroll）单独走预算</strong>，不在本计算器内。佣金和补贴是两笔钱解决两件事。<br><br>
+<strong>视频/内容产出费用单独结算</strong>，$100/期左右。不与Club佣金混算。
+</div>
+
+</div>
+
+<script>
+const ttg=document.getElementById('ttg');
+document.addEventListener('mouseover',e=>{const t=e.target.closest('.tip');if(!t||!t.dataset.tip)return;ttg.textContent=t.dataset.tip;ttg.style.display='block';const r=t.getBoundingClientRect(),tw=ttg.offsetWidth,th=ttg.offsetHeight;let l=r.left+r.width/2-tw/2;if(l<8)l=8;if(l+tw>window.innerWidth-8)l=window.innerWidth-tw-8;ttg.style.left=l+'px';ttg.style.top=(r.top>th+16?r.top-th-8:r.bottom+8)+'px'});
+document.addEventListener('mouseout',e=>{if(e.target.closest('.tip'))ttg.style.display='none'});
+function v(id){return parseFloat(document.getElementById(id).value)||0}
+
+function calcClubDAU(w1,wn,months,pE,pF,pD,pC){
+  const fr=pE*pF*pD;let cum=0,tot=0;
+  for(let m=0;m<months;m++){let inv=m===0?(w1+wn*3):(wn*4);cum=cum*(1-pC)+inv*fr;tot+=cum+1;}
+  return{avg:tot/months,ltv:tot};
+}
+
+function calc(){
+  const rate=v('p_rate'),m1=v('p_m1'),m2=v('p_m2'),ms=v('p_ms');
+  const pE=v('p_enter')/100,pF=v('p_finish')/100,pD=v('p_d30')/100,cpd=v('p_cpd');
+
+  // 1. Base Rate Table
+  const tiers=[
+    {label:'微型Club',range:'5-9人',ex:7,color:'var(--teal)'},
+    {label:'小型Club',range:'10-19人',ex:14,color:'var(--green)'},
+    {label:'中型Club',range:'20-39人',ex:28,color:'var(--accent)'},
+    {label:'大型Club',range:'40-59人',ex:50,color:'var(--blue)'},
+    {label:'超大Club',range:'60+人',ex:75,color:'var(--purple)'},
+  ];
+
+  let bt=`<div class="stw"><table class="stb"><thead><tr><th>Club档位</th><th>有效玩家</th><th>基础佣金</th><th>破冰×${m1}</th><th>次级×${m2}</th><th>标准×1</th></tr></thead><tbody>`;
+  tiers.forEach(t=>{
+    const base=t.ex*rate;
+    bt+=`<tr><td><span class="dot" style="background:${t.color}"></span>${t.label}</td><td>${t.range}</td><td class="hi">$${base}</td><td class="ok">$${Math.round(base*m1)}</td><td>$${Math.round(base*m2)}</td><td>$${Math.round(base)}</td></tr>`;
+  });
+  bt+=`</tbody></table></div>`;
+  bt+=`<div class="al s"><strong>读法：</strong>一个有20个活跃玩家的中型Club，如果是新市场第一个Club，佣金 = 28人 × $${rate} × ${m1} = $${Math.round(28*rate*m1)}。如果是第4个以上，佣金 = 28人 × $${rate} × 1 = $${Math.round(28*rate)}。后续Club玩家增长到40人时，追加 (40-28) × $${rate} = $${Math.round(12*rate)}。</div>`;
+  document.getElementById('baseTable').innerHTML=bt;
+
+  // 2. Craig Scenario
+  const craigClubs=[
+    {name:'Club 1 — 首个破冰',d14:12,d45:20,d90:28,mult:m1,cls:'ok'},
+    {name:'Club 2 — 早期开拓',d14:8,d45:14,d90:18,mult:m2,cls:''},
+    {name:'Club 3 — 早期开拓',d14:10,d45:15,d90:22,mult:m2,cls:''},
+    {name:'Club 4 — 常规',d14:15,d45:22,d90:30,mult:1,cls:''},
+    {name:'Club 5 — 常规',d14:6,d45:10,d90:12,mult:1,cls:''},
+  ];
+  let totalPay=0,totalPlayers=0;
+  let ct=`<div class="card"><div class="card-t">Craig · 澳洲 · 5个Club场景模拟<span class="card-b" style="background:var(--blue-bg);color:var(--blue)">新市场</span></div>`;
+  ct+=`<div class="stw"><table class="stb"><thead><tr><th>Club</th><th>倍率</th><th>D14验证<br><span style="font-weight:400;text-transform:none">(玩家→佣金)</span></th><th>D45追加<br><span style="font-weight:400;text-transform:none">(增长→佣金)</span></th><th>D90追加<br><span style="font-weight:400;text-transform:none">(增长→佣金)</span></th><th>总佣金</th><th>最终玩家</th></tr></thead><tbody>`;
+  craigClubs.forEach(c=>{
+    const d14Pay=Math.round(c.d14*rate*c.mult);
+    const d45Pay=Math.round((c.d45-c.d14)*rate);
+    const d90Pay=Math.round((c.d90-c.d45)*rate);
+    const total=d14Pay+d45Pay+d90Pay;
+    totalPay+=total;totalPlayers+=c.d90;
+    ct+=`<tr><td>${c.name}</td><td>${c.mult}×</td><td>${c.d14}人→<span class="${c.cls}">$${d14Pay}</span></td><td>+${c.d45-c.d14}人→$${d45Pay}</td><td>+${c.d90-c.d45}人→$${d90Pay}</td><td class="hi">$${total}</td><td>${c.d90}</td></tr>`;
+  });
+  const milestone=Math.round(tiers[1].ex*rate*ms);
+  totalPay+=milestone;
+  ct+=`<tr class="tot"><td colspan="5">里程碑奖励（5+有效Club）</td><td class="ok">+$${milestone}</td><td></td></tr>`;
+  ct+=`<tr class="tot"><td colspan="5"><strong>总计</strong></td><td class="hi"><strong>$${totalPay}</strong></td><td><strong>${totalPlayers}人</strong></td></tr>`;
+  ct+=`</tbody></table></div>`;
+  
+  // Metrics
+  const videoBudget=500;
+  ct+=`<div class="mg"><div class="mt"><div class="ml">Club佣金总计</div><div class="mv" style="color:var(--accent)">$${totalPay}</div></div><div class="mt"><div class="ml">视频内容(另算)</div><div class="mv" style="color:var(--text2)">$${videoBudget}</div></div><div class="mt"><div class="ml">$/有效玩家</div><div class="mv" style="color:var(--green)">$${(totalPay/totalPlayers).toFixed(1)}</div></div><div class="mt"><div class="ml">vs 原方案$300/Club</div><div class="mv" style="color:var(--green)">省$${2000-totalPay}</div></div></div>`;
+  
+  ct+=`<div class="g2"><div class="gc"><div class="gc-t">给Craig的谈判话术</div>
+<div class="row"><span class="row-l">结算方式</span><span class="row-v a">按Club达标人数×$${rate}结算</span></div>
+<div class="row"><span class="row-l">破冰激励</span><span class="row-v g">前3个Club有${m1}-${m2}倍加成</span></div>
+<div class="row"><span class="row-l">增长追加</span><span class="row-v">Club规模扩大→追加结算差额</span></div>
+<div class="row"><span class="row-l">里程碑</span><span class="row-v">5+Club额外$${milestone}奖励</span></div>
+<div class="row"><span class="row-l">视频产出</span><span class="row-v">$100/期（独立预算）</span></div>
+</div><div class="gc"><div class="gc-t">关键要点</div>
+<div style="font-size:12px;color:var(--text2);line-height:1.7">
+<strong style="color:var(--accent)">1. 先验证能力：</strong>让他先跑1-2个Club证明能力。第一个Club有2倍破冰加成，诚意够了。<br>
+<strong style="color:var(--accent)">2. 增长追加是亮点：</strong>大Club一开始只来10人没关系——后续每多一个活跃玩家都能追加结算。这比一刀切$300对他更有利（如果他真能做大Club的话）。<br>
+<strong style="color:var(--accent)">3. 不接受预付：</strong>所有费用按验证达标后结算。如果他坚持大额预付，不再跟进。<br>
+<strong style="color:var(--accent)">4. 后续空间：</strong>证明能力后可以谈更多（主播合作、本地招聘等）。
+</div></div></div></div>`;
+  document.getElementById('craigSection').innerHTML=ct;
+
+  // 3. KOL
+  const life=6,pC=0.12;
+  const kolC=calcClubDAU(50,50,life,pE,pF,pD,pC);
+  const kolCt=calcClubDAU(15,15,life,pE,pF,pD,pC);
+  const fCost=4000,eCost=1200;
+  const fVal=kolC.avg*cpd,eVal=kolCt.avg*cpd;
+  
+  document.getElementById('kolSection').innerHTML=`
+<div class="al i" style="margin-bottom:12px"><strong>KOL的成本不能只用$/DAU衡量</strong> — 同时承担品牌背书、内容产出、社交证据等无法量化的价值。以下仅作参考。</div>
+<div class="kol-g">
+<div class="kol-c"><div class="kol-n">Fernando (Club运营型)</div><div class="kol-tp">$2,500底薪 + $1,500绩效 = $4,000/月</div>
+<div class="row"><span class="row-l">月均DAU</span><span class="row-v a">${kolC.avg.toFixed(1)}</span></div>
+<div class="row"><span class="row-l">纯DAU价值</span><span class="row-v">$${fVal.toFixed(0)}/月</span></div>
+<div class="row"><span class="row-l">实际成本</span><span class="row-v r">$${fCost}/月</span></div>
+<div class="row"><span class="row-l">溢价倍数</span><span class="row-v big r">${(fCost/fVal).toFixed(1)}×</span></div>
+<div style="margin-top:10px;padding:10px;background:var(--accent-bg);border-radius:8px;font-size:12px;color:var(--accent);line-height:1.5">溢价含：WSOP参赛、品牌大使、Club示范、内容产出。绩效$1500挂钩100+有效活跃/月。</div>
+</div>
+<div class="kol-c"><div class="kol-n">Edit / guridopoker (内容带量型)</div><div class="kol-tp">$1,200/月</div>
+<div class="row"><span class="row-l">月均DAU（估算）</span><span class="row-v a">${kolCt.avg.toFixed(1)}</span></div>
+<div class="row"><span class="row-l">纯DAU价值</span><span class="row-v">$${eVal.toFixed(0)}/月</span></div>
+<div class="row"><span class="row-l">实际成本</span><span class="row-v">${eCost<=eVal*3?'<span class="a">':'<span class="r">'}$${eCost}</span>/月</span></div>
+<div class="row"><span class="row-l">溢价倍数</span><span class="row-v big">${(eCost/eVal).toFixed(1)}×</span></div>
+<div style="margin-top:10px;padding:10px;background:var(--blue-bg);border-radius:8px;font-size:12px;color:var(--blue);line-height:1.5">w1=15为估算。建议前3月执行后看数据决定续签。</div>
+</div></div>`;
+
+  // 4. Referral
+  const refRate=rate*0.4;
+  document.getElementById('refSection').innerHTML=`
+<div class="al i" style="margin-bottom:12px"><strong>转介绍单价 = 基础单价 × 40%</strong>（$${rate} × 40% = $${refRate.toFixed(1)}/人）。转介绍成本更低、更自然。混合激励：种子期USDT 50%+钻石50%，规模期USDT 30%+钻石40%+荣誉30%。</div>
+<div class="ref-g">
+<div class="ref-c"><div class="ref-t" style="color:var(--teal)">微型Club (5-9人)</div><div class="ref-p" style="color:var(--teal)">$15</div><div class="ref-d">固定金额<br>鼓励小型朋友局入网</div></div>
+<div class="ref-c"><div class="ref-t" style="color:var(--green)">小/中型Club (10-39人)</div><div class="ref-p" style="color:var(--green)">$${refRate.toFixed(1)}/人</div><div class="ref-d">例: 20人 = $${Math.round(20*refRate)}<br>或等值钻石+称号</div></div>
+<div class="ref-c"><div class="ref-t" style="color:var(--purple)">大型Club (40+人)</div><div class="ref-p" style="color:var(--purple)">$${refRate.toFixed(1)}/人</div><div class="ref-d">例: 50人 = $${Math.round(50*refRate)}<br>封顶$${Math.round(80*refRate)}</div></div>
+</div>
+<div class="al w"><strong>荣誉体系：</strong>推荐≥5个Club → "金牌推荐人" + 额外$${Math.round(14*refRate*2)}。≥10个 → "钻石推荐人" + 额外$${Math.round(14*refRate*4)} + 官方曝光。</div>`;
+
+  // 5. Summary
+  document.getElementById('summarySection').innerHTML=`
+<div class="stw"><table class="stb"><thead><tr><th>合作类型</th><th>计费方式</th><th>小Club(10人)佣金</th><th>中Club(28人)佣金</th><th>大Club(50人)佣金</th><th>特殊机制</th></tr></thead><tbody>
+<tr><td><strong>渠道合伙人</strong><br><span style="font-size:11px;color:var(--text3)">Craig类型</span></td><td>$${rate}/人<br>三层结构</td><td>$${Math.round(10*rate)} ~ $${Math.round(10*rate*m1)}</td><td>$${Math.round(28*rate)} ~ $${Math.round(28*rate*m1)}</td><td>$${Math.round(50*rate)} ~ $${Math.round(50*rate*m1)}</td><td>破冰${m1}×、增长追加、里程碑</td></tr>
+<tr><td><strong>KOL·Club型</strong><br><span style="font-size:11px;color:var(--text3)">Fernando类型</span></td><td>月薪制<br>底薪+绩效</td><td colspan="3" style="text-align:center">$4,000/月（绩效挂钩100+活跃/月）</td><td>品牌+内容+组织示范</td></tr>
+<tr><td><strong>KOL·内容型</strong><br><span style="font-size:11px;color:var(--text3)">Edit类型</span></td><td>固定月薪</td><td colspan="3" style="text-align:center">$1,200/月（前3月验证后决定续签）</td><td>视频/直播带量</td></tr>
+<tr><td><strong>转介绍</strong><br><span style="font-size:11px;color:var(--text3)">老房主推新房主</span></td><td>$${refRate.toFixed(1)}/人<br>混合激励</td><td>$${Math.round(10*refRate)}</td><td>$${Math.round(28*refRate)}</td><td>$${Math.round(50*refRate)}</td><td>USDT+钻石+荣誉称号</td></tr>
+</tbody></table></div>
+<div class="al s"><strong>核心原则：</strong>所有合作类型的佣金都基于同一个锚点 — <strong>$${rate}/有效活跃玩家</strong>。渠道合伙人拿全价+破冰溢价，转介绍拿40%折扣价。KOL因附加品牌价值走月薪制。运营补贴（Overlay/Freeroll）、内容产出费用（$100/期）单独预算，不混算。</div>`;
+}
+
+calc();
+</script>
+</body>
+</html>

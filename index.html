@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WPT HOME Brazil</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,.08);--red:#E85D4A;--red-bg:rgba(232,93,74,.1);--green:#4ADE80;--blue:#60A5FA;--r:10px;--rl:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.ctn{max-width:640px;width:100%;padding:40px 24px}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);padding:4px 12px;border-radius:20px;margin-bottom:16px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.sub{font-size:14px;color:var(--text2);margin-bottom:32px}
+.conf{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--red-bg);border:1px solid rgba(232,93,74,.15);border-radius:var(--r);margin-bottom:28px;font-size:12px;color:var(--red)}
+.cards{display:grid;gap:14px}
+a.card{display:block;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:24px;text-decoration:none;color:inherit;transition:all .2s;position:relative;overflow:hidden}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+a.card.s::before{background:var(--accent)}
+a.card.r::before{background:var(--green)}
+.card-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+a.card.s .card-tag{color:var(--accent)}
+a.card.r .card-tag{color:var(--green)}
+.card-title{font-size:18px;font-weight:700;margin-bottom:6px}
+.card-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.card-arrow{position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--text3);transition:all .2s}
+a.card:hover .card-arrow{color:var(--accent);transform:translateY(-50%) translateX(4px)}
+.foot{margin-top:32px;text-align:center;font-size:11px;color:var(--text3)}
+</style>
+</head>
+<body>
+<div class="ctn">
+<div class="badge">Internal Tools</div>
+<h1>WPT HOME Brazil</h1>
+<div class="sub">Internal strategy & analytics tools for the Brazil market launch</div>
+<div class="conf"><span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>Confidential - Management / Growth / Distribution leads only</div>
+<div class="cards">
+<a class="card s" href="strategy.html">
+<div class="card-tag">Strategy & Execution</div>
+<div class="card-title">Brazil Distribution Plan v4</div>
+<div class="card-desc">Full strategy overview, host-driven growth model, 5-tier host framework, DAU projections (target: 2,500 by June), execution roadmap, and channel matrix.</div>
+<span class="card-arrow">&rarr;</span>
+</a>
+<a class="card r" href="roi.html">
+<div class="card-tag">Partnership Economics</div>
+<div class="card-title">Partner Incentive ROI Calculator v3</div>
+<div class="card-desc">3-layer commission structure calculator. Covers channel partners (Craig case), KOL ROI, host referral program. Interactive parameters with real-time scenario modeling.</div>
+<span class="card-arrow">&rarr;</span>
+</a>
+</div>
+<div class="foot">WPT HOME &middot; Updated 2026-03-24</div>
+</div>
+</body>
+</html>
