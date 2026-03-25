@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fernando WSOP 合作落地方案</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090c;
+  --surface: #111318;
+  --surface-2: #181b22;
+  --surface-3: #1e222b;
+  --border: #262b37;
+  --border-light: #333a4a;
+  --text: #eaecf2;
+  --text-2: #a0a6b8;
+  --text-3: #636b80;
+  --gold: #eab832;
+  --gold-bg: rgba(234,184,50,0.08);
+  --gold-border: rgba(234,184,50,0.18);
+  --green: #22c55e;
+  --green-bg: rgba(34,197,94,0.08);
+  --green-border: rgba(34,197,94,0.18);
+  --blue: #3b82f6;
+  --blue-bg: rgba(59,130,246,0.08);
+  --blue-border: rgba(59,130,246,0.18);
+  --red: #ef4444;
+  --red-bg: rgba(239,68,68,0.06);
+  --red-border: rgba(239,68,68,0.15);
+  --purple: #8b5cf6;
+  --purple-bg: rgba(139,92,246,0.08);
+  --purple-border: rgba(139,92,246,0.18);
+  --orange: #f59e0b;
+  --orange-bg: rgba(245,158,11,0.08);
+  --orange-border: rgba(245,158,11,0.18);
+  --cyan: #06b6d4;
+  --cyan-bg: rgba(6,182,212,0.08);
+  --cyan-border: rgba(6,182,212,0.18);
+  --radius: 10px;
+  --mono: 'JetBrains Mono', monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ─── HEADER ─── */
+.hero{padding:56px 0 44px;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-size:40px;font-weight:800;line-height:1.15;letter-spacing:-.03em;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--text-2);max-width:640px}
+
+/* ─── STAT BAR ─── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;margin:36px 0}
+.stat{background:var(--surface);padding:22px 20px;text-align:center}
+.stat-label{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin-bottom:5px}
+.stat-val{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.stat-note{font-size:11px;color:var(--text-3);margin-top:2px}
+.c-gold{color:var(--gold)} .c-green{color:var(--green)} .c-blue{color:var(--blue)} .c-purple{color:var(--purple)}
+
+/* ─── MODULES ─── */
+.mod{padding:52px 0;border-bottom:1px solid var(--border)}
+.mod:last-of-type{border-bottom:none}
+.mod-head{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.mod-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;font-weight:800;flex-shrink:0}
+.mod-icon.gold{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border)}
+.mod-icon.green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.mod-icon.blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border)}
+.mod-icon.purple{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-border)}
+.mod-icon.orange{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.mod-icon.cyan{background:var(--cyan-bg);color:var(--cyan);border:1px solid var(--cyan-border)}
+.mod-icon.red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.mod h2{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.mod h2 span{font-size:13px;font-weight:500;color:var(--text-3);margin-left:8px}
+
+/* ─── TIMELINE ─── */
+.tl{position:relative;padding-left:32px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.tl-phase{position:relative;padding-bottom:36px}
+.tl-phase:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-32px;top:3px;width:14px;height:14px;border-radius:50%;border:2.5px solid}
+.tl-phase[data-c="gold"] .tl-dot{border-color:var(--gold);background:var(--gold-bg)}
+.tl-phase[data-c="blue"] .tl-dot{border-color:var(--blue);background:var(--blue-bg)}
+.tl-phase[data-c="green"] .tl-dot{border-color:var(--green);background:var(--green-bg)}
+.tl-phase[data-c="purple"] .tl-dot{border-color:var(--purple);background:var(--purple-bg)}
+.tl-phase[data-c="orange"] .tl-dot{border-color:var(--orange);background:var(--orange-bg)}
+.tl-phase[data-c="red"] .tl-dot{border-color:var(--red);background:var(--red-bg)}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--text-3);margin-bottom:3px}
+.tl-name{font-size:16px;font-weight:700;margin-bottom:6px}
+.tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.tl-card h4{font-size:12px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.tl-card h4 .tag{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 6px;border-radius:3px}
+.tag-fernando{background:var(--gold-bg);color:var(--gold)}
+.tag-us{background:var(--blue-bg);color:var(--blue)}
+.tag-both{background:var(--green-bg);color:var(--green)}
+.tl-card p{font-size:12.5px;color:var(--text-2);line-height:1.55}
+
+/* ─── CARDS ─── */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:border-color .2s}
+.card:hover{border-color:var(--border-light)}
+.card-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:10px}
+.card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.card p{font-size:13px;color:var(--text-2);line-height:1.6}
+.card-foot{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--text-3);display:flex;gap:14px;flex-wrap:wrap}
+.card-foot b{color:var(--text-2)}
+
+/* ─── TABLE ─── */
+.tb{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-size:13px}
+.tb th{background:var(--surface-2);padding:11px 16px;text-align:left;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);border-bottom:1px solid var(--border)}
+.tb td{padding:13px 16px;border-bottom:1px solid var(--border);background:var(--surface);color:var(--text-2);vertical-align:top}
+.tb tr:last-child td{border-bottom:none}
+.tb td:first-child{font-weight:700;color:var(--text);white-space:nowrap}
+
+/* ─── DO/DONT ─── */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dd-box{border-radius:var(--radius);padding:22px;border:1px solid}
+.dd-do{background:var(--green-bg);border-color:var(--green-border)}
+.dd-dont{background:var(--red-bg);border-color:var(--red-border)}
+.dd-box h4{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.dd-do h4{color:var(--green)} .dd-dont h4{color:var(--red)}
+.dd-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.dd-list li{font-size:13px;color:var(--text-2);padding-left:18px;position:relative;line-height:1.5}
+.dd-do .dd-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.dd-dont .dd-list li::before{content:'✗';position:absolute;left:0;color:var(--red);font-weight:700}
+
+/* ─── NOTE ─── */
+.note{border-radius:var(--radius);padding:18px 22px;margin-top:20px}
+.note-gold{background:var(--gold-bg);border:1px solid var(--gold-border)}
+.note-red{background:var(--red-bg);border:1px solid var(--red-border)}
+.note-blue{background:var(--blue-bg);border:1px solid var(--blue-border)}
+.note b{display:block;font-size:12px;margin-bottom:4px}
+.note-gold b{color:var(--gold)} .note-red b{color:var(--red)} .note-blue b{color:var(--blue)}
+.note p{font-size:13px;color:var(--text-2);line-height:1.6}
+
+/* ─── DISCUSS ─── */
+.dsc{display:flex;flex-direction:column;gap:10px}
+.dsc-item{display:flex;gap:12px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:8px;align-items:flex-start}
+.dsc-n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold);background:var(--gold-bg);min-width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dsc-body h4{font-size:13.5px;font-weight:700;margin-bottom:2px}
+.dsc-body p{font-size:12.5px;color:var(--text-2);line-height:1.5}
+.dsc-who{margin-left:auto;flex-shrink:0;font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 7px;border-radius:4px;white-space:nowrap}
+
+/* ─── METRICS ─── */
+.mx{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.mx-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+.mx-label{font-size:11.5px;color:var(--text-3);margin-bottom:5px}
+.mx-val{font-size:20px;font-weight:800;color:var(--gold);letter-spacing:-.01em}
+
+footer{padding:36px 0;text-align:center;font-size:11px;color:var(--text-3);font-family:var(--mono)}
+
+@media(max-width:768px){
+  .hero h1{font-size:28px}
+  .stats{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:1fr}
+  .tl-grid{grid-template-columns:1fr}
+  .dd{grid-template-columns:1fr}
+  .mx{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══ HEADER ═══ -->
+<div class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span>内部讨论稿</div>
+  <h1>Fernando <em>WSOP</em> 合作方案</h1>
+  <p class="hero-sub">巴西Tier 1 KOL Fernando 6月20日赴Vegas参加WSOP，为期约3.5周。方案围绕：Fernando要做什么、产出什么、我们如何筹备和承接。</p>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-label">合作费</div>
+    <div class="stat-val c-gold">$8,000</div>
+    <div class="stat-note">一口价</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">选拔赛活动费</div>
+    <div class="stat-val">~$1,500</div>
+    <div class="stat-note">50/50分摊 · 2027年支付</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">行程</div>
+    <div class="stat-val c-green">6/20 → 7/15</div>
+    <div class="stat-note">约3.5周</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">核心节点</div>
+    <div class="stat-val c-blue">Main Event 7/2</div>
+    <div class="stat-note">决赛桌 7/13</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE A: 时间线总览 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon gold">A</div>
+    <h2>行动时间线 <span>谁在什么时候做什么</span></h2>
+  </div>
+
+  <div class="tl">
+
+    <!-- Phase 1: 筹备 -->
+    <div class="tl-phase" data-c="blue">
+      <div class="tl-dot"></div>
+      <div class="tl-date">5月中 — 6月10日</div>
+      <div class="tl-name">筹备期</div>
+      <div class="tl-grid">
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>出赛事方案</h4>
+          <p>设计选拔赛赛制（资格标准、日程、规则）+ 8场特别锦标赛方案，提交我方评审</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>评审 & 物料筹备</h4>
+          <p>评审Fernando赛事方案可行性 · 品牌服装/Card Guard/QR码物料设计生产 · 确认产品能否支撑赛事</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>合同 & 培训</h4>
+          <p>补充WSOP条款到Fernando合同 · 确定2-3名Club管理员并培训 · 创建WSOP专属WhatsApp群</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>设计交付</h4>
+          <p>活动主KV 1张 · Vlog片头片尾模板 1套 · 社媒帖文模板 2-3张（葡语）· 葡语版Brand红线卡</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2: 预热 -->
+    <div class="tl-phase" data-c="purple">
+      <div class="tl-dot"></div>
+      <div class="tl-date">6月10日 — 6月19日</div>
+      <div class="tl-name">预热期</div>
+      <div class="tl-grid">
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>"出征"预告</h4>
+          <p>发布2-3条WSOP倒计时内容 · 公布选拔赛规则和锦标赛日程 · 在Club和WhatsApp群内宣传 · 征集社区问题（"你想让我在WSOP问谁什么？"）</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>上线 & 蓄水</h4>
+          <p>物料寄达Fernando（6/10前）· FIVE站内上线WSOP主题视觉（如资源允许）· WhatsApp群扩群蓄水 · 选拔赛报名开启</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3: 开幕 -->
+    <div class="tl-phase" data-c="green">
+      <div class="tl-dot"></div>
+      <div class="tl-date">6月20日 — 7月1日</div>
+      <div class="tl-name">WSOP开幕期</div>
+      <div class="tl-grid">
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>内容日常</h4>
+          <p>每日3-5条Stories（Vegas花絮/赛况/名人偶遇）· 每周2条Vlog（3-8min）· 每条带FIVE链接和Club引导</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>赛事启动</h4>
+          <p>开始8场特别锦标赛中的前几场 · 从现场直播/解说选拔赛 · 每周1场 VS Community 互动赛（观众WhatsApp投票选策略）</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>社群运营</h4>
+          <p>每日在WhatsApp群发：房间链接 + 赛况更新 + 互动话题（"今天我遇到了XX，你们猜他翻牌前raise了多少？"）</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>承接转化</h4>
+          <p>Club管理员值班开桌（全天有桌可坐）· 监控WhatsApp群数据 · 品牌组审核Vlog（24h内反馈）· 群内配合发活动规则和奖品信息</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4: 高潮 -->
+    <div class="tl-phase" data-c="gold">
+      <div class="tl-dot"></div>
+      <div class="tl-date">7月2日 — 7月13日 ★</div>
+      <div class="tl-name">Main Event 高潮期</div>
+      <div class="tl-grid">
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>Main Event叙事</h4>
+          <p>全程最大内容窗口。晋级→跟进赛程，淘汰→转"教练解说"视角。每日至少1条赛事内容 + Stories密集更新</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>密集赛事</h4>
+          <p>锦标赛加码（集中安排剩余特别赛事）· VS Community加码（挑战赛频次提高）· 7/13决赛桌日 = 专场Watch Party + 特别赛事</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-both">双方</span>7/2 开赛日活动</h4>
+          <p>Fernando发Main Event开赛专题内容 · FIVE同步开"边看边打"主题房 · WhatsApp群同步实况 · 竞猜活动（猜Fernando能打到第几轮）</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-both">双方</span>7/13 决赛桌日活动</h4>
+          <p>全程最大单日事件。Fernando发决赛桌解说/点评内容 · FIVE Watch Party最大场 · 选拔赛冲刺阶段 · 竞猜冠军加奖</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5: 收官 -->
+    <div class="tl-phase" data-c="red">
+      <div class="tl-dot"></div>
+      <div class="tl-date">7月14日 — 7月15日</div>
+      <div class="tl-name">收官期</div>
+      <div class="tl-grid">
+        <div class="tl-card">
+          <h4><span class="tag tag-fernando">Fernando</span>收尾内容</h4>
+          <p>WSOP总结Vlog（1条长视频，回顾全程+选拔赛冠军公布+Club数据展示）· 这条视频 = 后续BD拓新Club最有价值的素材</p>
+        </div>
+        <div class="tl-card">
+          <h4><span class="tag tag-us">我方</span>沉淀 & 复盘</h4>
+          <p>选拔赛冠军产生 · 活动数据汇总 · 新用户/群成员沉淀 · 内容资产归档 · 复盘报告</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ MODULE B: 内容产出 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon green">B</div>
+    <h2>内容产出清单 <span>Fernando需要产出什么</span></h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-label" style="background:var(--blue-bg);color:var(--blue)">Vlog系列</div>
+      <h3>WSOP征战Vlog</h3>
+      <p>全程8-10条短视频（3-8min），记录Vegas日常、参赛过程、选拔赛进展。调性："普通巴西玩家的WSOP冒险"——轻松、娱乐、接地气。Fernando自行拍摄剪辑，我方提供片头片尾模板。每条结尾固定CTA："加入我的Club，链接在简介"。</p>
+      <div class="card-foot"><b>数量</b> 8-10条 <b>平台</b> YouTube + IG Reels <b>审核</b> 品牌组24h内</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--purple-bg);color:var(--purple)">每日速报</div>
+      <h3>Stories & Reels</h3>
+      <p>每日3-5条轻量内容：赛场花絮、名人偶遇、Vegas日常、赛况快报、Fernando个人感想。Stories为主，快速产出不需精修。自行发布，遵守Brand红线卡即可，无需品牌组审核。</p>
+      <div class="card-foot"><b>数量</b> 每日3-5条 <b>平台</b> Instagram为主 <b>审核</b> 无需</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--gold-bg);color:var(--gold)">高潮叙事</div>
+      <h3>Main Event专线</h3>
+      <p>7/2-7/13围绕Main Event打造完整故事弧线。晋级→跟进赛程每日更新；淘汰→转"教练视角"解说决赛桌。无论结果都有内容产出。7/13决赛桌日做单独的专题内容。</p>
+      <div class="card-foot"><b>窗口</b> 7/2-7/13 <b>频次</b> 每日 <b>关键</b> 7/13决赛桌专题</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--green-bg);color:var(--green)">收官资产</div>
+      <h3>WSOP总结长视频</h3>
+      <p>7月中旬发布。回顾整个WSOP之旅+选拔赛冠军揭晓+Club社区数据展示+2027 WSOP名额故事预告。<strong>这条视频是后续BD拓新Club、谈新KOL时最核心的品牌素材。</strong></p>
+      <div class="card-foot"><b>数量</b> 1条长视频 <b>目标</b> 可复用品牌资产</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODULE C: 赛事活动 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon purple">C</div>
+    <h2>赛事 & 站内活动 <span>Fernando带社区玩什么</span></h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-label" style="background:var(--gold-bg);color:var(--gold)">核心赛事</div>
+      <h3>WSOP选拔赛</h3>
+      <p>Fernando设计赛制：玩家完成里程碑（打X手Cash、参加X场SNG），达标者进入专属选拔赛，<strong>冠军获2027年WSOP全包名额（机票+酒店）</strong>。费用$1,500双方各出$750，2027年支付。Fernando从WSOP现场直播/解说选拔赛进程。</p>
+      <div class="card-foot"><b>赛制</b> Fernando出方案 <b>大奖</b> 2027 WSOP名额 <b>费用</b> 各$750</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--purple-bg);color:var(--purple)">品牌赛事</div>
+      <h3>8场特别锦标赛</h3>
+      <p>Fernando设计的8场站内锦标赛，贯穿整个WSOP行程（约每2-3天一场）。冠军获Fernando定制手环/奖杯。每场赛事Fernando录制赛况播报或解说片段，形成持续内容节奏。</p>
+      <div class="card-foot"><b>场次</b> 8场 <b>奖品</b> 手环/奖杯 <b>频次</b> 约每2-3天一场</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--cyan-bg);color:var(--cyan)">互动玩法</div>
+      <h3>Fernando VS Community</h3>
+      <p>Fernando在WSOP现场通过FIVE跟社区玩家打友谊赛。核心看点：WhatsApp群内投票决定Fernando策略（如"这手必须全下"、"只能用7-2打"），制造娱乐冲突。录制过程剪辑为内容。</p>
+      <div class="card-foot"><b>频次</b> 每周1场 / 共3-4期 <b>投票</b> WhatsApp群内 <b>产出</b> 每期1条剪辑</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="background:var(--green-bg);color:var(--green)">同步活跃</div>
+      <h3>Watch Party 边看边打</h3>
+      <p>Fernando发内容或直播时，FIVE同步开主题房——社区边聊赛况边打牌。重点场次：7/2 Main Event开赛、7/13决赛桌。配合WhatsApp群赛况竞猜（猜Fernando成绩、猜冠军等）。</p>
+      <div class="card-foot"><b>重点</b> 7/2 + 7/13 <b>竞猜</b> WhatsApp群内 <b>需要</b> 管理员开桌</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODULE D: 品牌规范 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon orange">D</div>
+    <h2>品牌规范 <span>怎么说、怎么穿、什么不能碰</span></h2>
+  </div>
+
+  <p style="font-size:14px;color:var(--text-2);margin-bottom:18px"><strong>原则：自然融入 > 硬性口播。</strong>Fernando本身就是FIVE房主，内容逻辑是"我用FIVE带大家一起玩WSOP"。保持轻松友好娱乐调性，强调免费和朋友局。</p>
+
+  <div class="dd">
+    <div class="dd-box dd-do">
+      <h4>✓ 必须传达（每周至少1次）</h4>
+      <ul class="dd-list">
+        <li>"FIVE完全免费，跟朋友一起玩"</li>
+        <li>"WPT官方授权品牌"</li>
+        <li>"加入我的Club，链接在简介"</li>
+        <li>"朋友局才是扑克最好玩的部分"</li>
+      </ul>
+    </div>
+    <div class="dd-box dd-dont">
+      <h4>✗ 绝对禁止</h4>
+      <ul class="dd-list">
+        <li>赌博 / 赢钱 / 投注 / 充值相关表述</li>
+        <li>任何竞品名称（PPPoker、PokerBros、Suprema等）</li>
+        <li>暗示FIVE与WSOP有官方合作关系</li>
+        <li>绝对性声明（"最好的/唯一的平台"）</li>
+        <li>涉及代理 / 抽水 / 分成的表述</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+    <div class="note note-gold">
+      <b>品牌穿戴</b>
+      <p>拍摄时穿WPT HOME品牌服装 · 牌桌放品牌Card Guard · 注意WSOP赛桌可能有着装限制（法务确认）· 非赛桌场景全程穿戴</p>
+    </div>
+    <div class="note note-blue">
+      <b>审核流程</b>
+      <p>Stories/短帖 → Fernando自行发布（遵守红线卡）· Vlog/长视频 → 品牌组审核24h内反馈 · 行程前给Fernando<strong>葡语版Brand Do's & Don'ts单页卡</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODULE E: 我方筹备 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon blue">E</div>
+    <h2>我方筹备清单 <span>各组分别准备什么</span></h2>
+  </div>
+
+  <table class="tb">
+    <thead><tr><th style="width:80px">组别</th><th>需要准备</th><th style="width:90px">截止</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>BD / CC</td>
+        <td>评审Fernando赛事方案 · 确定2-3名Club管理员+培训 · 创建WSOP WhatsApp群 · 选拔赛冠军2027 WSOP费用分摊确认</td>
+        <td>5月底</td>
+      </tr>
+      <tr>
+        <td>发行组</td>
+        <td>Fernando合同补充WSOP条款（与法务协同）· WSOP活动整体规则对齐 · Fernando交付标准清单 · WhatsApp群运营话术和模板 · 竞猜活动规则 · 数据追踪方案（Fernando归因码）</td>
+        <td>6月初</td>
+      </tr>
+      <tr>
+        <td>品牌组</td>
+        <td>品牌服装 + Card Guard + QR码物料（<strong>6/10前寄达Fernando</strong>）· Vlog片头片尾模板 · 葡语Brand红线卡 · 内容审核排班</td>
+        <td>6月初</td>
+      </tr>
+      <tr>
+        <td>设计组</td>
+        <td>活动主KV 1张 · 片头片尾模板 1套 · 社媒帖文模板 2-3张（葡语）<br><em style="color:var(--text-3)">※ 视频设计仅1人，控制工作量</em></td>
+        <td>6月初</td>
+      </tr>
+      <tr>
+        <td>产品组</td>
+        <td>确认SNG/MTT功能能否支撑8场锦标赛 · Fernando专属邀请码 · 深度链接归因（如已就绪）</td>
+        <td>6月中</td>
+      </tr>
+      <tr>
+        <td>法务</td>
+        <td>WSOP场内品牌着装限制确认 · Fernando合同WSOP条款法务审核 · 2027 WSOP奖品合规性 · 推广内容"Publicidade"标识要求</td>
+        <td>5月中</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note note-gold" style="margin-top:16px">
+    <b>关键风险：Club管理员</b>
+    <p>Fernando在Vegas期间时差+赛程密集，无法随时开桌。<strong>必须培训2-3名管理员轮流值班</strong>，确保新用户进Club就能坐下打牌。这是整个转化链路最薄弱也最关键的环节。</p>
+  </div>
+</div>
+
+<!-- ═══ MODULE F: 转化链路 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon cyan">F</div>
+    <h2>转化链路 <span>流量怎么进来、怎么留下</span></h2>
+  </div>
+
+  <div style="display:flex;gap:0;overflow-x:auto;padding-bottom:8px">
+    <div style="flex:1;min-width:130px;padding:18px 12px;background:var(--surface);border:1px solid var(--border);border-radius:10px 0 0 10px;text-align:center;position:relative">
+      <div style="font-size:13px;font-weight:700;margin-bottom:3px">Fernando内容</div>
+      <div style="font-size:11px;color:var(--text-3)">IG / YouTube / TikTok<br>视频+Story挂链接</div>
+      <div style="position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;font-size:14px;color:var(--gold);background:var(--bg);width:14px;text-align:center">→</div>
+    </div>
+    <div style="flex:1;min-width:130px;padding:18px 12px;background:var(--surface);border:1px solid var(--border);text-align:center;position:relative">
+      <div style="font-size:13px;font-weight:700;margin-bottom:3px">WhatsApp群</div>
+      <div style="font-size:11px;color:var(--text-3)">核心承接点<br>房间链接+赛况+竞猜</div>
+      <div style="position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;font-size:14px;color:var(--gold);background:var(--bg);width:14px;text-align:center">→</div>
+    </div>
+    <div style="flex:1;min-width:130px;padding:18px 12px;background:var(--surface);border:1px solid var(--border);text-align:center;position:relative">
+      <div style="font-size:13px;font-weight:700;margin-bottom:3px">下载FIVE</div>
+      <div style="font-size:11px;color:var(--text-3)">加入Fernando Club<br>归因码追踪</div>
+      <div style="position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;font-size:14px;color:var(--gold);background:var(--bg);width:14px;text-align:center">→</div>
+    </div>
+    <div style="flex:1;min-width:130px;padding:18px 12px;background:var(--surface);border:1px solid var(--border);text-align:center;position:relative">
+      <div style="font-size:13px;font-weight:700;margin-bottom:3px">完成首局</div>
+      <div style="font-size:11px;color:var(--text-3)">必须有桌可坐<br>管理员值班开桌</div>
+      <div style="position:absolute;right:-7px;top:50%;transform:translateY(-50%);z-index:2;font-size:14px;color:var(--gold);background:var(--bg);width:14px;text-align:center">→</div>
+    </div>
+    <div style="flex:1;min-width:130px;padding:18px 12px;background:var(--surface);border:1px solid var(--border);border-radius:0 10px 10px 0;text-align:center">
+      <div style="font-size:13px;font-weight:700;margin-bottom:3px;color:var(--gold)">留存 & 沉淀</div>
+      <div style="font-size:11px;color:var(--text-3)">参与赛事/活动<br>群+Club长期沉淀</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODULE G: 预期效果 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon green">G</div>
+    <h2>预期产出 <span>大致估算</span></h2>
+  </div>
+
+  <div class="mx">
+    <div class="mx-card">
+      <div class="mx-label">Vlog/长视频</div>
+      <div class="mx-val">8-10 条</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">Stories/Reels</div>
+      <div class="mx-val">70-120 条</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">站内赛事</div>
+      <div class="mx-val">8+4 场</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">VS Community期数</div>
+      <div class="mx-val">3-4 期</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">可复用品牌素材</div>
+      <div class="mx-val">15-25 条</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">预计内容总触达</div>
+      <div class="mx-val">5-10 万</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">Club新增成员（估）</div>
+      <div class="mx-val">30-80 人</div>
+    </div>
+    <div class="mx-card">
+      <div class="mx-label">WhatsApp群沉淀（估）</div>
+      <div class="mx-val">50-150 人</div>
+    </div>
+  </div>
+
+  <div class="note note-gold" style="margin-top:16px">
+    <b>核心价值不只是数字</b>
+    <p>Fernando WSOP的最大产出是<strong>品牌素材沉淀</strong>（15-25条可复用于后续BD拓新Club的内容）+<strong>私域基建</strong>（WhatsApp群+管理员体系）+<strong>"普通玩家→WSOP"叙事模板</strong>（2027年兑现时可以再讲一轮）+<strong>Fernando忠诚度维护</strong>（他贡献60%+ DAU，这$8,000也是在维护核心资产）。</p>
+  </div>
+</div>
+
+<!-- ═══ MODULE H: 待讨论 ═══ -->
+<div class="mod">
+  <div class="mod-head">
+    <div class="mod-icon red">?</div>
+    <h2>待讨论事项</h2>
+  </div>
+
+  <div class="dsc">
+    <div class="dsc-item">
+      <div class="dsc-n">1</div>
+      <div class="dsc-body">
+        <h4>产品能否支撑8场锦标赛？</h4>
+        <p>MTT活跃分、SNG功能到6月能否稳定？如不行，降级为Club内Ring Game特别场。</p>
+      </div>
+      <div class="dsc-who" style="background:var(--blue-bg);color:var(--blue)">产品组</div>
+    </div>
+    <div class="dsc-item">
+      <div class="dsc-n">2</div>
+      <div class="dsc-body">
+        <h4>WSOP着装限制</h4>
+        <p>Fernando赛桌上穿品牌服装是否受限？受限则仅在非赛桌场景穿戴。</p>
+      </div>
+      <div class="dsc-who" style="background:var(--red-bg);color:var(--red)">法务</div>
+    </div>
+    <div class="dsc-item">
+      <div class="dsc-n">3</div>
+      <div class="dsc-body">
+        <h4>数据归因</h4>
+        <p>Fernando专属邀请码能否在6月前就绪？如不能，fallback用WhatsApp群手动统计。</p>
+      </div>
+      <div class="dsc-who" style="background:var(--blue-bg);color:var(--blue)">产品组</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODULE I: 评论区 ═══ -->
+<div class="mod" style="border-bottom:none">
+  <div class="mod-head">
+    <div class="mod-icon" style="background:var(--surface-3);color:var(--text-2);border:1px solid var(--border)">✎</div>
+    <h2>意见 & 评论 <span>各组在此留下反馈</span></h2>
+  </div>
+
+  <div id="comments-area">
+    <div id="comments-list"></div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div>
+          <label style="font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);display:block;margin-bottom:5px">姓名 / 组别</label>
+          <input id="c-name" type="text" placeholder="如：Sam / 发行组" style="width:100%;padding:9px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit;font-size:13px;outline:none" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <div>
+          <label style="font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);display:block;margin-bottom:5px">针对模块（可选）</label>
+          <select id="c-mod" style="width:100%;padding:9px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit;font-size:13px;outline:none;cursor:pointer" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'">
+            <option value="整体">整体方案</option>
+            <option value="A-时间线">A · 行动时间线</option>
+            <option value="B-内容">B · 内容产出</option>
+            <option value="C-赛事">C · 赛事活动</option>
+            <option value="D-品牌">D · 品牌规范</option>
+            <option value="E-筹备">E · 我方筹备</option>
+            <option value="F-转化">F · 转化链路</option>
+            <option value="G-预期">G · 预期产出</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);display:block;margin-bottom:5px">意见内容</label>
+        <textarea id="c-text" rows="3" placeholder="写下你的意见、建议或问题…" style="width:100%;padding:10px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit;font-size:13px;line-height:1.5;outline:none;resize:vertical" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+      </div>
+      <button onclick="addComment()" style="padding:9px 20px;background:var(--gold);color:var(--bg);border:none;border-radius:6px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s" onmouseenter="this.style.opacity='.85'" onmouseleave="this.style.opacity='1'">提交评论</button>
+    </div>
+  </div>
+
+  <script>
+    function addComment() {
+      const name = document.getElementById('c-name').value.trim();
+      const mod = document.getElementById('c-mod').value;
+      const text = document.getElementById('c-text').value.trim();
+      if (!text) return;
+
+      const list = document.getElementById('comments-list');
+      const now = new Date();
+      const ts = now.getMonth()+1 + '/' + now.getDate() + ' ' + String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+
+      const el = document.createElement('div');
+      el.style.cssText = 'background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px';
+      el.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+          <span style="font-weight:700;font-size:13.5px">${name || '匿名'}</span>
+          <span style="font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 7px;border-radius:3px;background:var(--surface-3);color:var(--text-3)">${mod}</span>
+          <span style="font-family:var(--mono);font-size:11px;color:var(--text-3);margin-left:auto">${ts}</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-2);line-height:1.6;white-space:pre-wrap">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>
+      `;
+      list.appendChild(el);
+
+      document.getElementById('c-name').value = '';
+      document.getElementById('c-text').value = '';
+    }
+  </script>
+</div>
+
+</div>
+
+<footer>
+  <div class="wrap">本框架供各组讨论对齐，确认后再出详细执行版 · WPT HOME / FIVE · Internal Use Only</div>
+</footer>
+
+</body>
+</html>
