@@ -3,305 +3,645 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIVE 巴西发行方案 v3</title>
+<title>FIVE 巴西发行方案 v5</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-:root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--bg4:#232A36;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,0.08);--red:#E85D4A;--red-bg:rgba(232,93,74,0.1);--green:#4ADE80;--green-bg:rgba(74,222,128,0.08);--blue:#60A5FA;--blue-bg:rgba(96,165,250,0.08);--purple:#A78BFA;--purple-bg:rgba(167,139,250,0.08);--teal:#2DD4BF;--teal-bg:rgba(45,212,191,0.08);--orange:#FB923C;--orange-bg:rgba(251,146,60,0.08);--pink:#F472B6;--pink-bg:rgba(244,114,182,0.08);--kol:#E85D4A;--kolc:#F472B6;--big:#D4A853;--mid:#60A5FA;--sm:#A78BFA;--r:10px;--rl:14px}
+:root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--bg4:#232A36;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,0.08);--red:#E85D4A;--red-bg:rgba(232,93,74,0.1);--green:#4ADE80;--green-bg:rgba(74,222,128,0.08);--blue:#60A5FA;--blue-bg:rgba(96,165,250,0.08);--purple:#A78BFA;--purple-bg:rgba(167,139,250,0.08);--teal:#2DD4BF;--teal-bg:rgba(45,212,191,0.08);--orange:#FB923C;--orange-bg:rgba(251,146,60,0.08);--pink:#F472B6;--pink-bg:rgba(244,114,182,0.08);--r:10px;--rl:14px}
 *{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}.ctn{max-width:1080px;margin:0 auto;padding:24px 20px 60px}
 .tip{position:relative;border-bottom:1px dashed var(--text3);cursor:help;display:inline}#ttg{display:none;position:fixed;background:#1E2330;border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:400;color:var(--text2);line-height:1.6;width:300px;max-width:90vw;z-index:9999;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.6)}
-.hdr{margin-bottom:28px}.hdr .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);padding:4px 12px;border-radius:20px;margin-bottom:12px}.hdr h1{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.hdr .sub{font-size:14px;color:var(--text2)}.hdr .sub strong{color:var(--accent2);font-weight:600}
-.conf{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--red-bg);border:1px solid rgba(232,93,74,.15);border-radius:var(--r);margin-bottom:28px;font-size:12px;color:var(--red)}.conf .dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
-.nav{display:flex;gap:4px;margin-bottom:24px;background:var(--bg3);border-radius:var(--r);padding:3px;position:sticky;top:8px;z-index:50}.nav-i{flex:1;text-align:center;padding:10px 0;font-size:13px;font-weight:600;color:var(--text3);border-radius:8px;cursor:pointer;transition:all .15s}.nav-i.a{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4)}.nav-i:hover:not(.a){color:var(--text2)}
+.hdr{margin-bottom:28px}.hdr .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);padding:4px 12px;border-radius:20px;margin-bottom:12px}.hdr .v5b{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:3px 10px;border-radius:12px;margin-left:8px}.hdr h1{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.hdr .sub{font-size:14px;color:var(--text2)}.hdr .sub strong{color:var(--accent2);font-weight:600}
+.conf{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--red-bg);border:1px solid rgba(232,93,74,.15);border-radius:var(--r);margin-bottom:16px;font-size:12px;color:var(--red)}.conf .dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+.v5c{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}.v5ci{padding:12px 14px;border-radius:var(--r);border:1px solid rgba(212,168,83,.15);background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(212,168,83,.02))}.v5ci .v5cl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin-bottom:3px}.v5ci .v5ct{font-size:13px;color:var(--text);font-weight:500;line-height:1.5}.v5ci .v5cd{font-size:11px;color:var(--text3);margin-top:2px}
+.nav{display:flex;gap:4px;margin-bottom:24px;background:var(--bg3);border-radius:var(--r);padding:3px;position:sticky;top:8px;z-index:50}.nav-i{flex:1;text-align:center;padding:10px 0;font-size:13px;font-weight:600;color:var(--text3);border-radius:8px;cursor:pointer;transition:all .15s;white-space:nowrap}.nav-i.a{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4)}.nav-i:hover:not(.a){color:var(--text2)}
 .pnl{display:none}.pnl.a{display:block}.sec{margin-bottom:24px}.st{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:8px}.st::before{content:'';width:14px;height:1px;background:var(--text3)}.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:16px;overflow:hidden}
 .core{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(212,168,83,.02));border:1px solid rgba(212,168,83,.15);border-radius:var(--rl);padding:20px;text-align:center;margin-bottom:20px}.core .ct{font-size:15px;font-weight:600;color:var(--accent);margin-bottom:6px}.core .cd{font-size:13px;color:var(--text2);line-height:1.7}
 .fwr{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}.fws{width:124px;text-align:center;padding:10px 6px}.fwi{width:36px;height:36px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;border:2px solid}.fws:nth-child(1) .fwi{background:rgba(232,93,74,.12);border-color:var(--red);color:var(--red)}.fws:nth-child(2) .fwi{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}.fws:nth-child(3) .fwi{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}.fws:nth-child(4) .fwi{background:var(--green-bg);border-color:var(--green);color:var(--green)}.fws:nth-child(5) .fwi{background:var(--purple-bg);border-color:var(--purple);color:var(--purple)}.fwn{font-size:12px;font-weight:600;margin-bottom:2px}.fwd{font-size:11px;color:var(--text3);line-height:1.4}.fwa{display:flex;justify-content:center;gap:20px;color:var(--text3);font-size:15px;margin-top:-4px;margin-bottom:4px}
 .pg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.pc{border-radius:var(--r);padding:14px;border:1px solid}.pc.p1{background:rgba(232,93,74,.06);border-color:rgba(232,93,74,.15)}.pc.p2{background:rgba(212,168,83,.06);border-color:rgba(212,168,83,.15)}.pc.p3{background:rgba(74,222,128,.06);border-color:rgba(74,222,128,.15)}.pt{font-size:14px;font-weight:600;margin-bottom:3px}.pc.p1 .pt{color:var(--red)}.pc.p2 .pt{color:var(--accent)}.pc.p3 .pt{color:var(--green)}.ps{font-size:11px;color:var(--text3);margin-bottom:8px}.pi{list-style:none;padding:0}.pi li{font-size:12px;color:var(--text2);line-height:1.9;padding-left:14px;position:relative}.pi li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%}.pc.p1 .pi li::before{background:var(--red)}.pc.p2 .pi li::before{background:var(--accent)}.pc.p3 .pi li::before{background:var(--green)}
-.blk{border-radius:var(--r);padding:14px 16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px}.blk.danger{background:var(--red-bg);border:1px solid rgba(232,93,74,.15)}.blk.warn{background:var(--accent-bg);border:1px solid rgba(212,168,83,.15)}.blk-i{font-size:14px;font-weight:700;flex-shrink:0;margin-top:1px}.blk.danger .blk-i{color:var(--red)}.blk.warn .blk-i{color:var(--accent)}.blk-t{font-size:13px;line-height:1.6}.blk.danger .blk-t{color:var(--red)}.blk.warn .blk-t{color:var(--accent)}.blk-t strong{filter:brightness(1.3)}
-.chg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.chc{padding:14px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg2)}.chh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.chn{font-size:13px;font-weight:600}.chp{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}.chp.p0{background:var(--red-bg);color:var(--red)}.chp.p1{background:var(--accent-bg);color:var(--accent)}.chd{font-size:12px;color:var(--text3);line-height:1.6}
+.blk{border-radius:var(--r);padding:14px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px}.blk.danger{background:var(--red-bg);border:1px solid rgba(232,93,74,.15)}.blk.warn{background:var(--accent-bg);border:1px solid rgba(212,168,83,.15)}.blk.info{background:var(--blue-bg);border:1px solid rgba(96,165,250,.15)}.blk-i{font-size:14px;font-weight:700;flex-shrink:0;margin-top:1px}.blk.danger .blk-i{color:var(--red)}.blk.warn .blk-i{color:var(--accent)}.blk.info .blk-i{color:var(--blue)}.blk-t{font-size:13px;line-height:1.6}.blk.danger .blk-t{color:var(--red)}.blk.warn .blk-t{color:var(--accent)}.blk.info .blk-t{color:var(--blue)}.blk-t strong{filter:brightness(1.3)}
+.comp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.comp-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}.comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}.comp-card.threat::before{background:var(--red)}.comp-card.learn::before{background:var(--blue)}.comp-card.ignore::before{background:var(--text3)}.comp-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}.comp-card.threat .comp-label{color:var(--red)}.comp-card.learn .comp-label{color:var(--blue)}.comp-card.ignore .comp-label{color:var(--text3)}.comp-name{font-size:14px;font-weight:600;margin-bottom:4px}.comp-desc{font-size:12px;color:var(--text3);line-height:1.5}
 .mg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}.mt{background:var(--bg3);border-radius:var(--r);padding:12px}.mt .ml{font-size:11px;color:var(--text3);margin-bottom:4px}.mt .mv{font-size:16px;font-weight:600;font-family:'DM Mono',monospace}
 .cg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cc{padding:12px 14px;border-radius:var(--r);background:var(--bg3)}.cct{font-size:13px;font-weight:600;margin-bottom:3px}.ccd{font-size:12px;color:var(--text3);line-height:1.5}
-/* Competition landscape */
-.comp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.comp-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}.comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}.comp-card.threat::before{background:var(--red)}.comp-card.learn::before{background:var(--blue)}.comp-card.ignore::before{background:var(--text3)}.comp-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}.comp-card.threat .comp-label{color:var(--red)}.comp-card.learn .comp-label{color:var(--blue)}.comp-card.ignore .comp-label{color:var(--text3)}.comp-name{font-size:14px;font-weight:600;margin-bottom:4px}.comp-desc{font-size:12px;color:var(--text3);line-height:1.5}
-/* Brand workstream */
-.brand-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.brand-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}.brand-title{font-size:13px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:6px}.brand-items{list-style:none;padding:0}.brand-items li{font-size:12px;color:var(--text2);line-height:1.8;padding-left:12px;position:relative}.brand-items li::before{content:'';position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--teal)}
-/* Roadmap */
-.rt{display:flex;gap:4px;margin-bottom:14px;background:var(--bg3);border-radius:var(--r);padding:3px}.ri{flex:1;text-align:center;padding:8px 0;font-size:12px;font-weight:500;color:var(--text3);border-radius:7px;cursor:pointer;transition:all .15s}.ri.a{background:var(--bg2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.3)}.rp{display:none}.rp.a{display:block}
-.rh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:8px}.rht{font-size:16px;font-weight:600}.rhd{font-size:13px;color:var(--text2)}.rhd strong{color:var(--accent2)}
-.ws{margin-bottom:16px}.wl{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;border-bottom:1px solid var(--border);padding-bottom:6px}.tl{list-style:none;padding:0}.ti{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start}.ti:last-child{border-bottom:none}.to{font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:1px}.o-ua{background:var(--blue-bg);color:var(--blue)}.o-bd{background:var(--purple-bg);color:var(--purple)}.o-br{background:var(--teal-bg);color:var(--teal)}.o-all{background:var(--accent-bg);color:var(--accent)}.o-pr{background:var(--orange-bg);color:var(--orange)}.tc{flex:1}.tn{font-size:13px;font-weight:500;margin-bottom:2px}.td2{font-size:12px;color:var(--text3);line-height:1.5}.tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:8px;margin-left:6px;font-weight:600;vertical-align:middle}.tag-m{background:var(--red-bg);color:var(--red)}.tag-d{background:var(--accent-bg);color:var(--accent)}.tag-e{background:var(--teal-bg);color:var(--teal)}
-.sb{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-top:14px}.sbt{font-size:13px;font-weight:600;margin-bottom:6px}.sbtx{font-size:12px;color:var(--text3);line-height:1.6}.kr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.ki{text-align:center;padding:8px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--border)}.ki .kl{font-size:11px;color:var(--text3)}.ki .kv{font-size:15px;font-weight:600;margin-top:2px;font-family:'DM Mono',monospace}
-/* Model (same as v2) */
-.assumptions{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}.ac{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;position:relative;overflow:hidden}.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}.ac.t-kol::before{background:var(--kol)}.ac.t-kolc::before{background:var(--kolc)}.ac.t-big::before{background:var(--big)}.ac.t-mid::before{background:var(--mid)}.ac.t-sm::before{background:var(--sm)}.acl{font-size:10px;color:var(--text3);margin-bottom:1px;text-transform:uppercase;letter-spacing:.04em;font-weight:500}.acn{font-size:13px;font-weight:600;margin-bottom:8px;line-height:1.3}.acr{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}.acr label{font-size:11px;color:var(--text2)}.acr input[type=number]{width:54px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:3px 6px;color:var(--text);font-size:12px;font-family:'DM Mono',monospace;text-align:right;outline:none}.acr input:focus{border-color:var(--accent)}.acrp{font-size:11px;color:var(--text3);margin-top:4px;padding-top:4px;border-top:1px solid var(--border)}
-.fp{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}.fpc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;text-align:center}.fpl{font-size:11px;color:var(--text3);margin-bottom:3px}.fpi{width:54px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;color:var(--accent2);font-size:14px;font-family:'DM Mono',monospace;text-align:center;outline:none;font-weight:600}.fpi:focus{border-color:var(--accent)}
-.htw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow-x:auto;margin-bottom:16px}.ht{width:100%;border-collapse:collapse;min-width:600px}.ht th{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;padding:10px 12px;text-align:center;background:var(--bg3);border-bottom:1px solid var(--border)}.ht th:first-child{text-align:left}.ht td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);font-size:13px}.ht td:first-child{text-align:left;font-weight:500;font-size:12px}.ht tr:last-child td{border-bottom:none}.ht input{width:44px;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;padding:3px 5px;color:var(--text);font-size:12px;font-family:'DM Mono',monospace;text-align:center;outline:none}.ht input:focus{border-color:var(--accent)}
-.rcb{display:flex;justify-content:center;margin:16px 0}.rcbt{background:var(--accent);color:var(--bg);font-size:14px;font-weight:600;padding:10px 32px;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}.rcbt:hover{background:var(--accent2);transform:translateY(-1px)}
-.rsg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.rc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}.rc.hl{border-color:rgba(212,168,83,.3);background:linear-gradient(135deg,var(--bg2),rgba(212,168,83,.04))}.rcl{font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:500}.rcv{font-size:22px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:-.02em}.rcv.gold{color:var(--accent2)}.rcs{font-size:11px;color:var(--text3);margin-top:2px}.rcd{font-size:12px;font-weight:600;margin-top:3px}.rcd.up{color:var(--green)}
-.cw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:18px;margin-bottom:16px}.cwt{font-size:14px;font-weight:600;margin-bottom:14px}.cwb{position:relative;height:300px}
-.mdt{display:flex;gap:4px;margin-bottom:12px;background:var(--bg3);border-radius:var(--r);padding:3px}.mdi{flex:1;text-align:center;padding:8px 0;font-size:13px;font-weight:500;color:var(--text3);border-radius:7px;cursor:pointer;transition:all .15s}.mdi.a{background:var(--bg2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.3)}.mdp{display:none}.mdp.a{display:block}
-.dg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.dc{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px}.dct{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}.dci{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
-.wi{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}.wi:last-child{border-bottom:none}.wil{color:var(--text2);display:flex;align-items:center;gap:5px}.wiv{font-family:'DM Mono',monospace;font-weight:500;font-size:12px}.wiv.pos{color:var(--green)}.wiv.neg{color:var(--red)}.wiv.tot{color:var(--accent2);font-weight:700;font-size:14px}
-.fwc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:16px;margin-bottom:16px}.fwct{font-size:14px;font-weight:600;margin-bottom:12px}.fwcr{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--border)}.fwcr:last-child{border-bottom:none}.fwci{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}.fwci.ps{background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,.2)}.fwci.fl{background:var(--red-bg);color:var(--red);border:1px solid rgba(232,93,74,.2)}.fwcx{font-size:13px;color:var(--text2);flex:1}.fwcx strong{color:var(--text)}.fwcn{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;text-align:right;min-width:100px}
-.ib{margin-top:8px;padding:8px 10px;border-radius:8px;border:1px solid}.ib .ibt{font-size:11px;font-weight:600;margin-bottom:2px}.ib .ibx{font-size:11px;color:var(--text2);line-height:1.5}.ib .ibx strong{color:var(--text)}.ib-p{background:var(--purple-bg);border-color:rgba(167,139,250,.12)}.ib-p .ibt{color:var(--purple)}.ib-b{background:var(--blue-bg);border-color:rgba(96,165,250,.12)}.ib-b .ibt{color:var(--blue)}
-.mn{font-size:12px;color:var(--text3);line-height:1.7;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r)}.mn strong{color:var(--text2)}
+/* Tables */
+.htw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow-x:auto;margin-bottom:16px}.ht{width:100%;border-collapse:collapse;min-width:500px}.ht th{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;padding:10px 12px;text-align:left;background:var(--bg3);border-bottom:1px solid var(--border);white-space:nowrap}.ht td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);font-size:12px;color:var(--text2);line-height:1.5}.ht tr:last-child td{border-bottom:none}.ht td:first-child{font-weight:500;color:var(--text)}.ht tr:hover td{background:rgba(255,255,255,.02)}
+.ht input{width:50px;background:var(--bg3);border:1px solid var(--border2);border-radius:5px;padding:3px 5px;color:var(--text);font-size:12px;font-family:'DM Mono',monospace;text-align:center;outline:none}.ht input:focus{border-color:var(--accent)}
+/* Tag chips */
+.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;vertical-align:middle;letter-spacing:.03em}.tag-new{background:var(--accent-bg);color:var(--accent)}.tag-keep{background:var(--blue-bg);color:var(--blue)}.tag-cut{background:var(--red-bg);color:var(--red)}.tag-g{background:var(--green-bg);color:var(--green)}.tag-r{background:var(--red-bg);color:var(--red)}.tag-o{background:var(--orange-bg);color:var(--orange)}.tag-p{background:var(--purple-bg);color:var(--purple)}
+/* Phase timeline */
+.tl-bar{display:flex;gap:2px;margin-bottom:16px;background:var(--bg3);border-radius:var(--r);padding:3px;overflow-x:auto}.tl-item{flex:1;text-align:center;padding:10px 6px;font-size:12px;font-weight:600;color:var(--text3);border-radius:8px;cursor:pointer;transition:all .15s;min-width:100px;white-space:nowrap}.tl-item.a{box-shadow:0 1px 4px rgba(0,0,0,.3)}.tl-item:hover:not(.a){color:var(--text2)}.tl-item.ph0.a{background:var(--bg2);color:var(--text)}.tl-item.ph1.a{background:rgba(232,93,74,.15);color:var(--red)}.tl-item.ph2.a{background:rgba(212,168,83,.15);color:var(--accent)}.tl-item.ph3.a{background:rgba(96,165,250,.15);color:var(--blue)}.tl-item.ph4.a{background:rgba(74,222,128,.15);color:var(--green)}
+.ph-pnl{display:none}.ph-pnl.a{display:block}
+.ph-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:8px}.ph-title{font-size:16px;font-weight:600}.ph-date{font-size:13px;color:var(--text2)}.ph-date strong{color:var(--accent2)}
+/* Gate cards */
+.gate{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:16px;margin-bottom:16px}.gate-hdr{display:flex;align-items:center;gap:8px;margin-bottom:12px}.gate-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}.gate-title{font-size:14px;font-weight:600}.gate-items{list-style:none;padding:0}.gate-items li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;line-height:1.5}.gate-items li:last-child{border-bottom:none}.gate-items .gi-check{width:18px;height:18px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}.gi-go{background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,.2)}.gi-nogo{background:var(--red-bg);color:var(--red);border:1px solid rgba(232,93,74,.2)}
+/* Deliverables */
+.del-list{list-style:none;padding:0}.del-list li{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start;font-size:12px;color:var(--text2);line-height:1.5}.del-list li:last-child{border-bottom:none}.del-owner{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:1px}.o-pm{background:var(--accent-bg);color:var(--accent)}.o-tech{background:var(--blue-bg);color:var(--blue)}.o-ops{background:var(--green-bg);color:var(--green)}.o-bd{background:var(--purple-bg);color:var(--purple)}.o-legal{background:var(--orange-bg);color:var(--orange)}.o-data{background:var(--teal-bg);color:var(--teal)}
+/* Kill criteria */
+.kill{background:linear-gradient(135deg,rgba(232,93,74,.06),rgba(232,93,74,.02));border:1px solid rgba(232,93,74,.15);border-radius:var(--rl);padding:16px;margin-bottom:16px}.kill-title{font-size:14px;font-weight:600;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+/* Health score radar */
+.hs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}.hs-chart{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:16px}.hs-title{font-size:14px;font-weight:600;margin-bottom:12px}.hs-bars{display:flex;flex-direction:column;gap:10px}.hs-bar{display:flex;align-items:center;gap:8px}.hs-label{font-size:12px;color:var(--text2);width:80px;flex-shrink:0}.hs-track{flex:1;height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;position:relative}.hs-fill{height:100%;border-radius:4px;transition:width .5s ease}.hs-w{font-size:11px;color:var(--text3);width:36px;text-align:right;font-family:'DM Mono',monospace}
+/* Scenario cards */
+.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.sc-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}.sc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}.sc-card.opt::before{background:var(--green)}.sc-card.base::before{background:var(--accent)}.sc-card.cons::before{background:var(--orange)}.sc-card.stop::before{background:var(--red)}.sc-name{font-size:13px;font-weight:600;margin-bottom:6px}.sc-card.opt .sc-name{color:var(--green)}.sc-card.base .sc-name{color:var(--accent)}.sc-card.cons .sc-name{color:var(--orange)}.sc-card.stop .sc-name{color:var(--red)}.sc-vals{font-size:12px;color:var(--text2);line-height:1.8}
+/* Risk matrix */
+.risk-cats{display:flex;gap:4px;margin-bottom:14px;background:var(--bg3);border-radius:var(--r);padding:3px}.risk-cat{flex:1;text-align:center;padding:8px 0;font-size:12px;font-weight:600;color:var(--text3);border-radius:7px;cursor:pointer;transition:all .15s}.risk-cat.a{background:var(--bg2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.3)}.risk-pnl{display:none}.risk-pnl.a{display:block}
+.risk-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;position:relative;overflow:hidden}.risk-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px}.risk-card.r-high::before{background:var(--red)}.risk-card.r-med::before{background:var(--orange)}.risk-card.r-low::before{background:var(--accent)}
+.risk-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}.risk-id{font-size:11px;font-weight:600;color:var(--text3);font-family:'DM Mono',monospace}.risk-title{font-size:13px;font-weight:600;flex:1;margin:0 10px}.risk-badges{display:flex;gap:4px;flex-shrink:0}
+.risk-body{font-size:12px;color:var(--text2);line-height:1.6}.risk-body strong{color:var(--text)}
+/* Sliders */
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:8px 12px;background:var(--bg3);border-radius:var(--r)}.slider-label{font-size:12px;color:var(--text2);width:100px;flex-shrink:0}.slider-input{flex:1;-webkit-appearance:none;height:4px;background:var(--bg4);border-radius:2px;outline:none}.slider-input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2)}.slider-val{font-size:13px;font-weight:600;font-family:'DM Mono',monospace;color:var(--accent2);width:50px;text-align:right}
+/* Accordion */
+.acc-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:10px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);margin-bottom:8px;font-size:13px;font-weight:600;transition:background .15s}.acc-toggle:hover{background:var(--bg4)}.acc-toggle .arr{transition:transform .2s;font-size:10px;color:var(--text3)}.acc-toggle.open .arr{transform:rotate(90deg)}.acc-body{display:none;padding:12px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);margin-top:-4px;margin-bottom:12px}.acc-body.open{display:block}
+/* Misc */
+.chg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.chc{padding:14px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg2)}.chh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}.chn{font-size:13px;font-weight:600}.chd{font-size:12px;color:var(--text3);line-height:1.6}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
-@media(max-width:768px){.assumptions,.rsg{grid-template-columns:repeat(2,1fr)}.fp{grid-template-columns:repeat(3,1fr)}.pg,.dg,.chg,.cg,.brand-grid,.comp-grid{grid-template-columns:1fr}.mg{grid-template-columns:repeat(2,1fr)}}
+.chart-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:18px;margin-bottom:16px}.chart-title{font-size:14px;font-weight:600;margin-bottom:14px}.chart-box{position:relative;height:300px}
+.mn{font-size:12px;color:var(--text3);line-height:1.7;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r)}.mn strong{color:var(--text2)}
+/* Funnel params */
+.fp{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}.fpc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:10px;text-align:center}.fpl{font-size:11px;color:var(--text3);margin-bottom:3px}.fpi{width:54px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;color:var(--accent2);font-size:14px;font-family:'DM Mono',monospace;text-align:center;outline:none;font-weight:600}.fpi:focus{border-color:var(--accent)}
+/* Result cards */
+.rsg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.rc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:14px}.rc.hl{border-color:rgba(212,168,83,.3);background:linear-gradient(135deg,var(--bg2),rgba(212,168,83,.04))}.rcl{font-size:11px;color:var(--text3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:500}.rcv{font-size:22px;font-weight:700;font-family:'DM Mono',monospace;letter-spacing:-.02em}.rcv.gold{color:var(--accent2)}.rcs{font-size:11px;color:var(--text3);margin-top:2px}
+/* Recalculate button */
+.rcb{display:flex;justify-content:center;margin:16px 0}.rcbt{background:var(--accent);color:var(--bg);font-size:14px;font-weight:600;padding:10px 32px;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}.rcbt:hover{background:var(--accent2);transform:translateY(-1px)}
+/* Responsive */
+@media(max-width:768px){.nav{flex-wrap:wrap}.nav-i{font-size:11px;padding:8px 4px}.v5c,.sc-grid,.rsg{grid-template-columns:repeat(2,1fr)}.pg,.chg,.cg,.comp-grid,.hs-grid{grid-template-columns:1fr}.mg{grid-template-columns:repeat(2,1fr)}.fp{grid-template-columns:repeat(3,1fr)}.tl-bar{flex-wrap:wrap}.tl-item{min-width:80px;font-size:11px}}
 </style>
 </head>
 <body>
 <div id="ttg"></div>
 <div class="ctn">
-<div class="hdr"><div class="badge">Strategy & Growth Model · v3</div><h1>FIVE 巴西发行方案</h1><div class="sub">战略全景 · 执行路线图 · DAU增长测算 ｜ <strong>4-6月冲刺</strong> · 目标 <strong>6月底 2,500 DAU</strong></div></div>
+
+<!-- HEADER -->
+<div class="hdr">
+<div class="badge">Strategy & Growth Model</div><span class="v5b">v5</span>
+<h1>FIVE 巴西发行方案</h1>
+<div class="sub">战略全景 · 执行路线图 · 数据体系 · DAU测算 · 风险登记册 ｜ <strong>Updated 2026-03-25</strong></div>
+</div>
+
 <div class="conf"><span class="dot" style="background:var(--red);width:6px;height:6px;margin:0"></span>战略文档 — 增长与发行策略参考</div>
 
+<!-- V4→V5 CHANGES CALLOUT -->
+<div class="v5c">
+<div class="v5ci"><div class="v5cl">变更 1</div><div class="v5ct">DAU目标下调为数据驱动</div><div class="v5cd">4月300-400 DAU，5-6月视验证结果动态调整</div></div>
+<div class="v5ci"><div class="v5cl">变更 2</div><div class="v5ct">佣金体系全面重构</div><div class="v5cd">传统分佣 → 服务费+活跃度奖金，合规先行</div></div>
+<div class="v5ci"><div class="v5cl">变更 3</div><div class="v5ct">新增止损机制</div><div class="v5cd">5阶段Go/No-Go门控 + Kill Criteria</div></div>
+</div>
+
+<!-- NAVIGATION -->
 <div class="nav">
 <div class="nav-i a" onclick="sp(0)">战略全景</div>
 <div class="nav-i" onclick="sp(1)">执行路线图</div>
-<div class="nav-i" onclick="sp(2)">DAU 增长测算</div>
+<div class="nav-i" onclick="sp(2)">数据体系</div>
+<div class="nav-i" onclick="sp(3)">DAU 增长测算</div>
+<div class="nav-i" onclick="sp(4)">风险登记册</div>
 </div>
 
-<!-- ===== P0: Strategy ===== -->
+<!-- ===== TAB 0: 战略全景 ===== -->
 <div class="pnl a" id="p-0">
 
+<div class="sec"><div class="st">产品定位</div>
+<div class="core"><div class="ct">语音社交 x 德扑场景 x 房主生态</div><div class="cd"><strong>FIVE</strong> 是一款面向巴西市场的语音社交产品，以德州扑克为核心场景切入，构建以"语音房间"为基础单元的社交生态。<br>不是一个扑克工具，而是一个以扑克为"社交货币"的语音社区。</div></div>
+<div class="mg">
+<div class="mt"><div class="ml">目标地域</div><div class="mv" style="font-size:13px">圣保罗/里约等</div></div>
+<div class="mt"><div class="ml">核心年龄段</div><div class="mv">22-40岁</div></div>
+<div class="mt"><div class="ml">巴西扑克渗透率</div><div class="mv">~2-3%</div></div>
+<div class="mt"><div class="ml">语音社交窗口</div><div class="mv" style="font-size:13px;color:var(--green)">存在</div></div>
+</div>
+</div>
+
 <div class="sec"><div class="st">第一性增长逻辑</div>
-<div class="core"><div class="ct">房主驱动增长 · 单区域打穿 · WhatsApp-first 承接</div><div class="cd">先用免费好友房占住熟人社交开局入口 → 通过<span class="tip" data-tip="满足以下条件的房主：①加入/创建俱乐部 ②成功开出首局 ③首周带来至少X个有效玩家 ④7天内复开≥1次。是增长飞轮的最小单元。">有效房主</span>持续复开和关系扩散 → 形成区域性自循环<br>巴西不是"流量一打就成"的市场，而是"谁能嵌进巴西扑克圈层的真实组织方式，谁就更容易成"的市场</div></div>
-</div>
-
-<div class="sec"><div class="st">增长飞轮</div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">用户来一个语音社交App，是因为<strong>"有人在"</strong>，而不是因为"功能好"。获取和培养高质量房主是一切增长的起点。</div></div>
 <div class="card"><div class="fwr">
-<div class="fws"><div class="fwi">1</div><div class="fwn">激活房主</div><div class="fwd">BD/投放/KOL获取有组织能力的人</div></div>
-<div class="fws"><div class="fwi">2</div><div class="fwn">拉人进局</div><div class="fwd">5档房主分层邀请能力不同</div></div>
-<div class="fws"><div class="fwi">3</div><div class="fwn">完成首局</div><div class="fwd"><span class="tip" data-tip="被邀请玩家中实际进入房间的比例。受分享方式(WhatsApp/FB)、下载门槛影响。">入局转化</span>×<span class="tip" data-tip="进房玩家中完成至少一整局牌的比例。受产品体验、匹配速度影响。">首局完成</span></div></div>
-<div class="fws"><div class="fwi">4</div><div class="fwn">稳定复开</div><div class="fwd"><span class="tip" data-tip="新玩家30天后仍活跃的比例。当前假设35%。">D30留存</span>35%</div></div>
-<div class="fws"><div class="fwi">5</div><div class="fwn">长出新房主</div><div class="fwd"><span class="tip" data-tip="活跃玩家成长为自己开局的房主的比例。飞轮自转的关键。">玩家→房主</span>5%</div></div>
-</div><div class="fwa"><span>→</span><span>→</span><span>→</span><span>→</span><span>↻</span></div></div>
+<div class="fws"><div class="fwi">1</div><div class="fwn">优质房主入驻</div><div class="fwd">10-15人/周</div></div>
+<div class="fws"><div class="fwi">2</div><div class="fwn">开设稳定房间</div><div class="fwd">场均>2h，>4人</div></div>
+<div class="fws"><div class="fwi">3</div><div class="fwn">社交关系形成</div><div class="fwd">次日回访>30%</div></div>
+<div class="fws"><div class="fwi">4</div><div class="fwn">裂变邀请</div><div class="fwd">5-10新用户/周/房主</div></div>
+<div class="fws"><div class="fwi">5</div><div class="fwn">新房主涌现</div><div class="fwd">转化>3%</div></div>
+</div><div class="fwa"><span>&rarr;</span><span>&rarr;</span><span>&rarr;</span><span>&rarr;</span><span>&circlearrowleft;</span></div></div>
 </div>
 
-<div class="sec"><div class="st">竞争格局 · 我们打的是哪个战场</div>
+<div class="sec"><div class="st">竞争格局 · 三类战场</div>
 <div class="comp-grid">
-<div class="comp-card threat"><div class="comp-label">最该警惕 · 抢组织者</div><div class="comp-name">PPPoker / PokerBROS / Suprema</div><div class="comp-desc">不是抢安装量，而是抢host、club owner和WhatsApp社群节点。Suprema在巴西本地化最深，"像本地生态的一部分"。FIVE必须把房主当一等公民，否则只能抢散客。</div></div>
-<div class="comp-card learn"><div class="comp-label">最该学习 · 边界正确</div><div class="comp-name">ClubGG / Pokerrrr 2 / EasyPoker</div><div class="comp-desc">ClubGG是"品牌安全+Club能力"的最佳样本。Pokerrrr 2和EasyPoker证明朋友局工具不需要复杂，只需要够快够顺。FIVE要赢=品牌信任 + 比他们更省事。</div></div>
-<div class="comp-card ignore"><div class="comp-label">不正面硬碰 · 不同战场</div><div class="comp-name">Zynga / WSOP / Governor / Poker Heat</div><div class="comp-desc">金币大厅头部，靠品牌惯性和大池子吃休闲时长。跟FIVE不在同一个使用场景。不该学他们的大厅路线，但该学信任感和品牌清晰度。</div></div>
+<div class="comp-card threat"><div class="comp-label">战场一 · 语音社交</div><div class="comp-name">Yalla / StarMaker</div><div class="comp-desc">Yalla巴西渗透低，FIVE本地化更深。StarMaker以K歌为主，FIVE以游戏社交切入。语音社交赛道尚无统治性玩家，窗口期存在。</div></div>
+<div class="comp-card learn"><div class="comp-label">战场二 · 线上扑克</div><div class="comp-name">PokerStars / PPPoker / Suprema</div><div class="comp-desc">PokerStars偏竞技，PPPoker俱乐部制渗透高，Suprema本地化最深。FIVE差异化在于语音原生集成，社交体验远超纯扑克工具。</div></div>
+<div class="comp-card ignore"><div class="comp-label">战场三 · 泛社交娱乐</div><div class="comp-name">WhatsApp群 / Discord / 线下棋牌</div><div class="comp-desc">WhatsApp是天然传播通道也是迁移壁垒。FIVE提供结构化游戏场景，突破地理限制，比Discord更轻量更娱乐化。</div></div>
 </div>
 </div>
 
-<div class="sec"><div class="st">当前关键状态</div>
-<div class="blk warn"><div class="blk-i">!</div><div class="blk-t"><strong>产品状态</strong> — 计分牌已上线，测试中（结果待定）。<br><strong>关键阻塞项（4项）</strong><br>① <strong>回放显示问题（正在发酵）</strong> — "发两次牌"场景下回放分成两个链接、积分显示看似异常，导致玩家误解为发牌不公平。产品发牌机制本身没问题，但回放展示方式已引发KOL-A俱乐部玩家质疑，<strong>Ring Game已经组不起来</strong>。研发已确认短期先加标识，合并牌局改动较大。<br>② <strong><span class="tip" data-tip="MTT上线三个月未修复。直接阻塞巴西俱乐部赛事合作（南方组有200万保底赛事意向）。修复预计4月下旬。">MTT无法收取活跃分</span></strong> — 上线三个月未修复，修复预计4月下旬。直接阻塞巴西赛事合作推进。<br>③ <strong>MTT配置深度不够</strong> — 目前仅100bb起始，大比赛需300bb。巴西线下赛事方有明确需求。<br>④ <strong>缺少门票系统</strong> — 卫星赛无法正常运作，只能口头说明奖励。<br><strong>PR预案</strong> — 4.7日Media-A PR上线取决于计分牌测试结果。如4.7前确认无重大bug→照常上线；如需等下版本修复→推迟至4月中下旬。需提前跟Media-A沟通时间弹性。</div></div>
-<div class="blk danger"><div class="blk-i">!</div><div class="blk-t"><strong>数据体系未打通</strong> — <span class="tip" data-tip="当前周期内满足定义的有效房主总数。">有效房主数</span>、<span class="tip" data-tip="单个俱乐部中有效房主占总成员比例。">俱乐部房主密度</span>、<span class="tip" data-tip="房主首开局后7天内再开的比例。">7日复开率</span>、分享→首局转化率、KOL带量归因全部缺失。<strong>4月第一优先级。</strong></div></div>
+<div class="sec"><div class="st">核心差异化</div>
+<div class="core"><div class="ct">语音社交 x 扑克场景 x 房主生态 = FIVE独占区域</div><div class="cd">纯扑克App不具备语音社交深度 · 纯语音App缺乏结构化娱乐场景<br>FIVE在交叉点建立壁垒：房主同时是社交组织者和游戏组织者</div></div>
 </div>
 
-<div class="sec"><div class="st">三阶段节奏</div>
+<div class="sec"><div class="st">v4 &rarr; v5 变更摘要表</div>
+<div class="htw"><table class="ht"><thead><tr><th>变更项</th><th>v4状态</th><th>v5调整</th><th>变更原因</th></tr></thead><tbody>
+<tr><td>DAU增长目标</td><td>线性增长，目标激进</td><td>4月300-400，5-6月数据驱动 <span class="tag tag-new">NEW</span></td><td>决策层反馈：缺乏数据支撑</td></tr>
+<tr><td>佣金体系</td><td>传统佣金制（按人头/流水）</td><td>服务费+活跃度奖金 <span class="tag tag-new">NEW</span></td><td>原方案存在法律合规红线</td></tr>
+<tr><td>执行路线图</td><td>粗粒度里程碑</td><td>5阶段Go/No-Go门控 <span class="tag tag-new">NEW</span></td><td>缺少止损机制和阶段验证</td></tr>
+<tr><td>数据基础设施</td><td>无独立规划</td><td>Phase 0-3分阶段建设 <span class="tag tag-new">NEW</span></td><td>数据体系是增长决策的基础</td></tr>
+<tr><td>风险管理</td><td>分散在各章节</td><td>独立风险登记册 <span class="tag tag-new">NEW</span></td><td>系统化风险治理</td></tr>
+<tr><td>Partner-A策略</td><td>标准合作方案</td><td>专项谈判+合规框架 <span class="tag tag-new">NEW</span></td><td>核心渠道差异化管理</td></tr>
+<tr><td>产品阻塞项</td><td>罗列式</td><td>按优先级重排+时间节点 <span class="tag tag-keep">优化</span></td><td>提升可执行性</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="sec"><div class="st">决策层三大问题 &rarr; v5解决方案</div>
 <div class="pg">
-<div class="pc p1"><div class="pt">4月 · 建基础+拿判断</div><div class="ps">数据、验证、修复信任</div><ul class="pi"><li>数据看板上线（核心6指标）</li><li>回放显示问题紧急处理 + 信任修复</li><li>Media-A PR上线（视测试结果）</li><li>首批Club验证 + KOL带量跑通</li><li>Meta线索收集测试</li><li>WhatsApp官方群组建</li><li>跑出第一版关键转化率</li></ul></div>
-<div class="pc p2"><div class="pt">5月 · 压渠道+建结构</div><div class="ps">集中、放大、本土化</div><ul class="pi"><li>70%资源压最有效渠道</li><li>中小型Club批量拓展（主力）</li><li>KOL矩阵扩展（内容型为主）</li><li>社媒内容巴西本土化</li><li>Club间联合赛事+Ring Game</li><li>WhatsApp承接链路跑通</li></ul></div>
-<div class="pc p3"><div class="pt">6月 · 冲DAU+验飞轮</div><div class="ps">自循环、复利、样板</div><ul class="pi"><li>飞轮验证：新增 > 流失</li><li><span class="tip" data-tip="6维100分制评估。≥68分为局部复开，≥75分可加投入。">打穿评分卡</span> ≥ 68分</li><li>KOL-A参加WSOP（6月下旬）</li><li>方法论沉淀+区域复制决策</li></ul></div>
-</div></div>
-
-<div class="sec"><div class="st">品牌线战略（品牌组4-6月核心任务）</div>
-<div class="brand-grid">
-<div class="brand-card"><div class="brand-title"><span style="color:var(--teal)">A.</span> PR物料与KOL内容</div><ul class="brand-items"><li>产出高质量PR稿，保障Media-A等媒体上线效果</li><li>KOL返回素材后→官媒/社区转发曝光+加工为更有影响力的PR素材</li><li>KOL内容发布前品牌负责人过审，提出方向建议</li><li>KOL内容品质和数量要求与发行组共同制定</li><li>赛事行程（Event-A/WSOP）由发行组主导，品牌参与讨论+负责素材发布</li></ul></div>
-<div class="brand-card"><div class="brand-title"><span style="color:var(--teal)">B.</span> Club品牌支持</div><ul class="brand-items"><li>为BD合作的Club提供logo设计、桌布设计</li><li>品牌联名物料（Club专属视觉素材）</li><li>Club活动海报、赛事宣传物料</li><li>线下活动品牌物料支持</li></ul></div>
-<div class="brand-card"><div class="brand-title"><span style="color:var(--teal)">C.</span> 巴西本土化社媒与社区</div><ul class="brand-items"><li>社媒内容从全球通用→巴西本土化（葡语、本地梗、本地场景）</li><li>WhatsApp官方群组建并运营（核心承接渠道）</li><li>承接广告投放和Club搜索带来的流量</li><li>社媒粉丝量稳步增长，形成品牌可见度</li></ul></div>
-</div></div>
-
-<div class="sec"><div class="st">房主扩散双引擎 · 转介绍 + Founders Program</div>
-<div class="chg">
-<div class="chc" style="border-color:rgba(74,222,128,.2)"><div class="chh"><span class="chn" style="color:var(--green)">横向扩散 · Club Host转介绍</span><span class="chp" style="background:var(--green-bg);color:var(--green)">4月启动</span></div><div class="chd">
-<strong>机制：</strong>老房主推荐新房主 → 验证14天（建议初期降为：14天内3天有局+每天30手）→ 发放奖励<br>
-<strong>激励方案：</strong>混合模式 — 少量USDT真钱（种子期标杆案例）+ 游戏内钻石 + 周边物件 + <span class="tip" data-tip="个人/俱乐部专属title、称号、徽章等。竞品研究表明巴西组织者"想被认可、想出现在杂志和官方账号上"，荣誉激励的杠杆率可能高于现金。">荣誉称号体系</span><br>
-<strong>种子节点：</strong>从已有Founders Club（十几家）中挑3-5家最活跃的作为首批推荐人<br>
-<strong>SOP：</strong>4月上旬确定方案→4月中旬种子启动→14天验证→5月扩大到所有合作Club<br>
-<strong>预期效果：</strong>主要提升小型/新建房主的获取效率，且被推荐来的房主因有老房主背书，质量高于纯投放线索
-</div></div>
-<div class="chc" style="border-color:rgba(96,165,250,.2)"><div class="chh"><span class="chn" style="color:var(--blue)">纵向密度 · Founders Program</span><span class="chp" style="background:var(--blue-bg);color:var(--blue)">已在运行</span></div><div class="chd">
-<strong>现状：</strong>巴西BD本地团队（Local-A/Local-B，向BD-C汇报）已推进十几家Club加入<br>
-<strong>三层模型：</strong><br>
-① <span class="tip" data-tip="面向广告线索和小型组织者。简单onboarding + 转介绍奖励。追求规模和效率。">Open Home Game</span> — 广告线索+小组织者，轻量onboarding，接转介绍体系<br>
-② <span class="tip" data-tip="7天监督激活期。提供Overlay支持+运营协调+转介绍奖励。适合中小型想从竞品切换过来的Club和中小型KOL。">Mini-Founders</span> — 7天监督激活，适合从竞品迁移的Club<br>
-③ <span class="tip" data-tip="区域领袖孵化器。本地领袖邀请4个大型Club组成Founders核心。5周结构化密度建设期，目标单区域500名合格玩家。达标后成为官方区域Hub。">Founders</span> — 区域领袖孵化（如Club-A在南方），5周达500合格玩家<br>
-<strong>互补关系：</strong>Founders建密度种子 → 转介绍做横向扩散。Founders Club = 转介绍的种子推荐人
-</div></div>
-</div></div>
-
-<div class="sec"><div class="st">发行渠道矩阵</div>
-<div class="chg">
-<div class="chc"><div class="chh"><span class="chn">Club BD + 俱乐部合作</span><span class="chp p0">P0</span></div><div class="chd">BD-C主导。Club-A/Club-B在onboard，Club-C确认。僵尸Club(≈80人)盘活。<strong>中小型Club批量拓展是DAU主力。</strong>南方组（线下比Suprema更强势，200万保底赛事能力）已有合作意向，但需MTT功能就绪后再深入推进。</div></div>
-<div class="chc"><div class="chh"><span class="chn">Host/小B线索挖掘</span><span class="chp p0">P0</span></div><div class="chd">Meta线索收集页(非商店安装)→BD跟进。公域AI+私域WhatsApp群双线。核心看线索→有效房主转化率。</div></div>
-<div class="chc"><div class="chh"><span class="chn">KOL双模式</span><span class="chp p0">P0</span></div><div class="chd"><strong>Club运营型</strong>(KOL-A级，$2500+$1500绩效)：运营Club+直播。<strong>内容带量型</strong>(KOL-B级，$1200)：纯视频/直播带客转化。分层KPI，不统一按安装结算。</div></div>
-<div class="chc"><div class="chh"><span class="chn">WhatsApp承接体系</span><span class="chp p0">P0</span></div><div class="chd"><strong>巴西第一承接层。</strong>竞品PPPoker/Suprema/ClubGG全靠WhatsApp做运营后台。FIVE必须补足：官方群、邀请模板、复开提醒、房主FAQ。</div></div>
-<div class="chc"><div class="chh"><span class="chn">Meta广告投放</span><span class="chp p1">P1</span></div><div class="chd">刚开户。线索收集模式，看<span class="tip" data-tip="获取一个有效房主的综合成本。比CPI更能反映真实发行效率。">有效房主成本</span>。素材真人口播混剪，视频仅1人是瓶颈。</div></div>
-<div class="chc"><div class="chh"><span class="chn">媒体PR + 赛事节点</span><span class="chp p1">P1</span></div><div class="chd">Media-A已签(Banner+PR文+社媒)。关键节点：Event-A 4.8(KOL-B参加·发行主导)、WSOP 6月下旬(KOL-A·发行主导)。品牌负责素材加工发布。Media-B报价虚高已搁置。</div></div>
-<div class="chc"><div class="chh"><span class="chn">转介绍 + Founders</span><span class="chp" style="background:var(--green-bg);color:var(--green)">4月启动</span></div><div class="chd">Founders已有十几家Club（纵向密度）。4月中旬启动转介绍种子（横向扩散）。两者互补：Founders Club = 转介绍种子推荐人。激励：少量USDT+钻石+荣誉称号混合。</div></div>
-</div></div>
-
-<div class="sec"><div class="st">核心指标体系</div>
-<div class="mg"><div class="mt"><div class="ml"><span class="tip" data-tip="当月新激活且满足有效房主定义的数量。">新增有效房主</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="房主首开局后7天内再开的比例。目标≥50%。">房主7日复开率</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="从分享链接到完成首局的整体转化率。">分享→首局完成</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="活跃玩家转变为自己开局的房主的比例。目标≥5%。">玩家→房主转化</span></div><div class="mv">—</div></div></div>
-<div class="mg"><div class="mt"><div class="ml"><span class="tip" data-tip="单个俱乐部中有效房主占总成员比例。">俱乐部房主密度</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="新玩家30天后仍活跃的比例。当前假设35%。">D30留存</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="各渠道获取一个有效房主的综合成本。">有效房主成本</span></div><div class="mv">—</div></div><div class="mt"><div class="ml"><span class="tip" data-tip="通过Adjust深度链接追踪KOL带来的全链路数据。">KOL带量归因</span></div><div class="mv">—</div></div></div>
+<div class="pc p1"><div class="pt">DAU目标缺乏数据支撑</div><div class="ps">增长模型假设未验证</div><ul class="pi"><li>4月目标下调至300-400</li><li>场景化预测（乐观/基准/保守/止损）</li><li>所有假设配备验证计划</li><li>5-6月改为数据驱动动态调整</li></ul></div>
+<div class="pc p2"><div class="pt">佣金体系存在合规风险</div><div class="ps">传统分成模式不可持续</div><ul class="pi"><li>重构为"服务费+活跃度奖金"</li><li>四类合作方差异化方案</li><li>季度合规审计机制</li><li>所有合同经法务审核</li></ul></div>
+<div class="pc p3"><div class="pt">执行方案缺少止损机制</div><div class="ps">没有阶段性验证门控</div><ul class="pi"><li>5阶段路线图（筹备→稳态）</li><li>每阶段Go/No-Go门控</li><li>明确Kill Criteria和退出条件</li><li>触发后24h内评估报告</li></ul></div>
+</div>
 </div>
 
-<div class="sec"><div class="st">跨组协同</div>
-<div class="cg">
-<div class="cc"><div class="cct">产品组</div><div class="ccd">回放显示优化(P0·"发两次牌"合并/标识·信任危机)、MTT活跃分收取(4月下旬)、MTT深度配置(100bb→300bb)、门票系统、计分牌测试收尾、分享链路优化、Adjust深度链接、Card Reveal开关</div></div>
-<div class="cc"><div class="cct">品牌组</div><div class="ccd">PR物料产出、KOL内容审核+方向建议、Club品牌支持(logo/桌布)、巴西社媒本土化、WhatsApp官方群</div></div>
-<div class="cc"><div class="cct">研发</div><div class="ccd">数据库埋点+权限开放(P0)、看板底层、归因技术、信用分系统（秘鲁代理需求）</div></div>
-<div class="cc"><div class="cct">设计组</div><div class="ccd">广告素材(视频仅1人是瓶颈)、KOL内容协同、Club品牌物料、投放素材合规</div></div>
-</div></div>
 </div>
 
-<!-- ===== P1: Roadmap ===== -->
+<!-- ===== TAB 1: 执行路线图 ===== -->
 <div class="pnl" id="p-1">
-<div class="rt">
-<div class="ri a" onclick="sr(0)">3月底+4月</div>
-<div class="ri" onclick="sr(1)">5月</div>
-<div class="ri" onclick="sr(2)">6月</div>
+
+<div class="sec"><div class="st">5阶段总览时间线</div>
+<div class="mg" style="grid-template-columns:repeat(5,1fr);margin-bottom:0">
+<div class="mt" style="border-left:3px solid var(--text3)"><div class="ml">Phase 0 · 准备期</div><div class="mv" style="font-size:12px">3.25-3.31</div></div>
+<div class="mt" style="border-left:3px solid var(--red)"><div class="ml">Phase 1 · 筹备期</div><div class="mv" style="font-size:12px">4.1-4.5</div></div>
+<div class="mt" style="border-left:3px solid var(--accent)"><div class="ml">Phase 2 · 冷启动</div><div class="mv" style="font-size:12px">4.6-4.20</div></div>
+<div class="mt" style="border-left:3px solid var(--blue)"><div class="ml">Phase 3 · 验证期</div><div class="mv" style="font-size:12px">4.21-5.15</div></div>
+<div class="mt" style="border-left:3px solid var(--green)"><div class="ml">Phase 4 · 放量期</div><div class="mv" style="font-size:12px">5.16-6.30</div></div>
+</div>
+<div style="text-align:center;padding:6px 0;margin-bottom:16px"><span style="font-size:11px;color:var(--text3)">Gate #1 &rarr; Gate #2 &rarr; Gate #3 &rarr; Gate #4 &rarr; Phase 5 稳态期 (7.1+)</span></div>
 </div>
 
-<div class="rp a" id="r-0">
-<div class="rh"><div class="rht">3月最后一周 + 4月作战计划</div><div class="rhd">DAU目标 <strong>~500</strong> ｜ 数据先行 · 修复信任 · 渠道验证</div></div>
-
-<div class="ws"><div class="wl">3月最后一周 (3.24 - 3.31) — 冲刺准备</div>
-<ul class="tl">
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">数据看板初版框架 + 研发对接</div><div class="td2">跟产品讨论数据格式，跟研发沟通埋点排期，确定优先实现的指标。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">Meta投放账户开通 + 首批素材就绪</div><div class="td2">3.30开始跑线索收集广告。素材丢AI做合规审核。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">巴西私域host线索挖掘启动</div><div class="td2">FB/WhatsApp群触达。OpenClaw智能体调教。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">KOL-B参加Event-A行程方案确定 <span class="tag tag-e">赛事节点4.8</span></div><div class="td2">发行组主导行程安排，品牌组参与讨论。Event-A内容拍摄计划、社媒联动方案。为4月PR蓄势。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">KOL-A WSOP(6月)方案启动</div><div class="td2">发行组主导签证、行程、内容规划。品牌组参与讨论并负责后续素材加工发布。</div></div></li>
-<li class="ti"><span class="to o-pr">产品</span><div class="tc"><div class="tn">回放显示问题紧急处理 <span class="tag tag-m">阻塞项·已发酵</span></div><div class="td2">"发两次牌"回放分两链接导致玩家误解公平性，KOL-A俱乐部Ring Game已组不起来。短期：加明显标识（Deal No.1/No.2）。中期：合并牌局显示。需尽快推进+对受影响玩家做补偿和解释。</div></div></li>
-</ul></div>
-
-<div class="ws"><div class="wl">4月第1-2周 (4.1 - 4.13) — 基础建设 + PR节点</div>
-<ul class="tl">
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">数据看板V1上线 <span class="tag tag-m">里程碑</span><span class="tag tag-d">依赖研发</span></div><div class="td2">核心6指标先行。Claude Code+AI搭建，研发补埋点+开放DB权限。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">Meta线索收集投放正式启动</div><div class="td2">填表页模式跑起来。验证账户稳定性、线索质量、BD跟进转化率。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">Club-A / Club-B 激活 + Club-C对接</div><div class="td2">南方俱乐部拉新500人目标。需指导+赛事计划。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">南方组赛事合作关系维护 <span class="tag tag-d">依赖产品</span></div><div class="td2">巴西南方组线下实力比Suprema更强（200万保底赛事），不喜欢联盟模式，与FIVE定位契合。但MTT活跃分/深度配置/门票功能未就绪，<strong>当前不宜过度承诺</strong>。先维持关系+引导试用卫星赛，等产品功能到位后（预计4月下旬）再推进深度合作。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">3位新KOL签约 (KOL-C / KOL-D / +1)</div><div class="td2">内容带量型为主。底薪+绩效模式，100有效活跃/月=满绩效。评估KOL-E报价。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">Media-A PR上线 <span class="tag tag-m">关键节点</span></div><div class="td2"><strong>前置条件：</strong>计分牌功能测试通过。如4.7前确认OK→照常上线。如有重大bug→推迟至4月中下旬修复后上线。<strong>需提前跟Media-A沟通时间弹性。</strong></div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">KOL-B参加Event-A (4.8) + 现场内容产出 <span class="tag tag-e">赛事</span></div><div class="td2">发行组主导行程执行。KOL返回素材后→品牌组官媒转发曝光+加工为PR素材。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">转介绍方案落地准备</div><div class="td2">确定最终奖励方案（USDT+钻石+荣誉混合），跟产品确认钻石/称号技术可行性，制作葡语说明物料，让Local-A/Local-B向Founders Club宣导。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">WhatsApp巴西官方群组建启动</div><div class="td2">竞品全靠WhatsApp做承接。官方群是巴西本土化的基础设施，不能再等。</div></div></li>
-</ul></div>
-
-<div class="ws"><div class="wl">4月第3-4周 (4.14 - 4.30) — 首次复盘 + 渠道初判 + 转介绍种子</div>
-<ul class="tl">
-<li class="ti"><span class="to o-all">全组</span><div class="tc"><div class="tn">首次数据复盘 <span class="tag tag-m">里程碑</span></div><div class="td2">Club BD vs KOL vs 投放线索，哪条出有效房主ROI最优？跑出第一版转化率。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">转介绍种子启动 <span class="tag tag-m">里程碑</span></div><div class="td2">从十几家Founders Club中挑3-5家最活跃的作为首批推荐人。给种子稍高真钱激励（培养标杆案例）。14天后验证首批被推荐Club数据。成功案例做成WhatsApp群社交证据。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">僵尸Club盘活 (FIVE Brasil/FTC等≈80人)</div><div class="td2">Bonus激励整合。同时启动中型Club批量拓展（目标+15个房主）。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">投放线索→有效房主转化率评估</div><div class="td2">BD跟进效率、话术优化、成本核算。决定5月是否放量。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">首批合作Club品牌支持到位</div><div class="td2">为Club-A/Club-B/Club-C提供logo、桌布设计、活动海报等品牌物料。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">社媒内容本土化启动</div><div class="td2">从全球通用内容转向巴西本地场景、葡语原生内容。Event-A素材剪辑发布。</div></div></li>
-</ul></div>
-
-<div class="sb"><div class="sbt">4月底交付判断</div><div class="sbtx">① 有效房主从哪来最高效？② 1个有效房主实际带多少稳定活跃？③ 5月集中押哪个渠道？④ WhatsApp承接是否显著提升入桌率？</div>
-<div class="kr"><div class="ki"><div class="kl">数据看板</div><div class="kv">上线</div></div><div class="ki"><div class="kl">PR上线</div><div class="kv">完成</div></div><div class="ki"><div class="kl">渠道ROI</div><div class="kv">初判</div></div></div></div>
+<div class="tl-bar">
+<div class="tl-item ph0 a" onclick="sph(0)">Phase 0</div>
+<div class="tl-item ph1" onclick="sph(1)">Phase 1</div>
+<div class="tl-item ph2" onclick="sph(2)">Phase 2</div>
+<div class="tl-item ph3" onclick="sph(3)">Phase 3</div>
+<div class="tl-item ph4" onclick="sph(4)">Phase 4</div>
 </div>
 
-<div class="rp" id="r-1">
-<div class="rh"><div class="rht">5月作战计划</div><div class="rhd">DAU目标 <strong>~1,270</strong> ｜ 集中资源 · 批量拓展 · 本土化深入</div></div>
-<div class="ws"><div class="wl">第1-2周 (5.1 - 5.11)</div>
-<ul class="tl">
-<li class="ti"><span class="to o-all">全组</span><div class="tc"><div class="tn">渠道集中策略确定 <span class="tag tag-m">里程碑</span></div><div class="td2">70%资源压主力渠道（预判：中小型Club BD），30%维持其他。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">中小型Club批量拓展（目标+25中型/+55小型房主）</div><div class="td2">5月DAU增长的绝对主力。从验证过的合作模式批量复制。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">新增1位Club运营型KOL + 1位内容型KOL</div><div class="td2">Club运营型极难找，能签1个就是胜利。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">投放素材大迭代 + 规模化决策</div><div class="td2">有效房主成本达标→放量；未达标→暂停，资源转BD。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">转介绍全面开放 <span class="tag tag-m">里程碑</span></div><div class="td2">根据4月种子期数据调整门槛和奖励→向所有合作Club开放转介绍。跟踪"每个推荐人带来多少有效Club"。激励逐步从真钱切换到产品内激励+荣誉为主。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">社媒内容全面本土化 + WhatsApp运营体系建立</div><div class="td2">巴西本地梗、葡语原生内容为主。WhatsApp群稳定运营：公告、FAQ、活动提醒、房主模板。</div></div></li>
+<!-- Phase 0 -->
+<div class="ph-pnl a" id="ph-0">
+<div class="ph-hdr"><div class="ph-title">Phase 0: 准备期</div><div class="ph-date"><strong>3月25日 - 3月31日</strong></div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">对齐团队认知，冻结一切渠道动作，为Phase 1做好排期。核心原则：<strong>先修内功，不急外拓。</strong></div></div>
+<div class="sec"><div class="st">交付物</div>
+<ul class="del-list">
+<li><span class="del-owner o-pm">发行组</span>全员对齐会：宣布路线图重置 — 3/26</li>
+<li><span class="del-owner o-tech">产品+研发</span>产品阻塞清单确认：4个P0排优先级+工时估算 — 3/28</li>
+<li><span class="del-owner o-pm">发行+产品</span>数据埋点需求文档v1 — 3/28</li>
+<li><span class="del-owner o-bd">BD团队</span>候选验证俱乐部筛选：初筛3-5个 — 3/31</li>
+<li><span class="del-owner o-bd">BD团队</span>冻结渠道拓展：通知所有BD暂停新俱乐部接入 — 3/26</li>
 </ul></div>
-<div class="ws"><div class="wl">第3-4周 (5.12 - 5.31)</div>
-<ul class="tl">
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">Club间联合赛事 + KOL-A大型Ring Game</div><div class="td2">拉活跃+促复开+社交证据。品牌社媒放大。如MTT活跃分已修复，可启动南方组卫星赛试点合作。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">数据看板V2（渠道归因+俱乐部健康度）</div><div class="td2">单渠道有效房主成本、KOL带量ROI、Club健康评分。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">持续为新合作Club提供品牌支持</div><div class="td2">批量Club物料模板化：logo/桌布/海报快速定制。降低品牌组单Club支持成本。</div></div></li>
-<li class="ti"><span class="to o-pr">产品</span><div class="tc"><div class="tn">推荐与邀请机制优化</div><div class="td2">降低拉人门槛，WhatsApp分享卡片自动生成。</div></div></li>
-</ul></div>
-<div class="sb"><div class="sbt">5月底交付判断</div><div class="sbtx">① 主力渠道能否持续出有效房主？② 复开率提升了吗？③ 玩家→房主自然转化出现了吗？④ 巴西社媒+WhatsApp能承接住流量了吗？</div>
-<div class="kr"><div class="ki"><div class="kl">房主周复开</div><div class="kv">≥40%</div></div><div class="ki"><div class="kl">玩家→房主</div><div class="kv">≥3%</div></div><div class="ki"><div class="kl">WhatsApp群</div><div class="kv">活跃运营</div></div></div></div>
 </div>
 
-<div class="rp" id="r-2">
-<div class="rh"><div class="rht">6月作战计划</div><div class="rhd">DAU目标 <strong>2,500</strong> ｜ 验证飞轮 · 样板定论 · WSOP节点</div></div>
-<div class="ws"><div class="wl">第1-2周 (6.1 - 6.14)</div>
-<ul class="tl">
-<li class="ti"><span class="to o-all">全组</span><div class="tc"><div class="tn">增长飞轮验证 <span class="tag tag-m">里程碑</span></div><div class="td2">新增有效玩家 是否 > 自然流失。成立=复利增长。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">中小型Club冲量（+35中型/+75小型房主）</div><div class="td2">6月是房主数量决战月。累计需达中型78+小型165个。</div></div></li>
-<li class="ti"><span class="to o-bd">BD-C</span><div class="tc"><div class="tn">南方组深度合作推进（如产品就绪）</div><div class="td2">MTT活跃分+深度配置到位后，推进部分赛事上线FIVE。这是巴西最大的潜在合作节点（200万保底、比Suprema更强势的线下组织）。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">全渠道ROI核算 + Q3预算重分配</div><div class="td2">3个月数据，精确算每渠道有效房主成本。</div></div></li>
+<!-- Phase 1 -->
+<div class="ph-pnl" id="ph-1">
+<div class="ph-hdr"><div class="ph-title">Phase 1: 筹备期</div><div class="ph-date"><strong>4月1日 - 4月5日</strong> ｜ 目标：一切上线前准备完成</div></div>
+<div class="sec"><div class="st">关键交付物</div>
+<ul class="del-list">
+<li><span class="del-owner o-tech">产品/技术</span>P0阻塞项全部修复 — 语音延迟<300ms/葡语100%/PIX可用 — 4月1日</li>
+<li><span class="del-owner o-legal">法务</span>合规合同模板定稿（四类合作方） — 4月1日</li>
+<li><span class="del-owner o-ops">市场负责人</span>Partner-A新合同签署/过渡协议 — 4月3日</li>
+<li><span class="del-owner o-bd">BD</span>首批5个房主合作方签约+培训 — 4月5日</li>
+<li><span class="del-owner o-data">数据/技术</span>Phase 0数据埋点上线+基础看板 — 4月5日</li>
+<li><span class="del-owner o-ops">运营</span>运营SOP文档+培训手册 — 4月3日</li>
+<li><span class="del-owner o-tech">产品/设计</span>应用商店葡语页面上线 — 4月2日</li>
 </ul></div>
-<div class="ws"><div class="wl">第3-4周 (6.15 - 6.30)</div>
-<ul class="tl">
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">KOL-A参加WSOP · 行程执行 <span class="tag tag-e">重大赛事</span></div><div class="td2">发行组主导行程执行和现场协调。WSOP是全年最大品牌事件。</div></div></li>
-<li class="ti"><span class="to o-br">品牌</span><div class="tc"><div class="tn">WSOP全程内容产出与发布</div><div class="td2">KOL返回素材→品牌组加工为高影响力PR素材→官媒/社媒/WhatsApp/Club全面联动。赛前预热、赛中更新、赛后复盘。</div></div></li>
-<li class="ti"><span class="to o-all">全组</span><div class="tc"><div class="tn">区域打穿评分卡评估 <span class="tag tag-m">里程碑</span></div><div class="td2">6维评分。≥75→Q3启动第二区域。&lt;60→继续深耕。</div></div></li>
-<li class="ti"><span class="to o-ua">发行</span><div class="tc"><div class="tn">巴西方法论沉淀</div><div class="td2">渠道选择、节奏控制、资源配比、WhatsApp承接模型。为区域复制准备。</div></div></li>
-</ul></div>
-<div class="sb"><div class="sbt">6月底终局判断</div><div class="sbtx">巴西市场跑通了没有？复制扩张还是继续深耕？WSOP内容能否成为下一波增长的品牌杠杆？</div>
-<div class="kr"><div class="ki"><div class="kl">DAU</div><div class="kv">2,500</div></div><div class="ki"><div class="kl">打穿评分</div><div class="kv">≥68分</div></div><div class="ki"><div class="kl">方法论</div><div class="kv">沉淀完成</div></div></div></div>
+<div class="gate">
+<div class="gate-hdr"><div class="gate-icon" style="background:var(--accent-bg);color:var(--accent);border:1px solid rgba(212,168,83,.2)">G1</div><div class="gate-title">Go/No-Go Gate #1 (4月5日)</div></div>
+<ul class="gate-items">
+<li><div class="gi-check gi-go">&check;</div><div><strong>P0阻塞项</strong>全部关闭 — 不达标：延迟冷启动，不妥协</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>已签约房主 &ge; 5人</strong> — 3-4人缩小范围；&lt;3人暂停</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>数据基础</strong> DAU/留存可实时查看 — 缺失则暂停</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>合规合同</strong> Partner-A + 至少3个房主合同签署</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>支付通道</strong> PIX可用 — 不可用则仅启动免费体验模式</div></li>
+</ul>
 </div>
 </div>
 
-<!-- ===== P2: Model ===== -->
-<div class="pnl" id="p-2">
-<div class="sec"><div class="st">五档房主分层参数（可编辑 · 悬停查看定义）</div>
-<div class="assumptions">
-<div class="ac t-kol"><div class="acl">Tier 1</div><div class="acn"><span class="dot" style="background:var(--kol)"></span><span class="tip" data-tip="【Club运营型KOL】运营自己俱乐部+直播双渠道带量，如KOL-A。底薪$2500+绩效$1500/月。极难找。">KOL·Club型</span></div><div class="acr"><label><span class="tip" data-tip="激活后第一周通过直播+Club拉入的新玩家数。">首周邀请</span></label><input type="number" id="kol_w1" value="50"></div><div class="acr"><label><span class="tip" data-tip="首周后每周持续带入的均数。">周均邀请</span></label><input type="number" id="kol_wn" value="50"></div><div class="acrp">KOL-A</div></div>
-<div class="ac t-kolc"><div class="acl">Tier 2</div><div class="acn"><span class="dot" style="background:var(--kolc)"></span><span class="tip" data-tip="【内容带量型KOL】只做视频/直播，不运营Club。类似带客agent。月薪$1200(纯视频)或底薪+绩效(直播带量)。数据尚未跑出。">KOL·内容型</span></div><div class="acr"><label>首周邀请</label><input type="number" id="kolc_w1" value="15"></div><div class="acr"><label>周均邀请</label><input type="number" id="kolc_wn" value="15"></div><div class="acrp">KOL-B / KOL-C</div></div>
-<div class="ac t-big"><div class="acl">Tier 3</div><div class="acn"><span class="dot" style="background:var(--big)"></span><span class="tip" data-tip="【大型Club房主】100+成员规模俱乐部核心房主。到6月预计5-6个(BD-C产能有限)。">大型Club</span></div><div class="acr"><label>首周邀请</label><input type="number" id="big_w1" value="25"></div><div class="acr"><label>周均邀请</label><input type="number" id="big_wn" value="20"></div><div class="acrp">Club-A / Club-C</div></div>
-<div class="ac t-mid"><div class="acl">Tier 4</div><div class="acn"><span class="dot" style="background:var(--mid)"></span><span class="tip" data-tip="【中型Club房主】30-100人规模。DAU主力来源，需批量拓展。到6月需累计78个。">中型Club</span></div><div class="acr"><label>首周邀请</label><input type="number" id="mid_w1" value="15"></div><div class="acr"><label>周均邀请</label><input type="number" id="mid_wn" value="10"></div><div class="acrp">BD拓展Club</div></div>
-<div class="ac t-sm"><div class="acl">Tier 5</div><div class="acn"><span class="dot" style="background:var(--sm)"></span><span class="tip" data-tip="【小型/新建房主】投放线索转化/自然注册/飞轮转化。量最大的一档，到6月需累计165个。">小型/新建</span></div><div class="acr"><label>首周邀请</label><input type="number" id="sm_w1" value="10"></div><div class="acr"><label>周均邀请</label><input type="number" id="sm_wn" value="5"></div><div class="acrp">投放/自然转化</div></div>
-</div></div>
-
-<div class="sec"><div class="st">漏斗与留存参数</div>
-<div class="fp">
-<div class="fpc"><div class="fpl"><span class="tip" data-tip="被邀请玩家中进入房间的比例。受WhatsApp/FB分享体验、下载门槛影响。">入局转化率</span></div><input class="fpi" type="number" id="p_enter" value="50" step="5"><span style="color:var(--text3);font-size:13px">%</span></div>
-<div class="fpc"><div class="fpl"><span class="tip" data-tip="进房玩家完成至少一整局的比例。受匹配速度、UI引导影响。">首局完成率</span></div><input class="fpi" type="number" id="p_finish" value="80" step="5"><span style="color:var(--text3);font-size:13px">%</span></div>
-<div class="fpc"><div class="fpl"><span class="tip" data-tip="新玩家30天后仍活跃的比例。社交型产品D30>30%属较好。">D30留存</span></div><input class="fpi" type="number" id="p_d30" value="35" step="5"><span style="color:var(--text3);font-size:13px">%</span></div>
-<div class="fpc"><div class="fpl"><span class="tip" data-tip="上月稳定活跃老用户本月不再活跃的比例。12%≈每月1/8流失。">月度流失</span></div><input class="fpi" type="number" id="p_churn" value="12" step="1"><span style="color:var(--text3);font-size:13px">%</span></div>
-<div class="fpc"><div class="fpl"><span class="tip" data-tip="新增活跃玩家下月成长为开局房主的比例。5%为保守估算。">玩家→房主</span></div><input class="fpi" type="number" id="p_host_conv" value="5" step="1"><span style="color:var(--text3);font-size:13px">%</span></div>
-</div></div>
-
-<div class="sec"><div class="st">月度新增房主计划（基于2500 DAU倒推）</div>
-<div class="htw"><table class="ht"><thead><tr><th>房主类型</th><th><span class="tip" data-tip="基准月。DAU≈80，主要来自KOL-A。">3月</span></th><th>4月</th><th>5月</th><th>6月</th></tr></thead><tbody>
-<tr><td><span class="dot" style="background:var(--kol)"></span>KOL·Club型</td><td><input type="number" id="h_kol_3" value="1"></td><td><input type="number" id="h_kol_4" value="0"></td><td><input type="number" id="h_kol_5" value="1"></td><td><input type="number" id="h_kol_6" value="0"></td></tr>
-<tr><td><span class="dot" style="background:var(--kolc)"></span>KOL·内容型</td><td><input type="number" id="h_kolc_3" value="0"></td><td><input type="number" id="h_kolc_4" value="3"></td><td><input type="number" id="h_kolc_5" value="1"></td><td><input type="number" id="h_kolc_6" value="1"></td></tr>
-<tr><td><span class="dot" style="background:var(--big)"></span>大型Club</td><td><input type="number" id="h_big_3" value="0"></td><td><input type="number" id="h_big_4" value="2"></td><td><input type="number" id="h_big_5" value="2"></td><td><input type="number" id="h_big_6" value="2"></td></tr>
-<tr><td><span class="dot" style="background:var(--mid)"></span>中型Club</td><td><input type="number" id="h_mid_3" value="3"></td><td><input type="number" id="h_mid_4" value="15"></td><td><input type="number" id="h_mid_5" value="25"></td><td><input type="number" id="h_mid_6" value="35"></td></tr>
-<tr><td><span class="dot" style="background:var(--sm)"></span>小型/新建</td><td><input type="number" id="h_sm_3" value="5"></td><td><input type="number" id="h_sm_4" value="30"></td><td><input type="number" id="h_sm_5" value="55"></td><td><input type="number" id="h_sm_6" value="75"></td></tr>
+<!-- Phase 2 -->
+<div class="ph-pnl" id="ph-2">
+<div class="ph-hdr"><div class="ph-title">Phase 2: 冷启动期</div><div class="ph-date"><strong>4月6日 - 4月20日</strong> ｜ 目标：验证"房主能带来活跃用户"</div></div>
+<div class="blk warn"><div class="blk-i">!</div><div class="blk-t">核心假设验证：<strong>一个有效房主平均能维持10-20个活跃用户</strong>。5-10个种子房主开始每日开房，运营团队高频跟进。</div></div>
+<div class="sec"><div class="st">关键交付物</div>
+<ul class="del-list">
+<li><span class="del-owner o-ops">运营</span>种子房主全部活跃开房 &ge;5个 — 4月8日</li>
+<li><span class="del-owner o-tech">产品/技术</span>P1阻塞项修复（房间管理、WhatsApp分享、俱乐部管理） — 4月15日</li>
+<li><span class="del-owner o-data">数据</span>Phase 1核心指标体系上线 — 4月20日</li>
+<li><span class="del-owner o-data">数据</span>首周数据复盘报告 — 4月13日</li>
+<li><span class="del-owner o-data">数据</span>首个俱乐部健康度评分（至少3个） — 4月20日</li>
+</ul></div>
+<div class="sec"><div class="st">冷启动观察指标</div>
+<div class="htw"><table class="ht"><thead><tr><th>指标</th><th>观察目标</th><th>预警线</th></tr></thead><tbody>
+<tr><td>DAU</td><td>呈上升趋势，第二周 &gt; 第一周</td><td style="color:var(--red)">连续5天下降</td></tr>
+<tr><td>房间日开设数</td><td>&ge; 10场/天</td><td style="color:var(--red)">&lt; 5场/天持续3天</td></tr>
+<tr><td>房间平均人数</td><td>&ge; 4人/场</td><td style="color:var(--red)">&lt; 3人/场</td></tr>
+<tr><td>D1留存</td><td>&ge; 25%</td><td style="color:var(--red)">&lt; 15%</td></tr>
+<tr><td>房主活跃率</td><td>&ge; 80%在开房</td><td style="color:var(--red)">&lt; 60%</td></tr>
 </tbody></table></div></div>
+<div class="gate">
+<div class="gate-hdr"><div class="gate-icon" style="background:var(--accent-bg);color:var(--accent);border:1px solid rgba(212,168,83,.2)">G2</div><div class="gate-title">Go/No-Go Gate #2 (4月20日)</div></div>
+<ul class="gate-items">
+<li><div class="gi-check gi-go">&check;</div><div><strong>DAU &ge; 200</strong>（趋势上升） — &lt;100且无趋势：Phase 3延后2周</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>D1留存 &ge; 20%</strong> — &lt;15%：暂停拉新，先修产品</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>有效房主 &ge; 3个A级</strong> — &lt;2个：回退调整策略</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>核心体验</strong>无P0级用户投诉 — 批量投诉：紧急修复</div></li>
+</ul>
+</div>
+</div>
 
-<div class="rcb"><button class="rcbt" onclick="calc()">重新计算模型</button></div>
-<div class="sec"><div class="st">月度DAU测算结果</div><div class="rsg" id="rg"></div></div>
-<div class="cw"><div class="cwt">DAU增长曲线 · 分层贡献</div><div class="cwb"><canvas id="dauChart"></canvas></div></div>
-<div class="sec"><div class="st">月度详细拆解</div><div class="mdt" id="mdT"></div><div id="mdP"></div></div>
-<div class="fwc"><div class="fwct"><span class="tip" data-tip="飞轮成立条件：新增>流失。净增为正=复利增长。">增长飞轮自检</span></div><div id="fwR"></div></div>
-<div class="mn"><strong>模型逻辑：</strong>五档分层。激活当月=首周邀请+3周×周均。之后每月=周均×4。邀请经漏斗后计入活跃。存量按月流失衰减。房主自身计入DAU。玩家→房主下月生效归入小型档。<br><br><strong>转介绍+Founders对模型的影响：</strong>转介绍主要加速"小型/新建房主"的获取效率——被老房主推荐来的新Club质量高于纯投放线索（有信任背书，更容易达到有效标准）。Founders Program则通过区域密度建设提升中型Club房主的获取速度。两者共同降低有效房主获取成本，但当前模型中未单独建模（因激励方案和转化率均无实际数据），建议5月转介绍全面开放后根据实际数据补充修正。<br><br><strong>局限：</strong>内容型KOL数据未跑出(w1=15为估算)。漏斗参数需数据校准。未考虑回放显示问题导致的信任流失、MTT功能缺失对赛事合作的阻塞等产品侧变量。<br><br><strong>达标路径：</strong>核心靠中型(累计78)+小型(累计165)。KOL和大型Club是杠杆但量有限。转介绍和Founders是加速器——如果跑通，可降低对投放线索的依赖。如中小型拓展不及预期，需提升漏斗参数弥补。</div>
+<!-- Phase 3 -->
+<div class="ph-pnl" id="ph-3">
+<div class="ph-hdr"><div class="ph-title">Phase 3: 验证期</div><div class="ph-date"><strong>4月21日 - 5月15日</strong> ｜ 目标：验证增长飞轮能否转起来</div></div>
+<div class="sec"><div class="st">运营重心</div>
+<ul class="del-list">
+<li><span class="del-owner o-bd">BD/运营</span>活跃房主数达到15+，A级以上 &ge; 10 — 5月1日</li>
+<li><span class="del-owner o-data">数据</span>Phase 2分析体系上线（漏斗/分群/渠道归因） — 5月15日</li>
+<li><span class="del-owner o-data">数据</span>首次渠道ROI评估 — 5月10日</li>
+<li><span class="del-owner o-tech">产品/技术</span>P2阻塞项修复（举报系统、埋点完整性） — 5月1日</li>
+<li><span class="del-owner o-pm">PM</span>增长飞轮验证报告（定量证据） — 5月15日</li>
+<li><span class="del-owner o-legal">法务/财务</span>首次合规审计 — 5月10日</li>
+</ul></div>
+<div class="gate">
+<div class="gate-hdr"><div class="gate-icon" style="background:var(--blue-bg);color:var(--blue);border:1px solid rgba(96,165,250,.2)">G3</div><div class="gate-title">Go/No-Go Gate #3 (5月15日)</div></div>
+<ul class="gate-items">
+<li><div class="gi-check gi-go">&check;</div><div><strong>DAU &ge; 300-400</strong> — &lt;200：启动Kill Criteria评估</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>裂变系数 &gt; 0.3</strong> — &lt;0.1：纯靠运营灌水，不可持续</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>有效房主转化 &ge; 3人</strong>自然成为房主 — 0人：飞轮逻辑不成立</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>俱乐部健康度</strong>至少3个B级以上 — 全部C/D：组织形态有问题</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>合规审计</strong>无红线违规 — 存在红线：暂停放量</div></li>
+</ul>
+</div>
+</div>
+
+<!-- Phase 4 -->
+<div class="ph-pnl" id="ph-4">
+<div class="ph-hdr"><div class="ph-title">Phase 4: 放量期</div><div class="ph-date"><strong>5月16日 - 6月30日</strong> ｜ 前提：仅在Gate #3全部达标后进入</div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">房主团队扩至50+，启动P1渠道（品牌营销、KOL合作、线下赛事），付费获客预算释放。</div></div>
+<div class="sec"><div class="st">关键交付物</div>
+<ul class="del-list">
+<li><span class="del-owner o-pm">全团队</span>DAU达到数据驱动目标（基于Phase 3建模） — 6月30日</li>
+<li><span class="del-owner o-data">数据</span>Phase 3预测模型上线（流失预警、健康度预测） — 6月15日</li>
+<li><span class="del-owner o-bd">BD/运营</span>渠道矩阵P1全部启动 — 6月1日</li>
+<li><span class="del-owner o-ops">市场负责人</span>首次品牌活动/线下赛事 — 6月15日</li>
+<li><span class="del-owner o-legal">法务/财务</span>第二次合规审计 — 6月15日</li>
+</ul></div>
+<div class="gate">
+<div class="gate-hdr"><div class="gate-icon" style="background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,.2)">G4</div><div class="gate-title">Go/No-Go Gate #4 (6月30日)</div></div>
+<ul class="gate-items">
+<li><div class="gi-check gi-go">&check;</div><div><strong>DAU趋势</strong>月环比增长 &ge; 30% — 停滞：诊断瓶颈</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>LTV/CAC &gt; 1.5</strong>（或趋势向好） — &lt;1：收缩投入</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>付费渗透率 &ge; 5%</strong> — &lt;3%：商业模式验证不足</div></li>
+<li><div class="gi-check gi-go">&check;</div><div><strong>俱乐部生态 &ge; 10个B级以上</strong> — &lt;5个：生态未建立</div></li>
+</ul>
+</div>
+</div>
+
+<!-- Kill Criteria -->
+<div class="sec" style="margin-top:24px"><div class="st">Kill Criteria · 止损条件</div>
+<div class="kill">
+<div class="kill-title"><span style="font-size:16px">&cross;</span> 任何阶段触发以下条件，启动止损评估</div>
+<div class="htw" style="margin:0"><table class="ht"><thead><tr><th>Kill信号</th><th>触发条件</th><th>处理流程</th></tr></thead><tbody>
+<tr><td style="color:var(--red)">产品致命缺陷</td><td>P0问题持续2周未修复</td><td>暂停推广，全力修复</td></tr>
+<tr><td style="color:var(--red)">增长假设失败</td><td>Phase 3结束 DAU &lt; 100 且无上升趋势</td><td>决策层评审：Pivot/暂停/终止</td></tr>
+<tr><td style="color:var(--red)">合规风险</td><td>收到监管机构正式警告/调查</td><td>立即暂停运营，法务主导</td></tr>
+<tr><td style="color:var(--red)">团队崩溃</td><td>核心角色离职且4周内无法替补</td><td>决策层评估是否暂停</td></tr>
+<tr><td style="color:var(--red)">资金约束</td><td>月度burn rate超预算150%</td><td>收缩至最小运营规模</td></tr>
+<tr><td style="color:var(--red)">竞争碾压</td><td>头部竞品同质化+大规模补贴</td><td>差异化评估，可能Pivot</td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<!-- v4 砍掉的内容 -->
+<div class="sec"><div class="st">v4路线图被砍掉/后移的内容</div>
+<div class="htw"><table class="ht"><thead><tr><th>原v4计划(4月)</th><th>处理</th><th>原因</th></tr></thead><tbody>
+<tr><td>6渠道同时铺开</td><td><span class="tag tag-cut">砍掉</span> 仅1个俱乐部验证</td><td>资源分散、无法归因</td></tr>
+<tr><td>品牌大规模投放</td><td><span class="tag tag-cut">砍掉</span> 仅维持最低频率</td><td>产品未修好时做品牌是浪费</td></tr>
+<tr><td>KOL签约启动</td><td><span class="tag tag-o">后移至6月</span></td><td>先验证产品和渠道模型</td></tr>
+<tr><td>线下赛事合作</td><td><span class="tag tag-o">后移至6月</span></td><td>优先级低于产品修复</td></tr>
+<tr><td>DAU冲1200-1600</td><td><span class="tag tag-cut">砍掉</span> 目标300-400</td><td>无数据支撑的目标是幻觉</td></tr>
+<tr><td>多渠道同步获客</td><td><span class="tag tag-cut">砍掉</span></td><td>先单点验证再铺开</td></tr>
+</tbody></table></div>
 </div>
 
 </div>
+
+<!-- ===== TAB 2: 数据体系 ===== -->
+<div class="pnl" id="p-2">
+
+<div class="sec"><div class="st">建设理念</div>
+<div class="core"><div class="ct">先能看见 &rarr; 再看清楚 &rarr; 最后看透</div><div class="cd">没有数据体系，就没有"数据驱动"。v4的一个关键缺陷是在没有数据基础设施的情况下承诺数据驱动决策。<br>有埋点 &ne; 有数据体系 · 有数据 &ne; 有洞察 · 有洞察 &ne; 有决策</div></div>
+</div>
+
+<div class="sec"><div class="st">分阶段建设路径</div>
+<div class="tl-bar">
+<div class="tl-item ph0 a" onclick="sdp(0)">Phase 0 · 人工摸底</div>
+<div class="tl-item ph1" onclick="sdp(1)">Phase 1 · 最小埋点</div>
+<div class="tl-item ph2" onclick="sdp(2)">Phase 2 · 归因分析</div>
+<div class="tl-item ph3" onclick="sdp(3)">Phase 3 · 预测自动化</div>
+</div>
+
+<div class="ph-pnl a" id="dp-0">
+<div class="ph-hdr"><div class="ph-title">Phase 0: 人工摸底</div><div class="ph-date"><strong>第1周 · 工程量=0</strong></div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">零工程投入，用手工查询+电子表格建立数据基线。回答：<strong>"我们现在的真实状态是什么？"</strong></div></div>
+<div class="sec"><div class="st">必须追踪的4个指标</div>
+<div class="mg">
+<div class="mt"><div class="ml">每日活跃房主数</div><div class="mv" style="font-size:12px">SQL查询/日</div></div>
+<div class="mt"><div class="ml">每日完成牌局数</div><div class="mv" style="font-size:12px">SQL查询/日</div></div>
+<div class="mt"><div class="ml">周注册→首局漏斗</div><div class="mv" style="font-size:12px">SQL查询/周</div></div>
+<div class="mt"><div class="ml">俱乐部级别周报</div><div class="mv" style="font-size:12px">手工汇总/周</div></div>
+</div></div>
+</div>
+
+<div class="ph-pnl" id="dp-1">
+<div class="ph-hdr"><div class="ph-title">Phase 1: 最小可用埋点+看板</div><div class="ph-date"><strong>第2-3周 · ~9人天</strong></div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">回答：<strong>"增长飞轮在哪个环节断裂？"</strong> 共需埋7个关键事件。</div></div>
+<div class="sec"><div class="st">核心事件追踪</div>
+<div class="htw"><table class="ht"><thead><tr><th>事件</th><th>触发条件</th><th>关键属性</th></tr></thead><tbody>
+<tr><td>user_registered</td><td>完成注册</td><td>来源、设备、UTM、邀请码</td></tr>
+<tr><td>club_joined</td><td>加入俱乐部</td><td>加入方式、邀请人、俱乐部规模</td></tr>
+<tr><td>game_created</td><td>房主创建牌局</td><td>游戏类型、是否首次创建</td></tr>
+<tr><td>game_joined</td><td>玩家坐下开始</td><td>来源(大厅/邀请/推送)、首次标记</td></tr>
+<tr><td>game_completed</td><td>牌局正常结束</td><td>参与人数、手牌数、时长</td></tr>
+<tr><td>invite_sent</td><td>发送邀请链接</td><td>渠道(WhatsApp/Telegram/SMS)</td></tr>
+<tr><td>daily_active</td><td>当日首次打开App</td><td>session数、天数距注册、是否房主</td></tr>
+</tbody></table></div></div>
+<div class="sec"><div class="st">核心漏斗</div>
+<div class="card" style="text-align:center;padding:20px">
+<div style="font-size:13px;color:var(--text2);line-height:2.2">
+注册 <span style="color:var(--accent)">&rarr;</span> 加入俱乐部 <span style="color:var(--accent)">&rarr;</span> 首次入局 <span style="color:var(--accent)">&rarr;</span> 首局完成 <span style="color:var(--accent)">&rarr;</span> D7回访 <span style="color:var(--accent)">&rarr;</span> D7复玩
+</div>
+</div></div>
+</div>
+
+<div class="ph-pnl" id="dp-2">
+<div class="ph-hdr"><div class="ph-title">Phase 2: 归因+俱乐部健康度</div><div class="ph-date"><strong>第2个月 · ~16人天</strong></div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">回答两个问题：<strong>"钱花在哪最有效？"</strong> 和 <strong>"哪些俱乐部是真活跃？"</strong></div></div>
+<div class="sec"><div class="st">渠道归因系统</div>
+<div class="card"><div style="font-size:13px;color:var(--text2);line-height:1.8">
+<strong>归因模型：</strong>首次触点归因 (First-Touch Attribution)<br>
+<strong>归因优先级：</strong>邀请码 &gt; 深度链接 &gt; UTM参数 &gt; 自然流量<br>
+<strong>渠道效果看板：</strong>渠道新增占比 / 渠道→首局完成率 / 有效房主成本 / KOL贡献排行
+</div></div></div>
+</div>
+
+<div class="ph-pnl" id="dp-3">
+<div class="ph-hdr"><div class="ph-title">Phase 3: 预测+自动化</div><div class="ph-date"><strong>第3个月+ · ~11人天</strong></div></div>
+<div class="blk info"><div class="blk-i">i</div><div class="blk-t">从"被动看数据"升级为<strong>"数据驱动自动化决策"</strong>。包含流失预警、DAU预测、自动告警。</div></div>
+<div class="sec"><div class="st">自动告警规则</div>
+<div class="htw"><table class="ht"><thead><tr><th>告警</th><th>触发条件</th><th>级别</th><th>通知</th></tr></thead><tbody>
+<tr><td>DAU异常下跌</td><td>日DAU比7日均值低30%+</td><td><span class="tag tag-r">P0</span></td><td>即时消息</td></tr>
+<tr><td>俱乐部僵尸化</td><td>健康度降至"僵尸"</td><td><span class="tag tag-o">P1</span></td><td>每日汇总</td></tr>
+<tr><td>房主7天未开局</td><td>曾活跃房主连续7天无game_created</td><td><span class="tag tag-o">P1</span></td><td>每日汇总</td></tr>
+<tr><td>漏斗转化率下降</td><td>周转化率比上周低20%+</td><td><span class="tag tag-o">P1</span></td><td>周报</td></tr>
+</tbody></table></div></div>
+</div>
+</div>
+
+<!-- Club Health Score -->
+<div class="sec"><div class="st">俱乐部健康度评分算法</div>
+<div class="hs-grid">
+<div class="hs-chart">
+<div class="hs-title">6维度权重分布</div>
+<div class="hs-bars">
+<div class="hs-bar"><div class="hs-label">活跃度</div><div class="hs-track"><div class="hs-fill" style="width:100%;background:var(--accent)"></div></div><div class="hs-w">30%</div></div>
+<div class="hs-bar"><div class="hs-label">留存质量</div><div class="hs-track"><div class="hs-fill" style="width:83%;background:var(--blue)"></div></div><div class="hs-w">25%</div></div>
+<div class="hs-bar"><div class="hs-label">社交深度</div><div class="hs-track"><div class="hs-fill" style="width:67%;background:var(--green)"></div></div><div class="hs-w">20%</div></div>
+<div class="hs-bar"><div class="hs-label">房间稳定性</div><div class="hs-track"><div class="hs-fill" style="width:50%;background:var(--purple)"></div></div><div class="hs-w">15%</div></div>
+<div class="hs-bar"><div class="hs-label">增长性</div><div class="hs-track"><div class="hs-fill" style="width:33%;background:var(--teal)"></div></div><div class="hs-w">10%</div></div>
+</div>
+<div style="margin-top:14px;font-size:11px;color:var(--text3);line-height:1.6">
+满分100分 · S级(&ge;85) · A级(70-84) · B级(50-69) · C级(30-49) · D级(&lt;30)
+</div>
+</div>
+<div class="hs-chart">
+<div class="hs-title">评分维度详解</div>
+<div class="htw" style="margin:0"><table class="ht" style="min-width:auto"><thead><tr><th>维度</th><th>指标</th><th>满分标准</th></tr></thead><tbody>
+<tr><td style="color:var(--accent)">活跃度 30%</td><td>WAU/总成员</td><td>&ge;50%</td></tr>
+<tr><td style="color:var(--blue)">留存质量 25%</td><td>成员7日留存</td><td>&ge;40%</td></tr>
+<tr><td style="color:var(--green)">社交深度 20%</td><td>人均语音分钟/周</td><td>&ge;60min</td></tr>
+<tr><td style="color:var(--purple)">房间稳定性 15%</td><td>周均开房场次</td><td>&ge;10场</td></tr>
+<tr><td style="color:var(--teal)">增长性 10%</td><td>周净增成员</td><td>&ge;5人</td></tr>
+</tbody></table></div>
+</div>
+</div>
+</div>
+
+<div class="sec"><div class="st">核心指标定义表</div>
+<div class="htw"><table class="ht"><thead><tr><th>指标</th><th>定义</th><th>计算方式</th><th>频率</th></tr></thead><tbody>
+<tr><td>DAU</td><td>当日有至少1次有效session(&gt;30s)的去重用户</td><td>COUNT(DISTINCT user_id)</td><td>每日</td></tr>
+<tr><td>有效房主数</td><td>符合5维度中至少4项的房主</td><td>自动计算</td><td>每周</td></tr>
+<tr><td>房间活跃度</td><td>&ge;3人参与且&ge;30分钟的房间数</td><td>COUNT(rooms)</td><td>每日</td></tr>
+<tr><td>裂变系数</td><td>每活跃用户7日内带来的新注册数</td><td>邀请来源/活跃用户</td><td>每周</td></tr>
+<tr><td>付费渗透率</td><td>至少1次付费的用户占DAU比例</td><td>付费用户/DAU</td><td>每周</td></tr>
+<tr><td>俱乐部健康度</td><td>综合评分(0-100)</td><td>6维度加权模型</td><td>每周</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="sec"><div class="st">工程量估算汇总</div>
+<div class="mg">
+<div class="mt"><div class="ml">Phase 0</div><div class="mv" style="color:var(--green)">0天</div></div>
+<div class="mt"><div class="ml">Phase 1</div><div class="mv">~9人天</div></div>
+<div class="mt"><div class="ml">Phase 2</div><div class="mv">~16人天</div></div>
+<div class="mt"><div class="ml">Phase 3</div><div class="mv">~11人天</div></div>
+</div>
+<div class="mn"><strong>总计：~36人天</strong>，分4个阶段，跨3个月。研发约21天，发行/数据约15天。<br>第一个可用看板：第3周末（Phase 1完成时）。第一个数据决策点：第4周末。</div>
+</div>
+
+</div>
+
+<!-- ===== TAB 3: DAU 增长测算 ===== -->
+<div class="pnl" id="p-3">
+
+<div class="sec"><div class="st">v5修正目标</div>
+<div class="blk warn"><div class="blk-i">!</div><div class="blk-t"><strong>修正原则：</strong>近期（4月）给出基于可控变量的保守预测；中期（5-6月）不拍数字，改为数据驱动的动态目标。</div></div>
+<div class="htw"><table class="ht"><thead><tr><th>时间段</th><th>v4目标</th><th>v5修正</th><th>目标性质</th></tr></thead><tbody>
+<tr><td>4月6-20日（冷启动）</td><td style="text-decoration:line-through;color:var(--text3)">500+ DAU</td><td style="color:var(--accent2);font-weight:600">100-200 DAU</td><td>承诺目标</td></tr>
+<tr><td>4月21日-5月15日（验证期）</td><td style="text-decoration:line-through;color:var(--text3)">1,500 DAU</td><td style="color:var(--accent2);font-weight:600">300-400 DAU</td><td>承诺目标</td></tr>
+<tr><td>5月16日-6月30日（放量期）</td><td style="text-decoration:line-through;color:var(--text3)">3,000+ DAU</td><td style="color:var(--accent2);font-weight:600">数据驱动</td><td>动态目标</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="sec"><div class="st">4种场景预测</div>
+<div class="sc-grid">
+<div class="sc-card opt"><div class="sc-name">乐观场景</div><div class="sc-vals">
+4月底: <strong>400+</strong><br>5月中: <strong>800+</strong><br>6月底: <strong>2,000+</strong><br><br>
+<span style="font-size:11px">裂变&gt;0.5 + 留存&gt;35%</span>
+</div></div>
+<div class="sc-card base"><div class="sc-name">基准场景</div><div class="sc-vals">
+4月底: <strong>250-400</strong><br>5月中: <strong>500-800</strong><br>6月底: <strong>1,000-1,500</strong><br><br>
+<span style="font-size:11px">裂变0.2-0.5 + 留存25-35%</span>
+</div></div>
+<div class="sc-card cons"><div class="sc-name">保守场景</div><div class="sc-vals">
+4月底: <strong>150-250</strong><br>5月中: <strong>300-500</strong><br>6月底: <strong>500-800</strong><br><br>
+<span style="font-size:11px">裂变0.1-0.2 + 留存20-25%</span>
+</div></div>
+<div class="sc-card stop"><div class="sc-name">止损场景</div><div class="sc-vals">
+4月底: <strong>&lt;100</strong><br>5月中: <strong>&lt;200</strong><br>6月底: <strong>&lt;300</strong><br><br>
+<span style="font-size:11px">裂变&lt;0.1 + 留存&lt;15%</span>
+</div></div>
+</div>
+</div>
+
+<div class="sec"><div class="st">Interactive DAU模型参数</div>
+<div class="slider-row"><div class="slider-label">有效房主数</div><input type="range" class="slider-input" id="sl_hosts" min="3" max="30" value="8" oninput="updateModel()"><div class="slider-val" id="sv_hosts">8</div></div>
+<div class="slider-row"><div class="slider-label">每房主活跃用户</div><input type="range" class="slider-input" id="sl_users" min="5" max="30" value="15" oninput="updateModel()"><div class="slider-val" id="sv_users">15</div></div>
+<div class="slider-row"><div class="slider-label">D1留存率(%)</div><input type="range" class="slider-input" id="sl_d1" min="10" max="50" value="25" oninput="updateModel()"><div class="slider-val" id="sv_d1">25%</div></div>
+<div class="slider-row"><div class="slider-label">裂变系数</div><input type="range" class="slider-input" id="sl_viral" min="0" max="100" value="30" oninput="updateModel()"><div class="slider-val" id="sv_viral">0.30</div></div>
+<div class="slider-row"><div class="slider-label">月流失率(%)</div><input type="range" class="slider-input" id="sl_churn" min="5" max="30" value="12" oninput="updateModel()"><div class="slider-val" id="sv_churn">12%</div></div>
+</div>
+
+<div class="sec"><div class="st">模型结果</div>
+<div class="rsg" id="model-results"></div>
+</div>
+<div class="chart-wrap"><div class="chart-title">DAU增长曲线 · 场景对比</div><div class="chart-box"><canvas id="dauChart"></canvas></div></div>
+
+<div class="sec"><div class="st">模型假设验证计划</div>
+<div class="htw"><table class="ht"><thead><tr><th>假设</th><th>内容</th><th>验证方式</th><th>验证时间</th><th>预案</th></tr></thead><tbody>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H1</td><td>有效房主维持10-20活跃用户</td><td>冷启动实际数据</td><td>4月13日</td><td>&lt;5人：调查原因</td></tr>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H2</td><td>D1留存率达25%+</td><td>冷启动留存数据</td><td>4月10日起</td><td>&lt;15%：暂停拉新</td></tr>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H3</td><td>裂变系数达0.2+</td><td>邀请链路数据</td><td>4月20日</td><td>&lt;0.1：检查分享链路</td></tr>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H4</td><td>3%新用户自然转化为房主</td><td>Phase 3数据</td><td>5月15日</td><td>&lt;1%：飞轮重审</td></tr>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H5</td><td>付费渗透率达5%+</td><td>Phase 3数据</td><td>5月15日</td><td>&lt;3%：商业模式调整</td></tr>
+<tr><td style="font-family:'DM Mono';color:var(--accent)">H6</td><td>Partner-A 4月带来50+初始用户</td><td>合作启动数据</td><td>4月10日</td><td>受阻：启动备选渠道</td></tr>
+</tbody></table></div>
+</div>
+
+</div>
+
+<!-- ===== TAB 4: 风险登记册 ===== -->
+<div class="pnl" id="p-4">
+
+<div class="sec"><div class="st">风险概览</div>
+<div class="mg">
+<div class="mt" style="border-left:3px solid var(--red)"><div class="ml">战略风险</div><div class="mv">3</div></div>
+<div class="mt" style="border-left:3px solid var(--orange)"><div class="ml">运营风险</div><div class="mv">4</div></div>
+<div class="mt" style="border-left:3px solid var(--blue)"><div class="ml">技术风险</div><div class="mv">3</div></div>
+<div class="mt" style="border-left:3px solid var(--purple)"><div class="ml">合规风险</div><div class="mv">3</div></div>
+</div>
+</div>
+
+<div class="risk-cats">
+<div class="risk-cat a" onclick="srk(0)">战略风险</div>
+<div class="risk-cat" onclick="srk(1)">运营风险</div>
+<div class="risk-cat" onclick="srk(2)">技术风险</div>
+<div class="risk-cat" onclick="srk(3)">合规风险</div>
+</div>
+
+<!-- Strategic Risks -->
+<div class="risk-pnl a" id="rk-0">
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R01</div><div class="risk-title">巴西博彩监管法执行细则出台</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 极高</span></div></div><div class="risk-body"><strong>缓解：</strong>法务持续跟踪立法动态；产品定位强调"社交"而非"博彩"；准备合规预案<br><strong>责任人：</strong>法务顾问 ｜ <strong>监控：</strong>每周</div></div>
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R02</div><div class="risk-title">头部竞品推出语音社交功能</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>加速建立房主生态壁垒；差异化在社交深度而非功能<br><strong>责任人：</strong>PM ｜ <strong>监控：</strong>每月</div></div>
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R03</div><div class="risk-title">增长飞轮假设不成立</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 极高</span></div></div><div class="risk-body"><strong>缓解：</strong>设置明确验证指标和Kill Criteria；准备备选增长模型<br><strong>责任人：</strong>PM ｜ <strong>监控：</strong>Phase 3结束时验证</div></div>
+</div>
+
+<!-- Operational Risks -->
+<div class="risk-pnl" id="rk-1">
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R04</div><div class="risk-title">Partner-A拒绝新合规框架</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>设置过渡期；同步培养2-3个备选合作方<br><strong>责任人：</strong>巴西市场负责人 ｜ <strong>监控：</strong>每周</div></div>
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R05</div><div class="risk-title">房主质量不达标，房间体验差</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>严格房主筛选+培训SOP；C级房主快速淘汰机制<br><strong>责任人：</strong>运营经理 ｜ <strong>监控：</strong>每周</div></div>
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R06</div><div class="risk-title">合作方刷量/虚假活跃</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-p">影响: 中</span></div></div><div class="risk-body"><strong>缓解：</strong>反舞弊数据监控；异常模式自动预警<br><strong>责任人：</strong>数据分析师 ｜ <strong>监控：</strong>持续</div></div>
+<div class="risk-card r-low"><div class="risk-hdr"><div class="risk-id">R07</div><div class="risk-title">巴西团队关键人员流失</div><div class="risk-badges"><span class="tag tag-g">可能性: 低</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>知识文档化；核心流程SOP化；备选人才储备<br><strong>责任人：</strong>巴西市场负责人 ｜ <strong>监控：</strong>每月</div></div>
+</div>
+
+<!-- Technical Risks -->
+<div class="risk-pnl" id="rk-2">
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R08</div><div class="risk-title">语音质量在巴西网络环境下不稳定</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 极高</span></div></div><div class="risk-body"><strong>缓解：</strong>巴西节点部署；弱网环境测试；降级策略<br><strong>责任人：</strong>技术团队 ｜ <strong>监控：</strong>每日（Phase 1-2）</div></div>
+<div class="risk-card r-low"><div class="risk-hdr"><div class="risk-id">R09</div><div class="risk-title">PIX支付对接延迟或不稳定</div><div class="risk-badges"><span class="tag tag-g">可能性: 低</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>备选支付方式（信用卡）；免费体验模式兜底<br><strong>责任人：</strong>支付技术 ｜ <strong>监控：</strong>每周</div></div>
+<div class="risk-card r-med"><div class="risk-hdr"><div class="risk-id">R10</div><div class="risk-title">数据埋点不完整/不准确</div><div class="risk-badges"><span class="tag tag-o">可能性: 中</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>Phase 0严格校验；数据质量日报<br><strong>责任人：</strong>数据分析师 ｜ <strong>监控：</strong>每日（Phase 0-1）</div></div>
+</div>
+
+<!-- Compliance Risks -->
+<div class="risk-pnl" id="rk-3">
+<div class="risk-card r-low"><div class="risk-hdr"><div class="risk-id">R11</div><div class="risk-title">合作方激励被认定为违反巴西劳动法</div><div class="risk-badges"><span class="tag tag-g">可能性: 低</span><span class="tag tag-r">影响: 高</span></div></div><div class="risk-body"><strong>缓解：</strong>合同明确为服务合同非劳动合同；合作方以MEI/CNPJ签约<br><strong>责任人：</strong>法务顾问 ｜ <strong>监控：</strong>季度</div></div>
+<div class="risk-card r-low"><div class="risk-hdr"><div class="risk-id">R12</div><div class="risk-title">用户数据处理不符合LGPD</div><div class="risk-badges"><span class="tag tag-g">可能性: 低</span><span class="tag tag-r">影响: 极高</span></div></div><div class="risk-body"><strong>缓解：</strong>隐私政策葡语版；数据处理流程法务审核；用户同意机制<br><strong>责任人：</strong>法务顾问 ｜ <strong>监控：</strong>季度</div></div>
+<div class="risk-card r-low"><div class="risk-hdr"><div class="risk-id">R13</div><div class="risk-title">推广内容未标注广告标识</div><div class="risk-badges"><span class="tag tag-g">可能性: 低</span><span class="tag tag-p">影响: 中</span></div></div><div class="risk-body"><strong>缓解：</strong>所有推广标注"Publicidade"；合同中明确要求<br><strong>责任人：</strong>运营经理 ｜ <strong>监控：</strong>持续</div></div>
+</div>
+
+<!-- Risk governance -->
+<div class="sec" style="margin-top:20px"><div class="st">风险治理流程</div>
+<div class="card" style="text-align:center;padding:20px">
+<div style="font-size:13px;color:var(--text2);line-height:2.2">
+风险识别(任何人) <span style="color:var(--accent)">&rarr;</span> PM评估(可能性x影响) <span style="color:var(--accent)">&rarr;</span>
+<span style="color:var(--red)">高/极高: 24h内制定缓解计划</span> · <span style="color:var(--orange)">中: 周度Review</span> · <span style="color:var(--text3)">低: 季度Review</span>
+<br><span style="color:var(--accent)">&rarr;</span> 缓解执行(责任人) <span style="color:var(--accent)">&rarr;</span> 定期复盘(状态变化)
+</div>
+</div>
+</div>
+
+</div>
+
+</div><!-- /ctn -->
 
 <script>
+/* Tooltip */
 const ttg=document.getElementById('ttg');
 document.addEventListener('mouseover',e=>{const t=e.target.closest('.tip');if(!t||!t.dataset.tip)return;ttg.textContent=t.dataset.tip;ttg.style.display='block';const r=t.getBoundingClientRect(),tw=ttg.offsetWidth,th=ttg.offsetHeight;let l=r.left+r.width/2-tw/2;if(l<8)l=8;if(l+tw>window.innerWidth-8)l=window.innerWidth-tw-8;ttg.style.left=l+'px';ttg.style.top=(r.top>th+16?r.top-th-8:r.bottom+8)+'px'});
 document.addEventListener('mouseout',e=>{if(e.target.closest('.tip'))ttg.style.display='none'});
 
-function sp(i){document.querySelectorAll('.nav-i').forEach((n,j)=>n.classList.toggle('a',j===i));document.querySelectorAll('.pnl').forEach((p,j)=>p.classList.toggle('a',j===i));if(i===2&&!window._mi){calc();window._mi=true}}
-function sr(i){document.querySelectorAll('.ri').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('.rp').forEach((p,j)=>p.classList.toggle('a',j===i))}
-function sm(i){document.querySelectorAll('.mdi').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('.mdp').forEach((p,j)=>p.classList.toggle('a',j===i))}
+/* Tab switching */
+function sp(i){document.querySelectorAll('.nav-i').forEach((n,j)=>n.classList.toggle('a',j===i));document.querySelectorAll('.pnl').forEach((p,j)=>p.classList.toggle('a',j===i));if(i===3&&!window._modelInit){updateModel();window._modelInit=true}}
 
-let dc=null;function v(id){return parseFloat(document.getElementById(id).value)||0}
-function calc(){
-const T={kol:{w1:v('kol_w1'),wn:v('kol_wn'),c:'#E85D4A',n:'KOL·Club'},kolc:{w1:v('kolc_w1'),wn:v('kolc_wn'),c:'#F472B6',n:'KOL·内容'},big:{w1:v('big_w1'),wn:v('big_wn'),c:'#D4A853',n:'大型Club'},mid:{w1:v('mid_w1'),wn:v('mid_wn'),c:'#60A5FA',n:'中型Club'},small:{w1:v('sm_w1'),wn:v('sm_wn'),c:'#A78BFA',n:'小型/新建'}};
-const pE=v('p_enter')/100,pF=v('p_finish')/100,pD=v('p_d30')/100,pC=v('p_churn')/100,pH=v('p_host_conv')/100,fr=pE*pF*pD,ms=['3月','4月','5月','6月'];
-const HP={kol:[v('h_kol_3'),v('h_kol_4'),v('h_kol_5'),v('h_kol_6')],kolc:[v('h_kolc_3'),v('h_kolc_4'),v('h_kolc_5'),v('h_kolc_6')],big:[v('h_big_3'),v('h_big_4'),v('h_big_5'),v('h_big_6')],mid:[v('h_mid_3'),v('h_mid_4'),v('h_mid_5'),v('h_mid_6')],small:[v('h_sm_3'),v('h_sm_4'),v('h_sm_5'),v('h_sm_6')]};
-let R=[],ks=Object.keys(T);
-for(let m=0;m<4;m++){let np={},ti={},th={},nh={};for(let k of ks){let inv=0,cu=0;for(let a=0;a<=m;a++){let h=HP[k][a];cu+=h;if(a===m){inv+=h*(T[k].w1+T[k].wn*3);nh[k]=h}else inv+=h*T[k].wn*4}ti[k]=inv;np[k]=Math.round(inv*fr);th[k]=cu}let tnp=ks.reduce((s,k)=>s+np[k],0),tch=ks.reduce((s,k)=>s+th[k],0),ret=m===0?80:Math.round(R[m-1].dau*(1-pC)),chu=m===0?0:Math.round(R[m-1].dau*pC);R.push({mon:ms[m],dau:ret+tnp+tch,ret,tnp,tch,chu,np,ti,th,nh,org:Math.round(tnp*pH)})}
-// Render
-const cols={kol:'var(--kol)',kolc:'var(--kolc)',big:'var(--big)',mid:'var(--mid)',small:'var(--sm)'},nms={kol:'KOL·Club',kolc:'KOL·内容',big:'大型Club',mid:'中型Club',small:'小型/新建'};
-document.getElementById('rg').innerHTML=R.map((r,i)=>{const p=i>0?R[i-1].dau:80,d=r.dau-p,pc=Math.round(d/p*100),is6=r.mon==='6月',gap=is6?(r.dau>=2500?'达标':'差 '+(2500-r.dau)):'';return`<div class="rc ${is6?'hl':''}"><div class="rcl">${r.mon} DAU</div><div class="rcv ${is6?'gold':''}">${r.dau.toLocaleString()}</div><div class="rcd up">+${d} (+${pc}%)</div><div class="rcs">房主${r.tch} · 活跃+${r.tnp}</div>${is6?`<div class="rcs" style="color:${r.dau>=2500?'var(--green)':'var(--red)'};font-weight:600;margin-top:4px">${gap}</div>`:''}</div>`}).join('');
-const ctx=document.getElementById('dauChart').getContext('2d');if(dc)dc.destroy();
-dc=new Chart(ctx,{type:'bar',data:{labels:R.map(r=>r.mon),datasets:[{label:'留存',data:R.map(r=>r.ret),backgroundColor:'rgba(155,151,143,.3)',borderRadius:3,stack:'s'},{label:'KOL·Club',data:R.map(r=>r.np.kol),backgroundColor:'rgba(232,93,74,.7)',borderRadius:3,stack:'s'},{label:'KOL·内容',data:R.map(r=>r.np.kolc),backgroundColor:'rgba(244,114,182,.6)',borderRadius:3,stack:'s'},{label:'大型Club',data:R.map(r=>r.np.big),backgroundColor:'rgba(212,168,83,.7)',borderRadius:3,stack:'s'},{label:'中型Club',data:R.map(r=>r.np.mid),backgroundColor:'rgba(96,165,250,.7)',borderRadius:3,stack:'s'},{label:'小型/新建',data:R.map(r=>r.np.small),backgroundColor:'rgba(167,139,250,.7)',borderRadius:3,stack:'s'},{label:'房主',data:R.map(r=>r.tch),backgroundColor:'rgba(45,212,191,.4)',borderRadius:3,stack:'s'},{label:'2500目标',data:[2500,2500,2500,2500],type:'line',borderColor:'rgba(212,168,83,.5)',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#9B978F',font:{family:'DM Sans',size:11},padding:12,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#1A1F28',titleColor:'#E8E6E1',bodyColor:'#9B978F',borderColor:'rgba(255,255,255,.1)',borderWidth:1,cornerRadius:8,padding:10}},scales:{x:{grid:{display:false},ticks:{color:'#6B6860'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#6B6860',font:{family:'DM Mono',size:11}}}}}});
-document.getElementById('mdT').innerHTML=R.map((r,i)=>`<div class="mdi ${i===3?'a':''}" onclick="sm(${i})">${r.mon}</div>`).join('');
-document.getElementById('mdP').innerHTML=R.map((r,i)=>{const wf=ks.map(k=>`<div class="wi"><span class="wil"><span class="dot" style="background:${cols[k]}"></span>${nms[k]}</span><span class="wiv pos">+${r.np[k]}</span></div>`).join(''),hr=ks.map(k=>`<div class="wi"><span class="wil"><span class="dot" style="background:${cols[k]}"></span>${nms[k]}</span><span class="wiv">${r.th[k]} (+${r.nh[k]})</span></div>`).join(''),ti2=ks.reduce((s,k)=>s+r.ti[k],0),id=ks.map(k=>`${nms[k]}:${r.ti[k]}`).join(' · ');return`<div class="mdp ${i===3?'a':''}" id="md-${i}"><div class="dg"><div class="dc"><div class="dct"><span class="dci" style="background:var(--accent-bg);color:var(--accent)">W</span>DAU瀑布</div><div class="wi"><span class="wil">上月末</span><span class="wiv">${i===0?80:R[i-1].dau}</span></div><div class="wi"><span class="wil">-流失(${v('p_churn')}%)</span><span class="wiv neg">-${r.chu}</span></div><div class="wi"><span class="wil">=留存</span><span class="wiv">${r.ret}</span></div>${wf}<div class="wi"><span class="wil">+房主</span><span class="wiv pos">+${r.tch}</span></div><div class="wi" style="padding-top:8px;border-top:2px solid var(--border2)"><span class="wil"><strong>月末DAU</strong></span><span class="wiv tot">${r.dau.toLocaleString()}</span></div></div><div class="dc"><div class="dct"><span class="dci" style="background:var(--green-bg);color:var(--green)">H</span>房主结构</div>${hr}<div class="wi" style="padding-top:8px;border-top:2px solid var(--border2)"><span class="wil"><strong>累计房主</strong></span><span class="wiv tot">${r.tch}</span></div><div class="ib ib-p"><div class="ibt">飞轮·玩家→房主</div><div class="ibx">${r.tnp}×${v('p_host_conv')}%=<strong>${r.org}个自然新房主</strong>(下月)</div></div><div class="ib ib-b"><div class="ibt">邀请拆解</div><div class="ibx">${id}<br><strong>总${ti2}→漏斗后${r.tnp}活跃</strong></div></div></div></div></div>`}).join('');
-document.getElementById('fwR').innerHTML=R.map((r,i)=>{if(!i)return'';const prev=R[i-1].dau,chu=Math.round(prev*pC),nw=r.tnp+(r.tch-R[i-1].tch),ps=nw>chu;return`<div class="fwcr"><div class="fwci ${ps?'ps':'fl'}">${ps?'✓':'✗'}</div><div class="fwcx"><strong>${r.mon}</strong> — 新增${nw} vs 流失${chu}</div><div class="fwcn" style="color:${ps?'var(--green)':'var(--red)'}">净增${nw-chu>0?'+':''}${nw-chu}</div></div>`}).join('')}
-calc();
+/* Phase timeline switching */
+function sph(i){document.querySelectorAll('#p-1 .tl-item').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('#p-1 .ph-pnl').forEach((p,j)=>p.classList.toggle('a',j===i))}
+
+/* Data phase switching */
+function sdp(i){document.querySelectorAll('#p-2 .tl-item').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('#p-2 .ph-pnl').forEach((p,j)=>p.classList.toggle('a',j===i))}
+
+/* Risk category switching */
+function srk(i){document.querySelectorAll('.risk-cat').forEach((t,j)=>t.classList.toggle('a',j===i));document.querySelectorAll('.risk-pnl').forEach((p,j)=>p.classList.toggle('a',j===i))}
+
+/* DAU Model */
+let dauChart=null;
+function updateModel(){
+  const hosts=parseInt(document.getElementById('sl_hosts').value);
+  const usersPerHost=parseInt(document.getElementById('sl_users').value);
+  const d1=parseInt(document.getElementById('sl_d1').value)/100;
+  const viral=parseInt(document.getElementById('sl_viral').value)/100;
+  const churn=parseInt(document.getElementById('sl_churn').value)/100;
+
+  document.getElementById('sv_hosts').textContent=hosts;
+  document.getElementById('sv_users').textContent=usersPerHost;
+  document.getElementById('sv_d1').textContent=document.getElementById('sl_d1').value+'%';
+  document.getElementById('sv_viral').textContent=viral.toFixed(2);
+  document.getElementById('sv_churn').textContent=document.getElementById('sl_churn').value+'%';
+
+  /* Simple month-over-month projection */
+  const months=['4月上','4月下','5月上','5月下','6月上','6月下'];
+  let dau=80; /* baseline */
+  const results=[];
+  const optData=[],baseData=[],consData=[],stopData=[];
+
+  for(let m=0;m<6;m++){
+    const newFromHosts=Math.round(hosts*usersPerHost*d1*(1+viral));
+    const hostGrowth=Math.round(m*2); /* gradual host growth */
+    const effectiveHosts=hosts+hostGrowth;
+    const retained=Math.round(dau*(1-churn/2)); /* bi-monthly */
+    const newUsers=Math.round(effectiveHosts*usersPerHost*d1*(1+viral)*0.5);
+    dau=retained+newUsers;
+    results.push(dau);
+
+    /* scenario multipliers */
+    optData.push(Math.round(dau*1.4));
+    baseData.push(dau);
+    consData.push(Math.round(dau*0.65));
+    stopData.push(Math.round(dau*0.35));
+  }
+
+  /* Render result cards */
+  const resEl=document.getElementById('model-results');
+  const labels=['冷启动期','验证初期','验证末期','放量初期'];
+  const picks=[0,2,3,5];
+  resEl.innerHTML=picks.map((idx,i)=>{
+    const v=results[idx];
+    return `<div class="rc ${i===3?'hl':''}"><div class="rcl">${months[idx]}</div><div class="rcv ${i===3?'gold':''}">${v.toLocaleString()}</div><div class="rcs">${labels[i]}</div></div>`;
+  }).join('');
+
+  /* Chart */
+  const ctx=document.getElementById('dauChart').getContext('2d');
+  if(dauChart)dauChart.destroy();
+  dauChart=new Chart(ctx,{type:'line',data:{labels:months,datasets:[
+    {label:'乐观',data:optData,borderColor:'rgba(74,222,128,.8)',backgroundColor:'rgba(74,222,128,.05)',borderWidth:2,fill:true,tension:.3,pointRadius:3},
+    {label:'基准',data:baseData,borderColor:'rgba(212,168,83,.9)',backgroundColor:'rgba(212,168,83,.08)',borderWidth:2,fill:true,tension:.3,pointRadius:3},
+    {label:'保守',data:consData,borderColor:'rgba(251,146,60,.7)',backgroundColor:'rgba(251,146,60,.05)',borderWidth:2,fill:true,tension:.3,pointRadius:3},
+    {label:'止损',data:stopData,borderColor:'rgba(232,93,74,.7)',backgroundColor:'rgba(232,93,74,.05)',borderWidth:2,fill:true,tension:.3,pointRadius:3,borderDash:[5,3]}
+  ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#9B978F',font:{family:'DM Sans',size:11},padding:12,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#1A1F28',titleColor:'#E8E6E1',bodyColor:'#9B978F',borderColor:'rgba(255,255,255,.1)',borderWidth:1,cornerRadius:8,padding:10}},scales:{x:{grid:{display:false},ticks:{color:'#6B6860'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#6B6860',font:{family:'DM Mono',size:11}}}}}});
+}
+/* Init model on page load */
+updateModel();
 </script>
 </body>
 </html>
