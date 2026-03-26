@@ -285,7 +285,7 @@ body {
   box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(212,168,83,.1);
 }
 .tier-card.recommended::after {
-  content: 'RECOMMENDED';
+  content: '\63A8\8350';
   position: absolute;
   top: -10px; left: 50%; transform: translateX(-50%);
   background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -861,11 +861,11 @@ body {
   <div class="nav-inner">
     <span class="nav-logo">FIVE</span>
     <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="strategy.html" class="nav-link">Strategy</a>
-      <a href="#types" class="nav-link active">Calculator</a>
-      <a href="#craig" class="nav-link">Partner-A Case</a>
-      <a href="#cost" class="nav-link">Cost Overview</a>
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="strategy.html" class="nav-link">发行方案</a>
+      <a href="#types" class="nav-link active">激励计算</a>
+      <a href="#craig" class="nav-link">Partner-A案例</a>
+      <a href="#cost" class="nav-link">成本总览</a>
     </div>
   </div>
 </nav>
@@ -874,47 +874,47 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <span class="hero-badge">BD Negotiation Tool</span>
-  <h1><span>Partner Incentive Plan</span></h1>
-  <p>Service Fee + Activity Bonus / Vietnam Super Node Model<br>Select a partner type below to see income breakdown</p>
+  <span class="hero-badge">BD谈判工具</span>
+  <h1><span>合作方激励方案</span></h1>
+  <p>服务费 + 活跃度奖金 / 越南超级节点模式<br>选择合作类型，查看收入明细</p>
 </section>
 
 <!-- SECTION 1: PARTNER TYPES -->
 <section id="types">
   <div class="sec-head mt-0">
     <span class="sec-num">01</span>
-    <h2>Select Partner Type</h2>
-    <p>Click a card to see detailed tier structure and calculate income</p>
+    <h2>选择合作类型</h2>
+    <p>点击卡片查看档位详情和收入测算</p>
   </div>
 
   <div class="type-grid">
     <div class="type-card" data-type="A" onclick="showCalc('A')">
       <div class="tc-icon">BD</div>
-      <div class="tc-label">Type A</div>
-      <div class="tc-name">Regional Market Agent</div>
-      <div class="tc-desc">Regional BD & Club liaison, local operations support</div>
-      <div class="tc-range">$300 - $1,200<small>/ month</small></div>
+      <div class="tc-label">类型A</div>
+      <div class="tc-name">区域市场服务商</div>
+      <div class="tc-desc">区域BD与Club对接，本地运营支持</div>
+      <div class="tc-range">$300 - $1,200<small>/月</small></div>
     </div>
     <div class="type-card" data-type="B" onclick="showCalc('B')">
       <div class="tc-icon">OP</div>
-      <div class="tc-label">Type B</div>
-      <div class="tc-name">Community Operator</div>
-      <div class="tc-desc">Club operations + livestream organization</div>
-      <div class="tc-range">$1,500 - $3,200<small>/ month</small></div>
+      <div class="tc-label">类型B</div>
+      <div class="tc-name">社区运营服务商</div>
+      <div class="tc-desc">Club运营 + 直播组局</div>
+      <div class="tc-range">$1,500 - $3,200<small>/月</small></div>
     </div>
     <div class="type-card" data-type="C" onclick="showCalc('C')">
       <div class="tc-icon">CT</div>
-      <div class="tc-label">Type C</div>
-      <div class="tc-name">Content Provider</div>
-      <div class="tc-desc">Video/livestream content creation</div>
-      <div class="tc-range">$500 - $1,550<small>/ month</small></div>
+      <div class="tc-label">类型C</div>
+      <div class="tc-name">内容服务商</div>
+      <div class="tc-desc">视频/直播内容创作</div>
+      <div class="tc-range">$500 - $1,550<small>/月</small></div>
     </div>
     <div class="type-card" data-type="D" onclick="showCalc('D')">
       <div class="tc-icon">MT</div>
-      <div class="tc-label">Type D</div>
-      <div class="tc-name">Community Mentor</div>
-      <div class="tc-desc">Onboarding guidance for new club hosts</div>
-      <div class="tc-range">Up to $150<small>/ month</small></div>
+      <div class="tc-label">类型D</div>
+      <div class="tc-name">社区导师</div>
+      <div class="tc-desc">辅导新房主上手运营</div>
+      <div class="tc-range">最高 $150<small>/月</small></div>
     </div>
   </div>
 </section>
@@ -926,8 +926,8 @@ body {
   <div class="calc-header">
     <div class="ch-icon" style="background:var(--blue-bg);color:var(--blue);">BD</div>
     <div>
-      <h3>Regional Market Agent</h3>
-      <p>Fixed service fee + operations quality bonus</p>
+      <h3>区域市场服务商</h3>
+      <p>固定服务费 + 运营质量奖金</p>
     </div>
     <button class="calc-close" onclick="closeCalc()">&times;</button>
   </div>
@@ -935,144 +935,144 @@ body {
   <div class="tier-grid">
     <!-- Standard -->
     <div class="tier-card">
-      <div class="tier-name">Standard</div>
-      <div class="tier-price"><span class="amount">$300</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">1 city/region | 3-month trial</div>
+      <div class="tier-name">标准级</div>
+      <div class="tier-price"><span class="amount">$300</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">覆盖1个城市/区域 | 3个月试用期</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Monthly market report (template provided)</li>
-        <li>4 Club liaison meetings / month</li>
-        <li>Response time &lt; 48h</li>
+        <li>月度市场报告（提供模板）</li>
+        <li>每月4次Club对接会</li>
+        <li>48小时响应</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="300" data-cap="700">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-label">Club健康分 ≥ 60%（得分70+）</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-label">周均开局 ≥ 5次，完成率≥75%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-label">7日复开率 ≥ 40%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-label">全项达标奖</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
         <div>
-          <div class="tier-total-label">Monthly Total</div>
+          <div class="tier-total-label">月度收入</div>
         </div>
         <div>
           <div class="tier-total-amount" data-total>$300</div>
-          <div class="tier-cap">Cap: $700/mo</div>
+          <div class="tier-cap">月度上限: $700/月</div>
         </div>
       </div>
     </div>
 
     <!-- Advanced -->
     <div class="tier-card recommended">
-      <div class="tier-name">Advanced</div>
-      <div class="tier-price"><span class="amount">$500</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">1 state or 2-3 cities | 6-month contract</div>
+      <div class="tier-name">高级</div>
+      <div class="tier-price"><span class="amount">$500</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">覆盖1个州或2-3个城市 | 6个月合同</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Monthly market report (template provided)</li>
-        <li>8 Club liaison meetings / month</li>
-        <li>Response time &lt; 48h</li>
+        <li>月度市场报告（提供模板）</li>
+        <li>每月8次Club对接会</li>
+        <li>48小时响应</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="500" data-cap="900">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-label">Club健康分 ≥ 60%（得分70+）</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-label">周均开局 ≥ 5次，完成率≥75%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-label">7日复开率 ≥ 40%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-label">全项达标奖</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
         <div>
-          <div class="tier-total-label">Monthly Total</div>
+          <div class="tier-total-label">月度收入</div>
         </div>
         <div>
           <div class="tier-total-amount" data-total>$500</div>
-          <div class="tier-cap">Cap: $900/mo</div>
+          <div class="tier-cap">月度上限: $900/月</div>
         </div>
       </div>
     </div>
 
     <!-- Strategic -->
     <div class="tier-card">
-      <div class="tier-name">Strategic</div>
-      <div class="tier-price"><span class="amount">$800</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">Multi-state / national | 12-month, CEO approval</div>
+      <div class="tier-name">战略级</div>
+      <div class="tier-price"><span class="amount">$800</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">多州或全国网络 | 12个月，需CEO审批</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Monthly market report (template provided)</li>
-        <li>12 Club liaison meetings / month</li>
-        <li>Response time &lt; 48h</li>
+        <li>月度市场报告（提供模板）</li>
+        <li>每月12次Club对接会</li>
+        <li>48小时响应</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="800" data-cap="1200">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-label">Club健康分 ≥ 60%（得分70+）</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-label">周均开局 ≥ 5次，完成率≥75%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-label">7日复开率 ≥ 40%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-label">全项达标奖</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
         <div>
-          <div class="tier-total-label">Monthly Total</div>
+          <div class="tier-total-label">月度收入</div>
         </div>
         <div>
           <div class="tier-total-amount" data-total>$800</div>
-          <div class="tier-cap">Cap: $1,200/mo</div>
+          <div class="tier-cap">月度上限: $1,200/月</div>
         </div>
       </div>
     </div>
@@ -1084,8 +1084,8 @@ body {
   <div class="calc-header">
     <div class="ch-icon" style="background:var(--purple-bg);color:var(--purple);">OP</div>
     <div>
-      <h3>Community Operator</h3>
-      <p>Fixed service fee + community health bonus</p>
+      <h3>社区运营服务商</h3>
+      <p>固定服务费 + 社区健康度奖金</p>
     </div>
     <button class="calc-close" onclick="closeCalc()">&times;</button>
   </div>
@@ -1093,152 +1093,152 @@ body {
   <div class="tier-grid">
     <!-- Operations -->
     <div class="tier-card">
-      <div class="tier-name">Operations Only</div>
-      <div class="tier-price"><span class="amount">$1,500</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">No livestream required</div>
+      <div class="tier-name">运营型</div>
+      <div class="tier-price"><span class="amount">$1,500</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">无需直播</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Organize games 4+ days/week</li>
-        <li>Community maintenance & player experience</li>
+        <li>每周≥4天组局</li>
+        <li>社区维护与玩家体验</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="1500" data-cap="2200">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-label">健康分 ≥ 75</span>
           <span class="bonus-amount">+$200</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-label">≥20天有局，完成率≥80%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-label">7日复开率 ≥ 45%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-label">≥2场社区赛事，参与率≥60%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全项达标</span>
           <span class="bonus-amount">+$100</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$1,500</div>
-          <div class="tier-cap">Cap: $2,200/mo</div>
+          <div class="tier-cap">月度上限: $2,200/月</div>
         </div>
       </div>
     </div>
 
     <!-- Operations + Stream -->
     <div class="tier-card recommended">
-      <div class="tier-name">Operations + Stream</div>
-      <div class="tier-price"><span class="amount">$2,000</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">3+ streams/week, 1.5h each</div>
+      <div class="tier-name">运营+直播型</div>
+      <div class="tier-price"><span class="amount">$2,000</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">每周≥3次直播（≥1.5h）</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Organize games 5+ days/week</li>
-        <li>3+ livestreams per week (1.5h+ each)</li>
-        <li>Community maintenance & player experience</li>
+        <li>每周≥5天组局</li>
+        <li>每周≥3次直播（≥1.5h）</li>
+        <li>社区维护与玩家体验</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="2000" data-cap="2700">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-label">健康分 ≥ 75</span>
           <span class="bonus-amount">+$200</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-label">≥20天有局，完成率≥80%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-label">7日复开率 ≥ 45%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-label">≥2场社区赛事，参与率≥60%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全项达标</span>
           <span class="bonus-amount">+$100</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$2,000</div>
-          <div class="tier-cap">Cap: $2,700/mo</div>
+          <div class="tier-cap">月度上限: $2,700/月</div>
         </div>
       </div>
     </div>
 
     <!-- Flagship -->
     <div class="tier-card">
-      <div class="tier-name">Flagship (Fernando-tier)</div>
-      <div class="tier-price"><span class="amount">$2,500</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">4+ streams/week, 2h each + brand events</div>
+      <div class="tier-name">旗舰型 (Fernando级)</div>
+      <div class="tier-price"><span class="amount">$2,500</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">每周≥4次直播（≥2h） + 品牌活动</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>Daily game organization</li>
-        <li>4+ livestreams per week (2h+ each)</li>
-        <li>Community maintenance + brand event participation</li>
+        <li>每日组局</li>
+        <li>每周≥4次直播（≥2h）</li>
+        <li>社区维护 + 品牌活动参与</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="2500" data-cap="3200">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-label">健康分 ≥ 75</span>
           <span class="bonus-amount">+$200</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-label">≥20天有局，完成率≥80%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-label">7日复开率 ≥ 45%</span>
           <span class="bonus-amount">+$150</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-label">≥2场社区赛事，参与率≥60%</span>
           <span class="bonus-amount">+$100</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全项达标</span>
           <span class="bonus-amount">+$100</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$2,500</div>
-          <div class="tier-cap">Cap: $3,200/mo</div>
+          <div class="tier-cap">月度上限: $3,200/月</div>
         </div>
       </div>
     </div>
@@ -1250,8 +1250,8 @@ body {
   <div class="calc-header">
     <div class="ch-icon" style="background:var(--teal-bg);color:var(--teal);">CT</div>
     <div>
-      <h3>Content Provider</h3>
-      <p>Fixed service fee + content quality bonus</p>
+      <h3>内容服务商</h3>
+      <p>固定服务费 + 内容质量奖金</p>
     </div>
     <button class="calc-close" onclick="closeCalc()">&times;</button>
   </div>
@@ -1259,156 +1259,156 @@ body {
   <div class="tier-grid">
     <!-- Basic -->
     <div class="tier-card">
-      <div class="tier-name">Basic Content</div>
-      <div class="tier-price"><span class="amount">$500</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">Short + long video package</div>
+      <div class="tier-name">基础型</div>
+      <div class="tier-price"><span class="amount">$500</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">短视频 + 长视频套餐</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>8+ short videos (15-60s) / month</li>
-        <li>2+ long videos (3-10min) / month</li>
-        <li>Brand review before publish</li>
+        <li>每月8条短视频（15-60秒）</li>
+        <li>每月2条长视频（3-10分钟）</li>
+        <li>发布前品牌审核</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="500" data-cap="850">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-label">100%按时交付 + 品牌审核通过</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-label">观看完成率 ≥ 50%(短) / 30%(长)</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-label">互动率 ≥ 5%（点赞+评论+分享/播放量）</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-label">品牌评分 ≥ 8/10</span>
           <span class="bonus-amount">+$60</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全部质量达标</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$500</div>
-          <div class="tier-cap">Cap: $850/mo</div>
+          <div class="tier-cap">月度上限: $850/月</div>
         </div>
       </div>
     </div>
 
     <!-- Standard (Edit tier) -->
     <div class="tier-card recommended">
-      <div class="tier-name">Standard (Edit-tier)</div>
-      <div class="tier-price"><span class="amount">$800</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">Video + livestream package</div>
+      <div class="tier-name">标准级 (Edit级)</div>
+      <div class="tier-price"><span class="amount">$800</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">视频 + 直播套餐</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>12+ short videos / month</li>
-        <li>4+ long videos / month</li>
-        <li>2+ livestreams (1h+ each) / month</li>
-        <li>Brand review before publish</li>
+        <li>每月12条短视频</li>
+        <li>每月4条长视频</li>
+        <li>每月2次直播（≥1h）</li>
+        <li>发布前品牌审核</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="800" data-cap="1150">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-label">100%按时交付 + 品牌审核通过</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-label">观看完成率 ≥ 50%(短) / 30%(长)</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-label">互动率 ≥ 5%（点赞+评论+分享/播放量）</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-label">品牌评分 ≥ 8/10</span>
           <span class="bonus-amount">+$60</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全部质量达标</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$800</div>
-          <div class="tier-cap">Cap: $1,150/mo</div>
+          <div class="tier-cap">月度上限: $1,150/月</div>
         </div>
       </div>
     </div>
 
     <!-- Advanced -->
     <div class="tier-card">
-      <div class="tier-name">Advanced</div>
-      <div class="tier-price"><span class="amount">$1,200</span><span class="period">/mo</span></div>
-      <div class="tier-subtitle">Full content + events coverage</div>
+      <div class="tier-name">高级</div>
+      <div class="tier-price"><span class="amount">$1,200</span><span class="period">/月</span></div>
+      <div class="tier-subtitle">全内容 + 赛事覆盖</div>
 
-      <div class="tier-section-label">Deliverables</div>
+      <div class="tier-section-label">交付要求</div>
       <ul class="tier-deliverables">
-        <li>16+ short videos / month</li>
-        <li>6+ long videos / month</li>
-        <li>4+ livestreams / month</li>
-        <li>1 offline event content / month</li>
-        <li>Brand review before publish</li>
+        <li>每月16条短视频</li>
+        <li>每月6条长视频</li>
+        <li>每月4次直播</li>
+        <li>每月1次线下赛事内容</li>
+        <li>发布前品牌审核</li>
       </ul>
 
-      <div class="tier-section-label">Bonus Opportunities</div>
+      <div class="tier-section-label">奖金项</div>
       <ul class="bonus-list" data-base="1200" data-cap="1550">
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-label">100%按时交付 + 品牌审核通过</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-label">观看完成率 ≥ 50%(短) / 30%(长)</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-label">互动率 ≥ 5%（点赞+评论+分享/播放量）</span>
           <span class="bonus-amount">+$80</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-label">品牌评分 ≥ 8/10</span>
           <span class="bonus-amount">+$60</span>
         </li>
         <li class="bonus-item" onclick="toggleBonus(this)">
           <span class="bonus-check">&#10003;</span>
-          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-label">全部质量达标</span>
           <span class="bonus-amount">+$50</span>
         </li>
       </ul>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" data-total>$1,200</div>
-          <div class="tier-cap">Cap: $1,550/mo</div>
+          <div class="tier-cap">月度上限: $1,550/月</div>
         </div>
       </div>
     </div>
@@ -1420,56 +1420,56 @@ body {
   <div class="calc-header">
     <div class="ch-icon" style="background:var(--orange-bg);color:var(--orange);">MT</div>
     <div>
-      <h3>Community Mentor</h3>
-      <p>One-time mentorship fee per successful onboarding</p>
+      <h3>社区导师</h3>
+      <p>按成功辅导计费，一次性支付</p>
     </div>
     <button class="calc-close" onclick="closeCalc()">&times;</button>
   </div>
 
   <div class="tier-grid" style="grid-template-columns: 1fr 1fr;">
     <div class="tier-card" style="grid-column: 1 / -1; max-width: 560px;">
-      <div class="tier-name">Mentor Program</div>
-      <div class="tier-price"><span class="amount">$50</span><span class="period">/successful mentorship</span></div>
-      <div class="tier-subtitle">Invited by FIVE ops team (not self-enrolled)</div>
+      <div class="tier-name">导师计划</div>
+      <div class="tier-price"><span class="amount">$50</span><span class="period">/次成功辅导</span></div>
+      <div class="tier-subtitle">由FIVE运营团队邀请（非自行报名）</div>
 
-      <div class="tier-section-label">How It Works</div>
+      <div class="tier-section-label">运作方式</div>
       <ul class="tier-deliverables">
-        <li>FIVE invites experienced club hosts as mentors</li>
-        <li>Each mentor guides 1 new host through 14-day onboarding</li>
-        <li>New host must independently organize 3+ games in 14 days</li>
-        <li>Game completion rate must be 70%+</li>
-        <li>$50 paid per successful mentorship (one-time, flat)</li>
+        <li>FIVE邀请资深房主担任导师</li>
+        <li>每位导师辅导1名新房主完成14天入门</li>
+        <li>新房主须在14天内独立组局3次以上</li>
+        <li>牌局完成率须达70%以上</li>
+        <li>每次成功辅导支付$50（一次性固定金额）</li>
       </ul>
 
-      <div class="tier-section-label">Monthly Limit</div>
+      <div class="tier-section-label">月度上限</div>
       <ul class="tier-deliverables">
-        <li>Max 3 mentees per mentor per month</li>
+        <li>每位导师每月最多辅导3名新房主</li>
       </ul>
 
-      <div class="tier-section-label">Simulate Monthly Income</div>
+      <div class="tier-section-label">月度收入模拟</div>
       <div style="display:flex;align-items:center;gap:12px;margin-top:8px;">
-        <span style="font-size:13px;color:var(--text2);">Successful mentorships this month:</span>
+        <span style="font-size:13px;color:var(--text2);">本月成功辅导次数:</span>
         <input type="range" id="mentorSlider" min="0" max="3" value="2" style="flex:1;accent-color:var(--accent);" oninput="updateMentor()">
         <span id="mentorCount" class="font-mono" style="font-size:14px;color:var(--text);min-width:20px;text-align:center;">2</span>
       </div>
 
       <div class="tier-total">
-        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div><div class="tier-total-label">月度收入</div></div>
         <div>
           <div class="tier-total-amount" id="mentorTotal">$100</div>
-          <div class="tier-cap">Cap: $150/mo (3 mentorships)</div>
+          <div class="tier-cap">月度上限: $150/月（3次辅导）</div>
         </div>
       </div>
     </div>
 
     <div class="tier-card" style="grid-column: 1 / -1; max-width: 560px; background: var(--bg3);">
-      <div class="tier-section-label" style="margin-top:0;">Honor System (Non-monetary)</div>
+      <div class="tier-section-label" style="margin-top:0;">荣誉体系（非现金）</div>
       <ul class="tier-deliverables">
-        <li>3+ successful mentorships + avg mentee health score 70+ = <strong style="color:var(--accent)">Certified Mentor</strong></li>
-        <li>8+ successful mentorships + avg mentee health score 75+ = <strong style="color:var(--accent)">Senior Mentor</strong></li>
+        <li>成功辅导3次以上 + 学员平均健康分70+ = <strong style="color:var(--accent)">认证导师</strong></li>
+        <li>成功辅导8次以上 + 学员平均健康分75+ = <strong style="color:var(--accent)">资深导师</strong></li>
       </ul>
       <div style="font-size:12px;color:var(--text3);margin-top:8px;">
-        Benefits: Priority event invitations, brand exposure, in-app badge. No monetary bonuses tied to honor level.
+        权益：优先赛事邀请、品牌曝光、App内徽章。荣誉等级不与现金奖励挂钩。
       </div>
     </div>
   </div>
@@ -1481,8 +1481,8 @@ body {
 <section id="craig" class="craig-section">
   <div class="sec-head mt-0">
     <span class="sec-num">02</span>
-    <h2>Partner-A (Australia) Case Study</h2>
-    <p>Dual-contract model for BD negotiation reference</p>
+    <h2>Partner-A（澳洲）案例</h2>
+    <p>双合同模式 · BD谈判参考</p>
   </div>
 
   <!-- Profile -->
@@ -1490,68 +1490,68 @@ body {
     <div class="craig-top">
       <div class="craig-avatar">P</div>
       <div class="craig-info">
-        <h3>Partner-A (Australia)</h3>
-        <p>Poker blog host + tournament schedule site operator. Extensive content creator & event organizer network.</p>
+        <h3>Partner-A（澳洲）</h3>
+        <p>扑克博客主播 + 赛事时间表网站运营。拥有大量内容创作者和赛事组织者人脉。</p>
       </div>
       <div class="craig-ask">
-        <div class="ask-label">His Original Ask</div>
-        <div class="ask-amount">$2,800/mo</div>
-        <div style="font-size:12px;color:var(--text3);">$1,000 sponsorship + $1,800 salary</div>
+        <div class="ask-label">对方原始报价</div>
+        <div class="ask-amount">$2,800/月</div>
+        <div style="font-size:12px;color:var(--text3);">$1,000赞助费 + $1,800月薪</div>
       </div>
     </div>
     <div style="font-size:13px;color:var(--text2);padding:12px 16px;background:var(--bg3);border-radius:8px;">
-      <strong style="color:var(--text);">Our Approach:</strong> Dual-contract model. Split into Regional Market Agent + Content Provider. Gives him guaranteed income from Day 1 with a sustainable, cost-controlled upside. Lower than his ask, but stable and long-term.
+      <strong style="color:var(--text);">我方方案：</strong>双合同模式。拆分为区域市场服务商 + 内容服务商。Day 1起即有保底收入，成本可控且可持续增长。低于对方报价，但稳定长期。
     </div>
   </div>
 
   <!-- Contracts -->
   <div class="contract-grid">
     <div class="contract-card">
-      <span class="cc-badge blue">Contract 1</span>
-      <h4>Regional Market Agent (Standard)</h4>
+      <span class="cc-badge blue">合同一</span>
+      <h4>区域市场服务商（标准级）</h4>
       <div class="cc-row">
-        <span class="cc-row-label">Fixed Monthly Fee</span>
-        <span class="cc-row-value gold">$300/mo</span>
+        <span class="cc-row-label">月固定服务费</span>
+        <span class="cc-row-value gold">$300/月</span>
       </div>
       <div class="cc-row">
-        <span class="cc-row-label">Max Bonus</span>
-        <span class="cc-row-value green">up to $700/mo</span>
+        <span class="cc-row-label">奖金上限</span>
+        <span class="cc-row-value green">最高 $700/月</span>
       </div>
       <div class="cc-row">
-        <span class="cc-row-label">Contract Term</span>
-        <span class="cc-row-value">3-month trial</span>
+        <span class="cc-row-label">合同期限</span>
+        <span class="cc-row-value">3个月试用期</span>
       </div>
       <div class="cc-deliveries">
-        <div class="tier-section-label" style="margin-top:8px;">Deliverables</div>
+        <div class="tier-section-label" style="margin-top:8px;">交付要求</div>
         <ul>
-          <li>Monthly market report</li>
-          <li>4 Club liaison meetings / month</li>
-          <li>Response time &lt; 48h</li>
+          <li>月度市场报告</li>
+          <li>每月4次Club对接会</li>
+          <li>48小时响应</li>
         </ul>
       </div>
     </div>
 
     <div class="contract-card">
-      <span class="cc-badge teal">Contract 2</span>
-      <h4>Content Provider (Basic)</h4>
+      <span class="cc-badge teal">合同二</span>
+      <h4>内容服务商（基础型）</h4>
       <div class="cc-row">
-        <span class="cc-row-label">Fixed Monthly Fee</span>
-        <span class="cc-row-value gold">$500/mo</span>
+        <span class="cc-row-label">月固定服务费</span>
+        <span class="cc-row-value gold">$500/月</span>
       </div>
       <div class="cc-row">
-        <span class="cc-row-label">Max Bonus</span>
-        <span class="cc-row-value green">up to $850/mo</span>
+        <span class="cc-row-label">奖金上限</span>
+        <span class="cc-row-value green">最高 $850/月</span>
       </div>
       <div class="cc-row">
-        <span class="cc-row-label">Contract Term</span>
-        <span class="cc-row-value">3-month trial</span>
+        <span class="cc-row-label">合同期限</span>
+        <span class="cc-row-value">3个月试用期</span>
       </div>
       <div class="cc-deliveries">
-        <div class="tier-section-label" style="margin-top:8px;">Deliverables</div>
+        <div class="tier-section-label" style="margin-top:8px;">交付要求</div>
         <ul>
-          <li>8 short videos (15-60s) / month</li>
-          <li>2 long videos (3-10min) / month</li>
-          <li>Brand review before publish</li>
+          <li>每月8条短视频（15-60秒）</li>
+          <li>每月2条长视频（3-10分钟）</li>
+          <li>发布前品牌审核</li>
         </ul>
       </div>
     </div>
@@ -1561,26 +1561,26 @@ body {
   <div class="craig-summary">
     <div class="summary-grid">
       <div class="summary-item">
-        <div class="si-label">Guaranteed Income (Day 1)</div>
+        <div class="si-label">保底收入（Day 1起）</div>
         <div class="si-value">$800</div>
-        <div class="si-note">Immediate income, no waiting for clubs to grow</div>
+        <div class="si-note">立即有收入，不需要等Club做起来</div>
       </div>
       <div class="summary-item">
-        <div class="si-label">Full Target Met</div>
+        <div class="si-label">全额达标</div>
         <div class="si-value">$1,550</div>
-        <div class="si-note">Lower than his $2,800 ask, but stable long-term</div>
+        <div class="si-note">低于对方$2,800报价，但稳定长期</div>
       </div>
       <div class="summary-item">
-        <div class="si-label">Income Range</div>
+        <div class="si-label">收入区间</div>
         <div class="si-value">$800 ~ $1,550</div>
-        <div class="si-note">Two independent contracts, flexible evaluation</div>
+        <div class="si-note">两份独立合同，灵活评估</div>
       </div>
     </div>
   </div>
 
   <!-- Talking Points -->
   <div class="talking-points">
-    <h4><span style="color:var(--accent);">&#9733;</span> Negotiation Talking Points</h4>
+    <h4><span style="color:var(--accent);">&#9733;</span> 谈判要点</h4>
     <div class="tp-item">
       <span class="tp-num">1</span>
       <span class="tp-text"><strong>"保底$800/月，Day 1就有收入</strong>——不需要等Club做起来"</span>
@@ -1610,22 +1610,22 @@ body {
 <section id="cost">
   <div class="sec-head mt-0">
     <span class="sec-num">03</span>
-    <h2>Monthly Cost Overview</h2>
-    <p>Internal reference -- estimate monthly partner costs by headcount</p>
+    <h2>月度成本总览</h2>
+    <p>内部预算规划参考 -- 按人数估算月度合作方成本</p>
   </div>
 
   <div class="cost-calc">
     <div class="cost-row header">
-      <span>Partner Type</span>
-      <span>Headcount</span>
-      <span>Min Cost</span>
-      <span>Max Cost</span>
+      <span>合作类型</span>
+      <span>人数</span>
+      <span>最低/月</span>
+      <span>最高/月</span>
     </div>
 
     <div class="cost-row" data-min-per="300" data-max-per="700">
       <div>
-        <div class="cost-type-name">Type A: Regional Market Agent</div>
-        <div class="cost-type-sub">Standard tier</div>
+        <div class="cost-type-name">类型A: 区域市场服务商</div>
+        <div class="cost-type-sub">标准级</div>
       </div>
       <input class="cost-input" type="number" min="0" max="50" value="1" oninput="updateCost()">
       <div class="cost-val" data-cost-min>$300</div>
@@ -1634,8 +1634,8 @@ body {
 
     <div class="cost-row" data-min-per="2500" data-max-per="3200">
       <div>
-        <div class="cost-type-name">Type B: Community Operator</div>
-        <div class="cost-type-sub">Flagship tier (Fernando-level)</div>
+        <div class="cost-type-name">类型B: 社区运营服务商</div>
+        <div class="cost-type-sub">旗舰型 (Fernando级)</div>
       </div>
       <input class="cost-input" type="number" min="0" max="50" value="1" oninput="updateCost()">
       <div class="cost-val" data-cost-min>$2,500</div>
@@ -1644,8 +1644,8 @@ body {
 
     <div class="cost-row" data-min-per="800" data-max-per="1150">
       <div>
-        <div class="cost-type-name">Type C: Content Provider</div>
-        <div class="cost-type-sub">Standard tier (Edit-level)</div>
+        <div class="cost-type-name">类型C: 内容服务商</div>
+        <div class="cost-type-sub">标准级 (Edit级)</div>
       </div>
       <input class="cost-input" type="number" min="0" max="50" value="2" oninput="updateCost()">
       <div class="cost-val" data-cost-min>$1,600</div>
@@ -1654,8 +1654,8 @@ body {
 
     <div class="cost-row" data-min-per="0" data-max-per="150">
       <div>
-        <div class="cost-type-name">Type D: Community Mentor</div>
-        <div class="cost-type-sub">$50/mentorship, max $150/mo each</div>
+        <div class="cost-type-name">类型D: 社区导师</div>
+        <div class="cost-type-sub">$50/次辅导，每人每月最高$150</div>
       </div>
       <input class="cost-input" type="number" min="0" max="50" value="3" oninput="updateCost()">
       <div class="cost-val" data-cost-min>$0</div>
@@ -1663,7 +1663,7 @@ body {
     </div>
 
     <div class="cost-total-bar">
-      <div class="cost-total-label">Monthly Total Range</div>
+      <div class="cost-total-label">月度总计</div>
       <div class="cost-total-value" id="costTotal">$4,400 ~ $6,650</div>
     </div>
   </div>
@@ -1675,90 +1675,90 @@ body {
 <section>
   <div class="sec-head mt-0">
     <span class="sec-num">04</span>
-    <h2>Compliance Reference</h2>
-    <p>Expanded details for legal and compliance review</p>
+    <h2>合规参考</h2>
+    <p>法务及合规审查详细参考</p>
   </div>
 
   <div class="compliance-toggle">
     <button class="compliance-btn" onclick="toggleCompliance(this)">
       <span class="arrow">&#9654;</span>
-      <span>Show compliance checklist and design principles</span>
+      <span>展开合规检查清单与设计原则</span>
     </button>
     <div class="compliance-body">
       <table>
         <thead>
           <tr>
-            <th>Compliance Element</th>
-            <th>Type A</th>
-            <th>Type B</th>
-            <th>Type C</th>
-            <th>Type D</th>
+            <th>合规检查项</th>
+            <th>类型A</th>
+            <th>类型B</th>
+            <th>类型C</th>
+            <th>类型D</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Pay decoupled from player count</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>报酬与玩家人数脱钩</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
           <tr>
-            <td>Single-layer structure</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>单层结构</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
           <tr>
-            <td>Clear service deliverables</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>服务对价清晰</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
           <tr>
-            <td>Monthly income capped</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>月度收入封顶</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
           <tr>
-            <td>No downline / hierarchy</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>无下线/层级激励</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
           <tr>
-            <td>Auditable deliverables</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
-            <td class="chk">YES</td>
+            <td>可审计交付物</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
+            <td class="chk">通过</td>
           </tr>
         </tbody>
       </table>
 
       <div style="margin-top:20px;">
-        <div class="tier-section-label">Core Design Principles</div>
+        <div class="tier-section-label">核心设计原则</div>
         <ul class="tier-deliverables">
-          <li><strong>Pay decoupled from headcount:</strong> Service fee stays the same whether the partner serves 10 or 100 users</li>
-          <li><strong>Bonuses use ratios, not absolute numbers:</strong> e.g. "60% of clubs healthy" not "X clubs healthy"</li>
-          <li><strong>Monthly cap on all types:</strong> No unlimited growth incentive</li>
-          <li><strong>Every payment tied to verifiable deliverables:</strong> Reports, meeting logs, content, mentorship records</li>
-          <li><strong>Contract type: Consulting / Content Service Agreement</strong> -- not "agent" or "distributor"</li>
+          <li><strong>报酬与人数脱钩：</strong>服务费固定，不论合作方服务10人还是100人</li>
+          <li><strong>奖金使用比率而非绝对数字：</strong>如"60%的Club健康"而非"X个Club健康"</li>
+          <li><strong>所有类型均设月度上限：</strong>无无限增长激励</li>
+          <li><strong>每笔支付均对应可验证交付物：</strong>报告、会议记录、内容、辅导记录</li>
+          <li><strong>合同类型：咨询/内容服务协议</strong> -- 非"代理"或"分销商"</li>
         </ul>
       </div>
 
       <div style="margin-top:16px;">
-        <div class="tier-section-label">Red Line Triggers (auto compliance review)</div>
+        <div class="tier-section-label">红线触发条件（自动合规审查）</div>
         <ul class="tier-deliverables">
-          <li>Any partner hitting 90%+ of cap for 2 consecutive months</li>
-          <li>Any request to modify payment formula</li>
-          <li>Any new metric containing "player count" / "user count" / "registration count"</li>
-          <li>Any proposal linking one partner's income to another partner's performance</li>
+          <li>任何合作方连续2个月达到上限的90%以上</li>
+          <li>任何修改支付公式的请求</li>
+          <li>任何新指标包含"玩家人数"/"用户人数"/"注册人数"</li>
+          <li>任何将一个合作方收入与另一个合作方业绩挂钩的提案</li>
         </ul>
       </div>
     </div>
@@ -1769,7 +1769,7 @@ body {
 
 <!-- Footer -->
 <div style="text-align:center;padding:20px 0;border-top:1px solid var(--border);">
-  <div style="font-size:12px;color:var(--text3);">FIVE Partner Incentive Plan v2 | Internal Use Only | Updated 2026-03-25</div>
+  <div style="font-size:12px;color:var(--text3);">FIVE 合作方激励方案 v2 | 仅供内部使用 | 更新于 2026-03-25</div>
 </div>
 
 </div><!-- /ctn -->
