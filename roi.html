@@ -3,710 +3,1873 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FIVE 合作方激励计算器 v5 合规版</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>FIVE 合作方激励方案</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0B0E11;--bg2:#12161C;--bg3:#1A1F28;--bg4:#232A36;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--border3:rgba(255,255,255,.15);--text:#E8E6E1;--text2:#9B978F;--text3:#6B6860;--accent:#D4A853;--accent2:#E8C97A;--accent-bg:rgba(212,168,83,.08);--red:#E85D4A;--red-bg:rgba(232,93,74,.1);--green:#4ADE80;--green-bg:rgba(74,222,128,.08);--blue:#60A5FA;--blue-bg:rgba(96,165,250,.08);--purple:#A78BFA;--purple-bg:rgba(167,139,250,.08);--teal:#2DD4BF;--teal-bg:rgba(45,212,191,.08);--orange:#FB923C;--orange-bg:rgba(251,146,60,.08);--r:10px;--rl:14px}
-*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}.ctn{max-width:1100px;margin:0 auto;padding:24px 20px 60px}
-.tip{border-bottom:1px dashed var(--text3);cursor:help;display:inline}#ttg{display:none;position:fixed;background:#1E2330;border:1px solid var(--border2);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--text2);line-height:1.6;width:300px;max-width:90vw;z-index:9999;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.6)}
-.hdr{margin-bottom:28px}.hdr .badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);padding:4px 12px;border-radius:20px;margin-bottom:12px}.hdr .v5b{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:var(--green-bg);border:1px solid rgba(74,222,128,.2);padding:4px 14px;border-radius:20px;margin-bottom:12px;margin-left:8px;animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}.hdr h1{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}.hdr .sub{font-size:14px;color:var(--text2)}.hdr .sub strong{color:var(--accent2)}
-.conf{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--green-bg);border:1px solid rgba(74,222,128,.15);border-radius:var(--r);margin-bottom:28px;font-size:12px;color:var(--green)}
-.sec{margin-bottom:32px}.st{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:12px;display:flex;align-items:center;gap:8px}.st::before{content:'';width:14px;height:1px;background:var(--text3)}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:16px}.card-t{font-size:15px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}.card-b{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gc{background:var(--bg3);border-radius:var(--r);padding:14px}.gc-t{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px}
-.row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px}.row:last-child{border-bottom:none}.row-l{color:var(--text2)}.row-v{font-family:'DM Mono',monospace;font-weight:500}.row-v.g{color:var(--green)}.row-v.r{color:var(--red)}.row-v.a{color:var(--accent2)}.row-v.b{color:var(--blue)}.row-v.big{font-size:16px;font-weight:700}
-.al{padding:12px 16px;border-radius:var(--r);margin-bottom:16px;font-size:13px;line-height:1.6}.al.w{background:var(--accent-bg);border:1px solid rgba(212,168,83,.15);color:var(--accent)}.al.d{background:var(--red-bg);border:1px solid rgba(232,93,74,.15);color:var(--red)}.al.i{background:var(--blue-bg);border:1px solid rgba(96,165,250,.15);color:var(--blue)}.al.s{background:var(--green-bg);border:1px solid rgba(74,222,128,.15);color:var(--green)}.al strong{filter:brightness(1.2)}
-.stw{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow-x:auto;margin-bottom:16px}.stb{width:100%;border-collapse:collapse;min-width:600px}.stb th{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.03em;padding:10px 12px;text-align:center;background:var(--bg3);border-bottom:1px solid var(--border)}.stb th:first-child{text-align:left}.stb td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);font-size:13px}.stb td:first-child{text-align:left;font-weight:500;font-size:12px}.stb tr:last-child td{border-bottom:none}.stb .tot{font-weight:700;background:var(--bg3)}.hi{color:var(--accent2);font-weight:600}.ok{color:var(--green)}.wr{color:var(--red)}
-.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}.mg3{grid-template-columns:repeat(3,1fr)}.mt{background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center}.mt .ml{font-size:11px;color:var(--text3);margin-bottom:4px}.mt .mv{font-size:20px;font-weight:700;font-family:'DM Mono',monospace}
-.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
-.note{font-size:12px;color:var(--text3);line-height:1.7;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r)}.note strong{color:var(--text2)}
-/* Comparison table */
-.cmp-g{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:16px;border-radius:var(--rl);overflow:hidden;border:1px solid var(--border)}.cmp-col{padding:20px}.cmp-old{background:rgba(232,93,74,.04)}.cmp-new{background:rgba(74,222,128,.04)}.cmp-h{font-size:13px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}.cmp-item{font-size:12px;line-height:1.8;padding:4px 0;display:flex;align-items:flex-start;gap:8px}.cmp-icon{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-top:2px}
-/* Simulator panels */
-.sim{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:16px}.sim-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px}.sim-t{font-size:15px;font-weight:600}.sim-badge{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
-.sim-inputs{display:grid;gap:12px;margin-bottom:16px}.sim-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.sim-label{font-size:12px;color:var(--text2);min-width:120px}.sim-select{background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 10px;color:var(--accent2);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;min-width:160px}.sim-select:focus{border-color:var(--accent)}.sim-select option{background:var(--bg3);color:var(--text)}
-.slider-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:200px}.slider-wrap input[type=range]{flex:1;-webkit-appearance:none;appearance:none;height:4px;background:var(--bg4);border-radius:2px;outline:none}.slider-wrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2)}.slider-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:600;color:var(--accent2);min-width:40px;text-align:right}
-.sim-result{background:var(--bg3);border-radius:var(--r);padding:16px;margin-top:12px}.sim-result .res-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px}.sim-result .res-label{color:var(--text2)}.sim-result .res-val{font-family:'DM Mono',monospace;font-weight:600}.sim-result .res-total{font-size:18px;font-weight:700;color:var(--accent2);padding-top:8px;margin-top:8px;border-top:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center}.sim-result .res-cap{font-size:11px;color:var(--text3);margin-top:4px;text-align:right}
-/* Checkbox list */
-.chk-list{list-style:none}.chk-item{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;border-bottom:1px solid var(--border);font-size:13px;line-height:1.6}.chk-item:last-child{border-bottom:none}.chk-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}.chk-pass{background:var(--green-bg);color:var(--green)}.chk-fail{background:var(--red-bg);color:var(--red)}.chk-text{flex:1}.chk-text strong{color:var(--text)}
-/* Tab system */
-.tabs{display:flex;gap:4px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}.tab-btn{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--text3);cursor:pointer;white-space:nowrap;transition:all .15s;font-family:'DM Sans',sans-serif}.tab-btn:hover{border-color:var(--border2);color:var(--text2)}.tab-btn.active{background:var(--accent-bg);border-color:rgba(212,168,83,.2);color:var(--accent)}.tab-panel{display:none}.tab-panel.active{display:block}
-.pin{width:55px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:4px 6px;color:var(--accent2);font-size:14px;font-family:'DM Mono',monospace;text-align:center;outline:none;font-weight:600}.pin:focus{border-color:var(--accent)}
-@media(max-width:768px){.g2,.g3,.g4,.cmp-g{grid-template-columns:1fr}.mg{grid-template-columns:repeat(2,1fr)}.sim-row{flex-direction:column;align-items:flex-start}.slider-wrap{width:100%}.tabs{flex-wrap:nowrap}}
+:root {
+  --bg: #0B0E11;
+  --bg2: #12161C;
+  --bg3: #1A1F28;
+  --bg4: #232A36;
+  --border: rgba(255,255,255,.06);
+  --border2: rgba(255,255,255,.1);
+  --border3: rgba(255,255,255,.15);
+  --text: #E8E6E1;
+  --text2: #9B978F;
+  --text3: #6B6860;
+  --accent: #D4A853;
+  --accent2: #E8C97A;
+  --accent-bg: rgba(212,168,83,.08);
+  --red: #E85D4A;
+  --red-bg: rgba(232,93,74,.1);
+  --green: #4ADE80;
+  --green-bg: rgba(74,222,128,.08);
+  --blue: #60A5FA;
+  --blue-bg: rgba(96,165,250,.08);
+  --purple: #A78BFA;
+  --purple-bg: rgba(167,139,250,.08);
+  --teal: #2DD4BF;
+  --teal-bg: rgba(45,212,191,.08);
+  --orange: #FB923C;
+  --orange-bg: rgba(251,146,60,.08);
+  --r: 10px;
+  --rl: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ctn {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* ============ HERO ============ */
+.hero {
+  text-align: center;
+  padding: 60px 0 48px;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--accent-bg);
+  border: 1px solid rgba(212,168,83,.2);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.hero h1 span {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ============ SECTION HEADERS ============ */
+.sec-head {
+  margin-bottom: 32px;
+  padding-top: 56px;
+}
+.sec-head h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  margin-bottom: 6px;
+}
+.sec-head p {
+  color: var(--text2);
+  font-size: 14px;
+}
+.sec-num {
+  color: var(--accent);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ============ PARTNER TYPE CARDS ============ */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.type-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.16,1,.3,1);
+  position: relative;
+  overflow: hidden;
+}
+.type-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent, var(--accent));
+  opacity: 0;
+  transition: opacity .3s;
+}
+.type-card:hover,
+.type-card.active {
+  border-color: var(--card-accent, var(--accent));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.type-card:hover::before,
+.type-card.active::before {
+  opacity: 1;
+}
+.type-card .tc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.type-card .tc-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+.type-card .tc-name {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.type-card .tc-desc {
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.type-card .tc-range {
+  font-family: 'DM Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.type-card .tc-range small {
+  font-size: 12px;
+  color: var(--text3);
+  font-weight: 500;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Card accent colors */
+.type-card[data-type="A"] { --card-accent: var(--blue); }
+.type-card[data-type="A"] .tc-icon { background: var(--blue-bg); color: var(--blue); }
+.type-card[data-type="B"] { --card-accent: var(--purple); }
+.type-card[data-type="B"] .tc-icon { background: var(--purple-bg); color: var(--purple); }
+.type-card[data-type="C"] { --card-accent: var(--teal); }
+.type-card[data-type="C"] .tc-icon { background: var(--teal-bg); color: var(--teal); }
+.type-card[data-type="D"] { --card-accent: var(--orange); }
+.type-card[data-type="D"] .tc-icon { background: var(--orange-bg); color: var(--orange); }
+
+/* ============ CALCULATOR PANEL ============ */
+.calc-panel {
+  display: none;
+  animation: fadeUp .4s ease;
+}
+.calc-panel.visible {
+  display: block;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  background: var(--bg2);
+  border-radius: var(--rl);
+  border: 1px solid var(--border);
+}
+.calc-header .ch-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.calc-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.calc-header p {
+  font-size: 13px;
+  color: var(--text2);
+}
+.calc-close {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+}
+.calc-close:hover {
+  border-color: var(--text3);
+  color: var(--text);
+}
+
+/* ============ TIER CARDS (Pricing Plan Style) ============ */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.tier-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 28px 24px;
+  position: relative;
+  transition: all .3s;
+}
+.tier-card.recommended {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(212,168,83,.1);
+}
+.tier-card.recommended::after {
+  content: 'RECOMMENDED';
+  position: absolute;
+  top: -10px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--bg);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 14px;
+  border-radius: 100px;
+}
+.tier-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.tier-price {
+  font-family: 'DM Mono', monospace;
+  margin-bottom: 4px;
+}
+.tier-price .amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.tier-price .period {
+  font-size: 14px;
+  color: var(--text3);
+  margin-left: 2px;
+}
+.tier-subtitle {
+  font-size: 12px;
+  color: var(--text3);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tier-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--text3);
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+.tier-deliverables {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.tier-deliverables li {
+  font-size: 13px;
+  color: var(--text2);
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.tier-deliverables li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+/* Bonus checkboxes */
+.bonus-list {
+  list-style: none;
+}
+.bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .2s;
+}
+.bonus-item:last-child { border-bottom: none; }
+.bonus-item:hover { background: rgba(255,255,255,.02); }
+.bonus-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid var(--border3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .2s;
+  font-size: 11px;
+  color: transparent;
+}
+.bonus-item.checked .bonus-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+.bonus-label {
+  font-size: 13px;
+  color: var(--text2);
+  flex: 1;
+}
+.bonus-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* Total bar */
+.tier-total {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border2);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.tier-total-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text2);
+}
+.tier-total-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.tier-cap {
+  font-size: 11px;
+  color: var(--text3);
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* ============ CRAIG SECTION ============ */
+.craig-section {
+  margin-top: 56px;
+}
+.craig-profile {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.craig-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.craig-avatar {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue-bg), var(--purple-bg));
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.craig-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.craig-info p {
+  font-size: 13px;
+  color: var(--text2);
+}
+.craig-ask {
+  margin-left: auto;
+  text-align: right;
+}
+.craig-ask .ask-label {
+  font-size: 11px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.craig-ask .ask-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* Contract cards */
+.contract-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.contract-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 24px;
+}
+.cc-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.cc-badge.blue { background: var(--blue-bg); color: var(--blue); }
+.cc-badge.teal { background: var(--teal-bg); color: var(--teal); }
+.contract-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.cc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cc-row:last-child { border-bottom: none; }
+.cc-row-label {
+  font-size: 13px;
+  color: var(--text2);
+}
+.cc-row-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+.cc-row-value.gold { color: var(--accent); }
+.cc-row-value.green { color: var(--green); }
+.cc-deliveries {
+  margin-top: 12px;
+}
+.cc-deliveries li {
+  font-size: 12px;
+  color: var(--text2);
+  padding: 3px 0 3px 16px;
+  position: relative;
+  list-style: none;
+}
+.cc-deliveries li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 9px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--text3);
+}
+
+/* Summary bar */
+.craig-summary {
+  background: linear-gradient(135deg, rgba(212,168,83,.06), rgba(212,168,83,.02));
+  border: 1px solid rgba(212,168,83,.2);
+  border-radius: var(--rl);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+.summary-item .si-label {
+  font-size: 12px;
+  color: var(--text2);
+  margin-bottom: 4px;
+}
+.summary-item .si-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.summary-item .si-note {
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Talking points */
+.talking-points {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 24px;
+}
+.talking-points h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tp-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+}
+.tp-item:last-child { border-bottom: none; }
+.tp-num {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tp-text {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.tp-text strong {
+  color: var(--text);
+}
+
+/* ============ COST CALCULATOR ============ */
+.cost-calc {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--rl);
+  padding: 28px;
+}
+.cost-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 140px 140px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cost-row.header {
+  border-bottom: 2px solid var(--border2);
+  padding-bottom: 16px;
+}
+.cost-row.header span {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--text3);
+}
+.cost-type-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.cost-type-sub {
+  font-size: 12px;
+  color: var(--text3);
+}
+.cost-input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  transition: border-color .2s;
+}
+.cost-input:focus {
+  border-color: var(--accent);
+}
+.cost-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  text-align: right;
+  color: var(--text2);
+}
+.cost-total-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 8px;
+}
+.cost-total-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+.cost-total-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ============ COMPLIANCE COLLAPSED ============ */
+.compliance-toggle {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  overflow: hidden;
+}
+.compliance-btn {
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  transition: color .2s;
+}
+.compliance-btn:hover { color: var(--text2); }
+.compliance-btn .arrow {
+  transition: transform .3s;
+  font-size: 10px;
+}
+.compliance-btn.open .arrow {
+  transform: rotate(90deg);
+}
+.compliance-body {
+  display: none;
+  padding: 0 20px 20px;
+}
+.compliance-body.visible {
+  display: block;
+  animation: fadeUp .3s ease;
+}
+.compliance-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.compliance-body th {
+  text-align: left;
+  font-weight: 600;
+  padding: 8px 10px;
+  background: var(--bg3);
+  color: var(--text2);
+  border-bottom: 1px solid var(--border2);
+}
+.compliance-body td {
+  padding: 8px 10px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+}
+.compliance-body .chk {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ============ NAV BAR ============ */
+.nav-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(11,14,17,.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 0 20px;
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  gap: 20px;
+}
+.nav-logo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .5px;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  font-size: 13px;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.nav-link:hover { color: var(--text2); background: var(--bg3); }
+.nav-link.active { color: var(--accent); background: var(--accent-bg); }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text3);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 16px;
+  transition: color .2s;
+}
+.back-link:hover { color: var(--text2); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .ctn { padding: 16px 16px 60px; }
+  .hero { padding: 40px 0 32px; }
+  .hero h1 { font-size: 28px; }
+  .type-grid { grid-template-columns: 1fr 1fr; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .contract-grid { grid-template-columns: 1fr; }
+  .cost-row { grid-template-columns: 1fr 80px 100px 100px; gap: 8px; }
+  .cost-row.header span { font-size: 10px; }
+  .cost-type-name { font-size: 13px; }
+  .summary-grid { grid-template-columns: 1fr; gap: 16px; }
+  .craig-top { flex-direction: column; align-items: flex-start; }
+  .craig-ask { margin-left: 0; text-align: left; }
+  .tier-price .amount { font-size: 28px; }
+  .summary-item .si-value { font-size: 26px; }
+}
+@media (max-width: 480px) {
+  .type-grid { grid-template-columns: 1fr; }
+  .cost-row { grid-template-columns: 1fr; gap: 4px; }
+  .cost-row.header { display: none; }
+  .cost-val { text-align: left; font-size: 13px; }
+  .cost-input { max-width: 100px; }
+}
+
+/* ============ UTILITIES ============ */
+.mt-0 { margin-top: 0 !important; }
+.mb-sm { margin-bottom: 8px; }
+.text-muted { color: var(--text3); }
+.text-gold { color: var(--accent); }
+.font-mono { font-family: 'DM Mono', monospace; }
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 48px 0;
+}
 </style>
 </head>
 <body>
-<div id="ttg"></div>
-<div class="ctn">
 
-<div class="hdr">
-<span class="badge">Internal / Partnership Economics / v5</span>
-<span class="v5b">v5 合规版</span>
-<h1>合作方激励计算器 v5</h1>
-<div class="sub">服务费+活跃度奖金 / 四类合作方模拟 / 合规审计 | <strong>越南超级节点模式</strong></div>
-</div>
-<div class="conf"><span style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0"></span>合规重构版 -- 所有佣金均与玩家人数脱钩 / 单层结构 / 月度封顶 / 服务对价清晰</div>
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <span class="nav-logo">FIVE</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="strategy.html" class="nav-link">Strategy</a>
+      <a href="#types" class="nav-link active">Calculator</a>
+      <a href="#craig" class="nav-link">Partner-A Case</a>
+      <a href="#cost" class="nav-link">Cost Overview</a>
+    </div>
+  </div>
+</nav>
 
-<!-- ============================================ -->
-<!-- SECTION 1: Old vs New Comparison              -->
-<!-- ============================================ -->
-<div class="sec">
-<div class="st">一、合规对比 -- 旧方案 vs 新方案</div>
+<div class="ctn" style="padding-top: 72px;">
 
-<div class="al d"><strong>决策层 2026-03-24 明确指出三条红线：</strong> (1) $3/有效活跃玩家 = 变相代理佣金；(2) 转介绍40%人头费 = 二级分佣；(3) 荣誉层级激励发展下线 = 传销结构风险。v5 全部修复。</div>
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-badge">BD Negotiation Tool</span>
+  <h1><span>Partner Incentive Plan</span></h1>
+  <p>Service Fee + Activity Bonus / Vietnam Super Node Model<br>Select a partner type below to see income breakdown</p>
+</section>
 
-<div class="cmp-g">
-<div class="cmp-col cmp-old">
-<div class="cmp-h" style="color:var(--red)"><span style="width:10px;height:10px;border-radius:50%;background:var(--red)"></span>v3 旧方案（已废弃）</div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>Layer 1: $3/有效活跃玩家 -- 报酬与人数线性挂钩</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>Layer 2: 破冰倍率 2.0x/1.5x -- 放大人头费</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>Layer 3: D45/D90 增长追加 -- 激励扩大玩家规模</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>转介绍: $1.2/人（基础单价40%）-- 二级分佣</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>荣誉体系: 5Club=金牌/10Club=钻石 -- 激励发展下线</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>收入无上限 -- 人越多赚越多，预算不可控</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--red-bg);color:var(--red)">x</span><span>合同性质模糊 -- 类代理/分销协议</span></div>
-</div>
-<div class="cmp-col cmp-new">
-<div class="cmp-h" style="color:var(--green)"><span style="width:10px;height:10px;border-radius:50%;background:var(--green)"></span>v5 新方案（合规版）</div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>固定月度服务费 -- 不随玩家数量变化</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>活跃度奖金 -- 基于质量指标（完成率/留存率/健康分）</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>单层结构 -- 所有合作方直接与 FIVE 签约</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>社区导师 -- $80/次一次性津贴，替代转介绍</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>荣誉基于辅导质量 -- 非金钱激励（赛事资格/品牌曝光）</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>月度收入封顶 -- 每类合作方有明确天花板</span></div>
-<div class="cmp-item"><span class="cmp-icon" style="background:var(--green-bg);color:var(--green)">&#10003;</span><span>服务合同 -- 明确交付物，可审计可追溯</span></div>
-</div>
+<!-- SECTION 1: PARTNER TYPES -->
+<section id="types">
+  <div class="sec-head mt-0">
+    <span class="sec-num">01</span>
+    <h2>Select Partner Type</h2>
+    <p>Click a card to see detailed tier structure and calculate income</p>
+  </div>
+
+  <div class="type-grid">
+    <div class="type-card" data-type="A" onclick="showCalc('A')">
+      <div class="tc-icon">BD</div>
+      <div class="tc-label">Type A</div>
+      <div class="tc-name">Regional Market Agent</div>
+      <div class="tc-desc">Regional BD & Club liaison, local operations support</div>
+      <div class="tc-range">$800 - $3,700<small>/ month</small></div>
+    </div>
+    <div class="type-card" data-type="B" onclick="showCalc('B')">
+      <div class="tc-icon">OP</div>
+      <div class="tc-label">Type B</div>
+      <div class="tc-name">Community Operator</div>
+      <div class="tc-desc">Club operations + livestream organization</div>
+      <div class="tc-range">$2,000 - $5,000<small>/ month</small></div>
+    </div>
+    <div class="type-card" data-type="C" onclick="showCalc('C')">
+      <div class="tc-icon">CT</div>
+      <div class="tc-label">Type C</div>
+      <div class="tc-name">Content Provider</div>
+      <div class="tc-desc">Video/livestream content creation</div>
+      <div class="tc-range">$800 - $2,900<small>/ month</small></div>
+    </div>
+    <div class="type-card" data-type="D" onclick="showCalc('D')">
+      <div class="tc-icon">MT</div>
+      <div class="tc-label">Type D</div>
+      <div class="tc-name">Community Mentor</div>
+      <div class="tc-desc">Onboarding guidance for new club hosts</div>
+      <div class="tc-range">Up to $240<small>/ month</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CALCULATORS (one per type, shown on click) -->
+
+<!-- === TYPE A CALCULATOR === -->
+<section id="calcA" class="calc-panel">
+  <div class="calc-header">
+    <div class="ch-icon" style="background:var(--blue-bg);color:var(--blue);">BD</div>
+    <div>
+      <h3>Regional Market Agent</h3>
+      <p>Fixed service fee + operations quality bonus</p>
+    </div>
+    <button class="calc-close" onclick="closeCalc()">&times;</button>
+  </div>
+
+  <div class="tier-grid">
+    <!-- Standard -->
+    <div class="tier-card">
+      <div class="tier-name">Standard</div>
+      <div class="tier-price"><span class="amount">$800</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">1 city/region | 3-month trial</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Monthly market report (template provided)</li>
+        <li>4 Club liaison meetings / month</li>
+        <li>Response time &lt; 48h</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="800" data-cap="2000">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div>
+          <div class="tier-total-label">Monthly Total</div>
+        </div>
+        <div>
+          <div class="tier-total-amount" data-total>$800</div>
+          <div class="tier-cap">Cap: $2,000/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div class="tier-card recommended">
+      <div class="tier-name">Advanced</div>
+      <div class="tier-price"><span class="amount">$1,500</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">1 state or 2-3 cities | 6-month contract</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Monthly market report (template provided)</li>
+        <li>8 Club liaison meetings / month</li>
+        <li>Response time &lt; 48h</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="1500" data-cap="2700">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div>
+          <div class="tier-total-label">Monthly Total</div>
+        </div>
+        <div>
+          <div class="tier-total-amount" data-total>$1,500</div>
+          <div class="tier-cap">Cap: $2,700/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategic -->
+    <div class="tier-card">
+      <div class="tier-name">Strategic</div>
+      <div class="tier-price"><span class="amount">$2,500</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">Multi-state / national | 12-month, CEO approval</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Monthly market report (template provided)</li>
+        <li>12 Club liaison meetings / month</li>
+        <li>Response time &lt; 48h</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="2500" data-cap="3700">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Club health target (60%+ clubs score 70+)</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Session quality (5+/week, 75%+ completion)</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 40%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 3 above met = Excellence bonus</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div>
+          <div class="tier-total-label">Monthly Total</div>
+        </div>
+        <div>
+          <div class="tier-total-amount" data-total>$2,500</div>
+          <div class="tier-cap">Cap: $3,700/mo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TYPE B CALCULATOR === -->
+<section id="calcB" class="calc-panel">
+  <div class="calc-header">
+    <div class="ch-icon" style="background:var(--purple-bg);color:var(--purple);">OP</div>
+    <div>
+      <h3>Community Operator</h3>
+      <p>Fixed service fee + community health bonus</p>
+    </div>
+    <button class="calc-close" onclick="closeCalc()">&times;</button>
+  </div>
+
+  <div class="tier-grid">
+    <!-- Operations -->
+    <div class="tier-card">
+      <div class="tier-name">Operations Only</div>
+      <div class="tier-price"><span class="amount">$2,000</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">No livestream required</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Organize games 4+ days/week</li>
+        <li>Community maintenance & player experience</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="2000" data-cap="3500">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$2,000</div>
+          <div class="tier-cap">Cap: $3,500/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Operations + Stream -->
+    <div class="tier-card recommended">
+      <div class="tier-name">Operations + Stream</div>
+      <div class="tier-price"><span class="amount">$3,000</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">3+ streams/week, 1.5h each</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Organize games 5+ days/week</li>
+        <li>3+ livestreams per week (1.5h+ each)</li>
+        <li>Community maintenance & player experience</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="3000" data-cap="4500">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$3,000</div>
+          <div class="tier-cap">Cap: $4,500/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flagship -->
+    <div class="tier-card">
+      <div class="tier-name">Flagship (Fernando-tier)</div>
+      <div class="tier-price"><span class="amount">$3,500</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">4+ streams/week, 2h each + brand events</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>Daily game organization</li>
+        <li>4+ livestreams per week (2h+ each)</li>
+        <li>Community maintenance + brand event participation</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="3500" data-cap="5000">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Community health score 75+</span>
+          <span class="bonus-amount">+$400</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">20+ active days, 80%+ game completion</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">7-day return play rate 45%+</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">2+ community tournaments (60%+ participation)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$300</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$3,500</div>
+          <div class="tier-cap">Cap: $5,000/mo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TYPE C CALCULATOR === -->
+<section id="calcC" class="calc-panel">
+  <div class="calc-header">
+    <div class="ch-icon" style="background:var(--teal-bg);color:var(--teal);">CT</div>
+    <div>
+      <h3>Content Provider</h3>
+      <p>Fixed service fee + content quality bonus</p>
+    </div>
+    <button class="calc-close" onclick="closeCalc()">&times;</button>
+  </div>
+
+  <div class="tier-grid">
+    <!-- Basic -->
+    <div class="tier-card">
+      <div class="tier-name">Basic Content</div>
+      <div class="tier-price"><span class="amount">$800</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">Short + long video package</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>8+ short videos (15-60s) / month</li>
+        <li>2+ long videos (3-10min) / month</li>
+        <li>Brand review before publish</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="800" data-cap="1700">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$800</div>
+          <div class="tier-cap">Cap: $1,700/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard (Edit tier) -->
+    <div class="tier-card recommended">
+      <div class="tier-name">Standard (Edit-tier)</div>
+      <div class="tier-price"><span class="amount">$1,200</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">Video + livestream package</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>12+ short videos / month</li>
+        <li>4+ long videos / month</li>
+        <li>2+ livestreams (1h+ each) / month</li>
+        <li>Brand review before publish</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="1200" data-cap="2100">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$1,200</div>
+          <div class="tier-cap">Cap: $2,100/mo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div class="tier-card">
+      <div class="tier-name">Advanced</div>
+      <div class="tier-price"><span class="amount">$2,000</span><span class="period">/mo</span></div>
+      <div class="tier-subtitle">Full content + events coverage</div>
+
+      <div class="tier-section-label">Deliverables</div>
+      <ul class="tier-deliverables">
+        <li>16+ short videos / month</li>
+        <li>6+ long videos / month</li>
+        <li>4+ livestreams / month</li>
+        <li>1 offline event content / month</li>
+        <li>Brand review before publish</li>
+      </ul>
+
+      <div class="tier-section-label">Bonus Opportunities</div>
+      <ul class="bonus-list" data-base="2000" data-cap="2900">
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">100% on-time delivery + brand approval</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg watch completion 50%+ (short) / 30%+ (long)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Avg engagement rate 5%+ (likes+comments+shares/views)</span>
+          <span class="bonus-amount">+$200</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">Brand consistency score 8+/10</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+        <li class="bonus-item" onclick="toggleBonus(this)">
+          <span class="bonus-check">&#10003;</span>
+          <span class="bonus-label">All 4 above met = Full Excellence bonus</span>
+          <span class="bonus-amount">+$150</span>
+        </li>
+      </ul>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" data-total>$2,000</div>
+          <div class="tier-cap">Cap: $2,900/mo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TYPE D CALCULATOR === -->
+<section id="calcD" class="calc-panel">
+  <div class="calc-header">
+    <div class="ch-icon" style="background:var(--orange-bg);color:var(--orange);">MT</div>
+    <div>
+      <h3>Community Mentor</h3>
+      <p>One-time mentorship fee per successful onboarding</p>
+    </div>
+    <button class="calc-close" onclick="closeCalc()">&times;</button>
+  </div>
+
+  <div class="tier-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="tier-card" style="grid-column: 1 / -1; max-width: 560px;">
+      <div class="tier-name">Mentor Program</div>
+      <div class="tier-price"><span class="amount">$80</span><span class="period">/successful mentorship</span></div>
+      <div class="tier-subtitle">Invited by FIVE ops team (not self-enrolled)</div>
+
+      <div class="tier-section-label">How It Works</div>
+      <ul class="tier-deliverables">
+        <li>FIVE invites experienced club hosts as mentors</li>
+        <li>Each mentor guides 1 new host through 14-day onboarding</li>
+        <li>New host must independently organize 3+ games in 14 days</li>
+        <li>Game completion rate must be 70%+</li>
+        <li>$80 paid per successful mentorship (one-time, flat)</li>
+      </ul>
+
+      <div class="tier-section-label">Monthly Limit</div>
+      <ul class="tier-deliverables">
+        <li>Max 3 mentees per mentor per month</li>
+      </ul>
+
+      <div class="tier-section-label">Simulate Monthly Income</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:8px;">
+        <span style="font-size:13px;color:var(--text2);">Successful mentorships this month:</span>
+        <input type="range" id="mentorSlider" min="0" max="3" value="2" style="flex:1;accent-color:var(--accent);" oninput="updateMentor()">
+        <span id="mentorCount" class="font-mono" style="font-size:14px;color:var(--text);min-width:20px;text-align:center;">2</span>
+      </div>
+
+      <div class="tier-total">
+        <div><div class="tier-total-label">Monthly Total</div></div>
+        <div>
+          <div class="tier-total-amount" id="mentorTotal">$160</div>
+          <div class="tier-cap">Cap: $240/mo (3 mentorships)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier-card" style="grid-column: 1 / -1; max-width: 560px; background: var(--bg3);">
+      <div class="tier-section-label" style="margin-top:0;">Honor System (Non-monetary)</div>
+      <ul class="tier-deliverables">
+        <li>3+ successful mentorships + avg mentee health score 70+ = <strong style="color:var(--accent)">Certified Mentor</strong></li>
+        <li>8+ successful mentorships + avg mentee health score 75+ = <strong style="color:var(--accent)">Senior Mentor</strong></li>
+      </ul>
+      <div style="font-size:12px;color:var(--text3);margin-top:8px;">
+        Benefits: Priority event invitations, brand exposure, in-app badge. No monetary bonuses tied to honor level.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: PARTNER-A CASE -->
+<section id="craig" class="craig-section">
+  <div class="sec-head mt-0">
+    <span class="sec-num">02</span>
+    <h2>Partner-A (Australia) Case Study</h2>
+    <p>Dual-contract model for BD negotiation reference</p>
+  </div>
+
+  <!-- Profile -->
+  <div class="craig-profile">
+    <div class="craig-top">
+      <div class="craig-avatar">P</div>
+      <div class="craig-info">
+        <h3>Partner-A (Australia)</h3>
+        <p>Poker blog host + tournament schedule site operator. Extensive content creator & event organizer network.</p>
+      </div>
+      <div class="craig-ask">
+        <div class="ask-label">His Original Ask</div>
+        <div class="ask-amount">$2,800/mo</div>
+        <div style="font-size:12px;color:var(--text3);">$1,000 sponsorship + $1,800 salary</div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);padding:12px 16px;background:var(--bg3);border-radius:8px;">
+      <strong style="color:var(--text);">Our Approach:</strong> Dual-contract model. Split into Regional Market Agent + Content Provider. Gives him guaranteed income from Day 1 with upside potential exceeding his ask.
+    </div>
+  </div>
+
+  <!-- Contracts -->
+  <div class="contract-grid">
+    <div class="contract-card">
+      <span class="cc-badge blue">Contract 1</span>
+      <h4>Regional Market Agent (Standard)</h4>
+      <div class="cc-row">
+        <span class="cc-row-label">Fixed Monthly Fee</span>
+        <span class="cc-row-value gold">$800/mo</span>
+      </div>
+      <div class="cc-row">
+        <span class="cc-row-label">Max Bonus</span>
+        <span class="cc-row-value green">up to $1,200/mo</span>
+      </div>
+      <div class="cc-row">
+        <span class="cc-row-label">Contract Term</span>
+        <span class="cc-row-value">3-month trial</span>
+      </div>
+      <div class="cc-deliveries">
+        <div class="tier-section-label" style="margin-top:8px;">Deliverables</div>
+        <ul>
+          <li>Monthly market report</li>
+          <li>4 Club liaison meetings / month</li>
+          <li>Response time &lt; 48h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contract-card">
+      <span class="cc-badge teal">Contract 2</span>
+      <h4>Content Provider (Basic)</h4>
+      <div class="cc-row">
+        <span class="cc-row-label">Fixed Monthly Fee</span>
+        <span class="cc-row-value gold">$800/mo</span>
+      </div>
+      <div class="cc-row">
+        <span class="cc-row-label">Max Bonus</span>
+        <span class="cc-row-value green">up to $900/mo</span>
+      </div>
+      <div class="cc-row">
+        <span class="cc-row-label">Contract Term</span>
+        <span class="cc-row-value">3-month trial</span>
+      </div>
+      <div class="cc-deliveries">
+        <div class="tier-section-label" style="margin-top:8px;">Deliverables</div>
+        <ul>
+          <li>8 short videos (15-60s) / month</li>
+          <li>2 long videos (3-10min) / month</li>
+          <li>Brand review before publish</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="craig-summary">
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="si-label">Guaranteed Income (Day 1)</div>
+        <div class="si-value">$1,600</div>
+        <div class="si-note">Immediate income, no waiting for clubs to grow</div>
+      </div>
+      <div class="summary-item">
+        <div class="si-label">Full Target Met</div>
+        <div class="si-value">$3,700</div>
+        <div class="si-note">32% more than his $2,800 ask</div>
+      </div>
+      <div class="summary-item">
+        <div class="si-label">Income Range</div>
+        <div class="si-value">$1,600 ~ $3,700</div>
+        <div class="si-note">Two independent contracts, flexible evaluation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Talking Points -->
+  <div class="talking-points">
+    <h4><span style="color:var(--accent);">&#9733;</span> Negotiation Talking Points</h4>
+    <div class="tp-item">
+      <span class="tp-num">1</span>
+      <span class="tp-text"><strong>"Your $2,800 ask includes sponsorship</strong> -- our model gives you $1,600 guaranteed from Day 1, no strings attached."</span>
+    </div>
+    <div class="tp-item">
+      <span class="tp-num">2</span>
+      <span class="tp-text"><strong>"Hit all targets and you earn $3,700</strong> -- that is 32% more than what you asked for."</span>
+    </div>
+    <div class="tp-item">
+      <span class="tp-num">3</span>
+      <span class="tp-text"><strong>"You do not need to wait for clubs to take off</strong> to start earning. Income starts immediately."</span>
+    </div>
+    <div class="tp-item">
+      <span class="tp-num">4</span>
+      <span class="tp-text"><strong>"Two separate contracts evaluated independently</strong> -- more flexibility, less all-or-nothing risk."</span>
+    </div>
+    <div class="tp-item">
+      <span class="tp-num">5</span>
+      <span class="tp-text"><strong>"3-month trial period</strong> -- if the data shows strong performance, upgrade to Advanced tier ($1,500 base + higher bonuses)."</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: COST OVERVIEW -->
+<section id="cost">
+  <div class="sec-head mt-0">
+    <span class="sec-num">03</span>
+    <h2>Monthly Cost Overview</h2>
+    <p>Internal reference -- estimate monthly partner costs by headcount</p>
+  </div>
+
+  <div class="cost-calc">
+    <div class="cost-row header">
+      <span>Partner Type</span>
+      <span>Headcount</span>
+      <span>Min Cost</span>
+      <span>Max Cost</span>
+    </div>
+
+    <div class="cost-row" data-min-per="800" data-max-per="2000">
+      <div>
+        <div class="cost-type-name">Type A: Regional Market Agent</div>
+        <div class="cost-type-sub">Standard tier</div>
+      </div>
+      <input class="cost-input" type="number" min="0" max="50" value="1" oninput="updateCost()">
+      <div class="cost-val" data-cost-min>$800</div>
+      <div class="cost-val" data-cost-max>$2,000</div>
+    </div>
+
+    <div class="cost-row" data-min-per="3500" data-max-per="5000">
+      <div>
+        <div class="cost-type-name">Type B: Community Operator</div>
+        <div class="cost-type-sub">Flagship tier (Fernando-level)</div>
+      </div>
+      <input class="cost-input" type="number" min="0" max="50" value="1" oninput="updateCost()">
+      <div class="cost-val" data-cost-min>$3,500</div>
+      <div class="cost-val" data-cost-max>$5,000</div>
+    </div>
+
+    <div class="cost-row" data-min-per="1200" data-max-per="2100">
+      <div>
+        <div class="cost-type-name">Type C: Content Provider</div>
+        <div class="cost-type-sub">Standard tier (Edit-level)</div>
+      </div>
+      <input class="cost-input" type="number" min="0" max="50" value="2" oninput="updateCost()">
+      <div class="cost-val" data-cost-min>$2,400</div>
+      <div class="cost-val" data-cost-max>$4,200</div>
+    </div>
+
+    <div class="cost-row" data-min-per="0" data-max-per="240">
+      <div>
+        <div class="cost-type-name">Type D: Community Mentor</div>
+        <div class="cost-type-sub">$80/mentorship, max $240/mo each</div>
+      </div>
+      <input class="cost-input" type="number" min="0" max="50" value="3" oninput="updateCost()">
+      <div class="cost-val" data-cost-min>$0</div>
+      <div class="cost-val" data-cost-max>$720</div>
+    </div>
+
+    <div class="cost-total-bar">
+      <div class="cost-total-label">Monthly Total Range</div>
+      <div class="cost-total-value" id="costTotal">$6,700 ~ $11,920</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: COMPLIANCE (COLLAPSED) -->
+<section>
+  <div class="sec-head mt-0">
+    <span class="sec-num">04</span>
+    <h2>Compliance Reference</h2>
+    <p>Expanded details for legal and compliance review</p>
+  </div>
+
+  <div class="compliance-toggle">
+    <button class="compliance-btn" onclick="toggleCompliance(this)">
+      <span class="arrow">&#9654;</span>
+      <span>Show compliance checklist and design principles</span>
+    </button>
+    <div class="compliance-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Compliance Element</th>
+            <th>Type A</th>
+            <th>Type B</th>
+            <th>Type C</th>
+            <th>Type D</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pay decoupled from player count</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+          <tr>
+            <td>Single-layer structure</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+          <tr>
+            <td>Clear service deliverables</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+          <tr>
+            <td>Monthly income capped</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+          <tr>
+            <td>No downline / hierarchy</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+          <tr>
+            <td>Auditable deliverables</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+            <td class="chk">YES</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:20px;">
+        <div class="tier-section-label">Core Design Principles</div>
+        <ul class="tier-deliverables">
+          <li><strong>Pay decoupled from headcount:</strong> Service fee stays the same whether the partner serves 10 or 100 users</li>
+          <li><strong>Bonuses use ratios, not absolute numbers:</strong> e.g. "60% of clubs healthy" not "X clubs healthy"</li>
+          <li><strong>Monthly cap on all types:</strong> No unlimited growth incentive</li>
+          <li><strong>Every payment tied to verifiable deliverables:</strong> Reports, meeting logs, content, mentorship records</li>
+          <li><strong>Contract type: Consulting / Content Service Agreement</strong> -- not "agent" or "distributor"</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:16px;">
+        <div class="tier-section-label">Red Line Triggers (auto compliance review)</div>
+        <ul class="tier-deliverables">
+          <li>Any partner hitting 90%+ of cap for 2 consecutive months</li>
+          <li>Any request to modify payment formula</li>
+          <li>Any new metric containing "player count" / "user count" / "registration count"</li>
+          <li>Any proposal linking one partner's income to another partner's performance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:40px;"></div>
+
+<!-- Footer -->
+<div style="text-align:center;padding:20px 0;border-top:1px solid var(--border);">
+  <div style="font-size:12px;color:var(--text3);">FIVE Partner Incentive Plan v2 | Internal Use Only | Updated 2026-03-25</div>
 </div>
 
-<div class="al w"><strong>合规底线四原则：</strong> (1) 报酬与人数脱钩 (2) 单层结构，无A从B收益中提成 (3) 每笔付款对应明确服务交付物 (4) 单合作方单月收入有封顶上限</div>
-</div>
-
-<!-- ============================================ -->
-<!-- SECTION 2: Four Partner Type Simulators       -->
-<!-- ============================================ -->
-<div class="sec">
-<div class="st">二、四类合作方收入模拟器</div>
-
-<div class="tabs">
-<button class="tab-btn active" onclick="switchTab('typeA',this)">A. 区域市场服务商</button>
-<button class="tab-btn" onclick="switchTab('typeB',this)">B. 社区运营服务商</button>
-<button class="tab-btn" onclick="switchTab('typeC',this)">C. 内容服务商</button>
-<button class="tab-btn" onclick="switchTab('typeD',this)">D. 社区导师</button>
-</div>
-
-<!-- Type A: Regional Market Service Provider -->
-<div id="typeA" class="tab-panel active">
-<div class="sim">
-<div class="sim-h">
-<div class="sim-t">A. 区域市场服务商（原渠道合伙人）</div>
-<span class="sim-badge" style="background:var(--blue-bg);color:var(--blue)">市场咨询与运营支持服务</span>
-</div>
-<div class="al i" style="margin-bottom:14px"><strong>合同性质：</strong>市场咨询与运营支持服务协议。服务范围：Club信息收集与对接、本地化运营建议、onboarding支持、市场反馈报告。</div>
-<div class="sim-inputs">
-<div class="sim-row">
-<span class="sim-label">服务等级</span>
-<select class="sim-select" id="a_tier" onchange="calcA()">
-<option value="0">标准级 ($800/月 / 1个城市)</option>
-<option value="1">高级 ($1,500/月 / 1州或2-3个城市)</option>
-<option value="2">战略级 ($2,500/月 / 多州或全国)</option>
-</select>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="该服务商协助onboarding的Club中，>=60%在当月保持社区健康分>=70分。达标=$300。">Club运营达标</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="65" id="a_health" oninput="calcA()"><span class="slider-val" id="a_health_v">65%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="区域内Club周均开局频率>=5次/Club，牌局完成率>=75%。达标=$400。">开局质量</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="10" value="5" id="a_freq" oninput="calcA()"><span class="slider-val" id="a_freq_v">5次</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="牌局完成率>=75%为达标线。衡量局质量而非数量。">牌局完成率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="78" id="a_comp" oninput="calcA()"><span class="slider-val" id="a_comp_v">78%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="该区域内Club的7日复开留存率>=40%。达标=$300。">复开留存率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="42" id="a_ret" oninput="calcA()"><span class="slider-val" id="a_ret_v">42%</span></div>
-</div>
-</div>
-<div class="sim-result" id="a_result"></div>
-</div>
-</div>
-
-<!-- Type B: Community Operations Service Provider -->
-<div id="typeB" class="tab-panel">
-<div class="sim">
-<div class="sim-h">
-<div class="sim-t">B. 社区运营服务商（原KOL-Club型）</div>
-<span class="sim-badge" style="background:var(--purple-bg);color:var(--purple)">社区运营与内容创作服务</span>
-</div>
-<div class="al i" style="margin-bottom:14px"><strong>合同性质：</strong>社区运营与内容创作服务协议。服务范围：运营维护指定社区、组织牌局/赛事、维护社区氛围、直播内容创作。报酬基于运营工作量和质量，非社区规模。</div>
-<div class="sim-inputs">
-<div class="sim-row">
-<span class="sim-label">运营级别</span>
-<select class="sim-select" id="b_tier" onchange="calcB()">
-<option value="0">运营型 ($2,000/月 / 无硬性直播)</option>
-<option value="1">运营+直播型 ($3,000/月 / 周>=3次直播)</option>
-<option value="2">旗舰型 ($3,500/月 / 周>=4次直播+品牌活动)</option>
-</select>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="综合复开率+活跃天数+牌局完成率的加权分数。>=75分达标=$400。">社区健康分</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="76" id="b_health" oninput="calcB()"><span class="slider-val" id="b_health_v">76</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="当月>=20天有局开出，且牌局完成率>=80%。达标=$300。">开局稳定性</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="30" value="22" id="b_days" oninput="calcB()"><span class="slider-val" id="b_days_v">22天</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="牌局完成率>=80%为开局稳定性奖的达标条件之一。">牌局完成率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="82" id="b_comp" oninput="calcB()"><span class="slider-val" id="b_comp_v">82%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="社区7日复开留存率>=45%。达标=$300。">留存质量</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="48" id="b_ret" oninput="calcB()"><span class="slider-val" id="b_ret_v">48%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="当月成功组织>=2场社区赛事（MTT/SNG），参与率>=60%。达标=$200。">赛事组织</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="5" value="2" step="1" id="b_events" oninput="calcB()"><span class="slider-val" id="b_events_v">2场</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="赛事参与率>=60%才触发赛事组织奖。">赛事参与率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="65" id="b_epart" oninput="calcB()"><span class="slider-val" id="b_epart_v">65%</span></div>
-</div>
-</div>
-<div class="sim-result" id="b_result"></div>
-</div>
-</div>
-
-<!-- Type C: Content Service Provider -->
-<div id="typeC" class="tab-panel">
-<div class="sim">
-<div class="sim-h">
-<div class="sim-t">C. 内容服务商（原KOL-内容型）</div>
-<span class="sim-badge" style="background:var(--teal-bg);color:var(--teal)">内容创作服务</span>
-</div>
-<div class="al i" style="margin-bottom:14px"><strong>合同性质：</strong>内容创作服务协议。报酬基于内容产出数量和质量，非引流效果。内容须包含FIVE品牌露出，发布前经品牌组审核。</div>
-<div class="sim-inputs">
-<div class="sim-row">
-<span class="sim-label">内容级别</span>
-<select class="sim-select" id="c_tier" onchange="calcC()">
-<option value="0">基础型 ($800/月 / 8短+2长视频)</option>
-<option value="1">标准型 ($1,200/月 / 12短+4长+2直播)</option>
-<option value="2">高级型 ($2,000/月 / 16短+6长+4直播+线下)</option>
-</select>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="当月约定内容100%按时交付，且全部通过品牌审核。达标=$200。">内容完成率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="100" id="c_delivery" oninput="calcC()"><span class="slider-val" id="c_delivery_v">100%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="短视频平均观看完成率>=50%或长视频>=30%。达标=$200。">观看完成率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="55" id="c_watch" oninput="calcC()"><span class="slider-val" id="c_watch_v">55%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="点赞+评论+转发/观看的平均互动率>=5%。达标=$200。">互动率</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="20" value="6" step="0.5" id="c_engage" oninput="calcC()"><span class="slider-val" id="c_engage_v">6%</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="品牌组月度评分（品牌调性、信息准确性、视觉标准），满分10。>=8分达标=$150。">品牌评分</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="10" value="8" step="0.5" id="c_brand" oninput="calcC()"><span class="slider-val" id="c_brand_v">8/10</span></div>
-</div>
-</div>
-<div class="sim-result" id="c_result"></div>
-</div>
-</div>
-
-<!-- Type D: Community Mentor -->
-<div id="typeD" class="tab-panel">
-<div class="sim">
-<div class="sim-h">
-<div class="sim-t">D. 社区导师计划（替代转介绍）</div>
-<span class="sim-badge" style="background:var(--orange-bg);color:var(--orange)">辅导服务 / 一次性结算</span>
-</div>
-<div class="al d" style="margin-bottom:14px"><strong>核心变更：</strong>旧模式（$1.2/人头+荣誉层级）触碰二级分佣红线。新模式：公司邀请优质房主担任导师，协助新房主完成14天onboarding，固定$80/次一次性津贴。与被辅导方后续表现完全无关。</div>
-<div class="sim-inputs">
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="每位导师每月最多辅导3位新房主。每次辅导14天，验证标准：新房主14天内独立组局>=3次，牌局完成率>=70%。">本月辅导次数</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="3" value="2" step="1" id="d_sessions" oninput="calcD()"><span class="slider-val" id="d_sessions_v">2次</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="被辅导新房主的社区健康分平均值。>=70分可获认证导师资格，>=75分可获高级导师资格（累计>=8次后）。">被辅导方健康分</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="100" value="72" id="d_mentee" oninput="calcD()"><span class="slider-val" id="d_mentee_v">72</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="该导师历史累计成功辅导次数。影响荣誉等级（非金钱激励）。">累计辅导次数</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="20" value="4" step="1" id="d_total" oninput="calcD()"><span class="slider-val" id="d_total_v">4次</span></div>
-</div>
-</div>
-<div class="sim-result" id="d_result"></div>
-</div>
-</div>
-</div>
-
-<!-- ============================================ -->
-<!-- SECTION 3: Partner-A Scenario                 -->
-<!-- ============================================ -->
-<div class="sec">
-<div class="st">三、Partner-A（澳洲案例）双合同模拟</div>
-
-<div class="card">
-<div class="card-t">Partner-A 背景 <span class="card-b" style="background:var(--blue-bg);color:var(--blue)">核心渠道方</span></div>
-<div class="g2" style="margin-bottom:14px">
-<div class="gc">
-<div class="gc-t">基本信息</div>
-<div class="row"><span class="row-l">身份</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">澳洲扑克博客主播+赛事网站负责人</span></div>
-<div class="row"><span class="row-l">网络资源</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">大量扑克内容创作者/赛事组织者</span></div>
-<div class="row"><span class="row-l">原始要求</span><span class="row-v a">$2,800/月</span></div>
-<div class="row"><span class="row-l">负责人</span><span class="row-v" style="font-family:'DM Sans'">BD-A</span></div>
-</div>
-<div class="gc">
-<div class="gc-t">新方案定位</div>
-<div class="row"><span class="row-l">推荐角色</span><span class="row-v b" style="font-family:'DM Sans';font-size:12px">区域市场服务商（标准级 -> 高级）</span></div>
-<div class="row"><span class="row-l">核心价值</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">人脉广=市场咨询对接（非运营Club）</span></div>
-<div class="row"><span class="row-l">叠加能力</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">有内容能力，可叠加内容合同</span></div>
-<div class="row"><span class="row-l">合同期限</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">3个月试用 -> 6个月续签</span></div>
-</div>
-</div>
-</div>
-
-<div class="sim">
-<div class="sim-h">
-<div class="sim-t">双合同收入模拟</div>
-<span class="sim-badge" style="background:var(--accent-bg);color:var(--accent)">交互计算</span>
-</div>
-<div class="sim-inputs">
-<div class="sim-row">
-<span class="sim-label">合同一等级</span>
-<select class="sim-select" id="pa_tier1" onchange="calcPA()">
-<option value="0" selected>区域服务商 - 标准级 ($800/月)</option>
-<option value="1">区域服务商 - 高级 ($1,500/月)</option>
-<option value="2">区域服务商 - 战略级 ($2,500/月)</option>
-</select>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="合同一的活跃度奖金达标情况。0~4项，每项有独立奖金。全部达标有额外卓越运营奖。">合同一奖金达标项</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="4" value="2" step="1" id="pa_bonus1" oninput="calcPA()"><span class="slider-val" id="pa_bonus1_v">2/4</span></div>
-</div>
-<div class="sim-row">
-<span class="sim-label">合同二（可选）</span>
-<select class="sim-select" id="pa_tier2" onchange="calcPA()">
-<option value="-1">不叠加内容合同</option>
-<option value="0" selected>内容服务商 - 基础型 ($800/月)</option>
-<option value="1">内容服务商 - 标准型 ($1,200/月)</option>
-</select>
-</div>
-<div class="sim-row">
-<span class="sim-label"><span class="tip" data-tip="合同二的内容质量奖金达标情况。0~4项，全部达标有全优奖。">合同二奖金达标项</span></span>
-<div class="slider-wrap"><input type="range" min="0" max="4" value="3" step="1" id="pa_bonus2" oninput="calcPA()"><span class="slider-val" id="pa_bonus2_v">3/4</span></div>
-</div>
-</div>
-<div class="sim-result" id="pa_result"></div>
-</div>
-
-<div class="al w"><strong>谈判关键要点：</strong> (1) 新模式从Day 1就有确定收入，不需要等Club跑起来 (2) 双合同叠加中间值约$2,500，接近他原始要求$2,800 (3) 3个月试用后，标准级可升级为高级（$1,500基础） (4) 所有费用均为合规服务合同，可以长期持续</div>
-</div>
-
-<!-- ============================================ -->
-<!-- SECTION 4: Compliance Audit Checklist         -->
-<!-- ============================================ -->
-<div class="sec">
-<div class="st">四、合规审计清单</div>
-
-<div class="card">
-<div class="card-t">季度合规审计检查项</div>
-<ul class="chk-list">
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>合同性质合规</strong> -- 所有合作方合同均为"服务协议"而非"代理/分销协议"</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>报酬与人数脱钩</strong> -- 没有任何付款与玩家数量存在线性挂钩</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>单层结构</strong> -- 没有任何合作方从其他合作方的收益中获得提成</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>服务对价清晰</strong> -- 所有付款均有对应的服务交付物证据（报告/会议/内容/辅导日志）</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>奖金可审计</strong> -- 所有活跃度奖金的计算过程基于比率指标，可审计</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>荣誉无金钱层级</strong> -- 荣誉/等级体系不包含金钱层级激励，仅限赛事资格/品牌曝光</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>月度封顶</strong> -- 月度付款未超过任何类型的封顶上限</div></li>
-<li class="chk-item"><span class="chk-icon chk-pass">&#10003;</span><div class="chk-text"><strong>本地法律审阅</strong> -- 巴西本地法律顾问已审阅最新合同版本</div></li>
-</ul>
-</div>
-
-<div class="card">
-<div class="card-t">红线预警触发条件</div>
-<ul class="chk-list">
-<li class="chk-item"><span class="chk-icon" style="background:var(--orange-bg);color:var(--orange)">!</span><div class="chk-text"><strong>收入异常</strong> -- 任何合作方单月收入超过其等级封顶的90%连续两个月</div></li>
-<li class="chk-item"><span class="chk-icon" style="background:var(--orange-bg);color:var(--orange)">!</span><div class="chk-text"><strong>合同变更</strong> -- 任何合作方要求修改合同条款涉及计费方式</div></li>
-<li class="chk-item"><span class="chk-icon" style="background:var(--orange-bg);color:var(--orange)">!</span><div class="chk-text"><strong>指标异常</strong> -- 任何新增指标含有"玩家数""用户数""注册数"等绝对数量词</div></li>
-<li class="chk-item"><span class="chk-icon" style="background:var(--orange-bg);color:var(--orange)">!</span><div class="chk-text"><strong>利益关联</strong> -- 任何涉及合作方之间利益关联的新提案</div></li>
-</ul>
-</div>
-
-<div class="g2">
-<div class="gc">
-<div class="gc-t">合同必须包含</div>
-<div class="row"><span class="row-l">合同性质</span><span class="row-v g" style="font-family:'DM Sans';font-size:12px">咨询服务/内容创作服务</span></div>
-<div class="row"><span class="row-l">服务范围</span><span class="row-v g" style="font-family:'DM Sans';font-size:12px">逐项列出交付物</span></div>
-<div class="row"><span class="row-l">付款条件</span><span class="row-v g" style="font-family:'DM Sans';font-size:12px">固定费+奖金触发条件</span></div>
-<div class="row"><span class="row-l">月度封顶</span><span class="row-v g" style="font-family:'DM Sans';font-size:12px">明确最高支付金额</span></div>
-<div class="row"><span class="row-l">知识产权</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">内容归属FIVE</span></div>
-<div class="row"><span class="row-l">终止条款</span><span class="row-v" style="font-family:'DM Sans';font-size:12px">30天书面通知</span></div>
-</div>
-<div class="gc">
-<div class="gc-t">合同禁止包含</div>
-<div class="row"><span class="row-l">按人头付费</span><span class="row-v r">禁止</span></div>
-<div class="row"><span class="row-l">按用户数付费</span><span class="row-v r">禁止</span></div>
-<div class="row"><span class="row-l">推荐奖励/转介绍提成</span><span class="row-v r">禁止</span></div>
-<div class="row"><span class="row-l">合作方间利润分享</span><span class="row-v r">禁止</span></div>
-<div class="row"><span class="row-l">无封顶绩效奖金</span><span class="row-v r">禁止</span></div>
-<div class="row"><span class="row-l">代理/分销协议字样</span><span class="row-v r">禁止</span></div>
-</div>
-</div>
-</div>
-
-<!-- ============================================ -->
-<!-- SECTION 5: Cost Overview                      -->
-<!-- ============================================ -->
-<div class="sec">
-<div class="st">五、成本总览与预算对比</div>
-
-<div class="card">
-<div class="card-t">按合作方类型成本预估 <span class="card-b" style="background:var(--accent-bg);color:var(--accent)">可编辑</span></div>
-<div class="al i" style="margin-bottom:14px"><strong>调整下方各类合作方人数</strong>，实时计算月度总预算。新方案成本短期略高（固定保底更多），但旧方案成本随规模无限增长，新方案有明确天花板。</div>
-
-<div class="g4" style="margin-bottom:16px">
-<div style="background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--text3);margin-bottom:4px">区域服务商数量</div>
-<input class="pin" type="number" id="cost_a" value="1" min="0" max="10" onchange="calcCost()">
-</div>
-<div style="background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--text3);margin-bottom:4px">社区运营数量</div>
-<input class="pin" type="number" id="cost_b" value="1" min="0" max="10" onchange="calcCost()">
-</div>
-<div style="background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--text3);margin-bottom:4px">内容服务商数量</div>
-<input class="pin" type="number" id="cost_c" value="2" min="0" max="10" onchange="calcCost()">
-</div>
-<div style="background:var(--bg3);border-radius:var(--r);padding:12px;text-align:center">
-<div style="font-size:11px;color:var(--text3);margin-bottom:4px">导师辅导次数/月</div>
-<input class="pin" type="number" id="cost_d" value="5" min="0" max="30" onchange="calcCost()">
-</div>
-</div>
-
-<div id="costTable"></div>
-<div id="costComparison"></div>
-</div>
-
-<div class="note">
-<strong>成本分析关键结论：</strong><br>
-1. 新方案短期月度成本略高于旧方案（固定服务费保底更多），但成本<strong>可预测、可预算</strong>。<br>
-2. 旧方案成本随DAU规模<strong>无限增长</strong>（人越多付越多），当DAU达到2,500+时，旧方案人头费将远超新方案封顶值。<br>
-3. 新方案的<strong>风险成本</strong>大幅降低：消除了监管处罚风险（代理佣金+二级分佣）、合同纠纷风险（绩效定义模糊）、品牌声誉风险（被视为代理平台）。<br>
-4. 所有费用均通过<strong>正规服务合同+发票</strong>结算，税务合规。
-</div>
-</div>
-
-</div>
+</div><!-- /ctn -->
 
 <script>
-/* Tooltip system */
-const ttg=document.getElementById('ttg');
-document.addEventListener('mouseover',e=>{const t=e.target.closest('.tip');if(!t||!t.dataset.tip)return;ttg.textContent=t.dataset.tip;ttg.style.display='block';const r=t.getBoundingClientRect(),tw=ttg.offsetWidth,th=ttg.offsetHeight;let l=r.left+r.width/2-tw/2;if(l<8)l=8;if(l+tw>window.innerWidth-8)l=window.innerWidth-tw-8;ttg.style.left=l+'px';ttg.style.top=(r.top>th+16?r.top-th-8:r.bottom+8)+'px'});
-document.addEventListener('mouseout',e=>{if(e.target.closest('.tip'))ttg.style.display='none'});
-
-/* Tab switching */
-function switchTab(id,btn){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
-
-/* Helper: format currency */
-function $(n){return '$'+n.toLocaleString('en-US')}
-
-/* ============================================ */
-/* Type A Calculator                            */
-/* ============================================ */
-const A_TIERS=[
-  {name:'标准级',base:800,cap:2000,meetings:4},
-  {name:'高级',base:1500,cap:2700,meetings:8},
-  {name:'战略级',base:2500,cap:3700,meetings:12}
-];
-const A_BONUSES=[
-  {name:'Club运营达标奖',amount:300,desc:'>=60% Club健康分>=70'},
-  {name:'开局质量奖',amount:400,desc:'周均>=5次/Club + 完成率>=75%'},
-  {name:'复开留存奖',amount:300,desc:'7日复开留存>=40%'},
-  {name:'月度卓越运营奖',amount:200,desc:'上述三项全部达标'}
-];
-
-function calcA(){
-  const ti=parseInt(document.getElementById('a_tier').value);
-  const tier=A_TIERS[ti];
-  const health=parseInt(document.getElementById('a_health').value);
-  const freq=parseInt(document.getElementById('a_freq').value);
-  const comp=parseInt(document.getElementById('a_comp').value);
-  const ret=parseInt(document.getElementById('a_ret').value);
-  document.getElementById('a_health_v').textContent=health+'%';
-  document.getElementById('a_freq_v').textContent=freq+'/周';
-  document.getElementById('a_comp_v').textContent=comp+'%';
-  document.getElementById('a_ret_v').textContent=ret+'%';
-
-  const b1=health>=60;  // simplified: health slider represents % of Clubs meeting threshold
-  const b2=freq>=5 && comp>=75;
-  const b3=ret>=40;
-  const allThree=b1&&b2&&b3;
-
-  let bonus=0,details=[];
-  if(b1){bonus+=300;details.push({n:'Club运营达标奖',v:300,ok:true});}else{details.push({n:'Club运营达标奖',v:0,ok:false});}
-  if(b2){bonus+=400;details.push({n:'开局质量奖',v:400,ok:true});}else{details.push({n:'开局质量奖',v:0,ok:false});}
-  if(b3){bonus+=300;details.push({n:'复开留存奖',v:300,ok:true});}else{details.push({n:'复开留存奖',v:0,ok:false});}
-  if(allThree){bonus+=200;details.push({n:'月度卓越运营奖',v:200,ok:true});}else{details.push({n:'月度卓越运营奖',v:0,ok:false});}
-
-  const total=tier.base+bonus;
-  let h=`<div class="res-row"><span class="res-label">固定服务费（${tier.name}）</span><span class="res-val" style="color:var(--accent2)">${$(tier.base)}/月</span></div>`;
-  details.forEach(d=>{
-    h+=`<div class="res-row"><span class="res-label">${d.ok?'&#10003;':'&#10007;'} ${d.n}</span><span class="res-val" style="color:${d.ok?'var(--green)':'var(--text3)'}">${d.ok?'+'+$(d.v):'-'}</span></div>`;
-  });
-  h+=`<div class="res-total"><span>月度总收入</span><span>${$(total)}</span></div>`;
-  h+=`<div class="res-cap">月度封顶: ${$(tier.cap)} / 收入范围: ${$(tier.base)} ~ ${$(tier.cap)}</div>`;
-  document.getElementById('a_result').innerHTML=h;
-}
-
-/* ============================================ */
-/* Type B Calculator                            */
-/* ============================================ */
-const B_TIERS=[
-  {name:'运营型',base:2000,cap:3500},
-  {name:'运营+直播型',base:3000,cap:4500},
-  {name:'旗舰型',base:3500,cap:5000}
-];
-
-function calcB(){
-  const ti=parseInt(document.getElementById('b_tier').value);
-  const tier=B_TIERS[ti];
-  const health=parseInt(document.getElementById('b_health').value);
-  const days=parseInt(document.getElementById('b_days').value);
-  const comp=parseInt(document.getElementById('b_comp').value);
-  const ret=parseInt(document.getElementById('b_ret').value);
-  const events=parseInt(document.getElementById('b_events').value);
-  const epart=parseInt(document.getElementById('b_epart').value);
-  document.getElementById('b_health_v').textContent=health;
-  document.getElementById('b_days_v').textContent=days+'天';
-  document.getElementById('b_comp_v').textContent=comp+'%';
-  document.getElementById('b_ret_v').textContent=ret+'%';
-  document.getElementById('b_events_v').textContent=events+'场';
-  document.getElementById('b_epart_v').textContent=epart+'%';
-
-  const b1=health>=75;
-  const b2=days>=20 && comp>=80;
-  const b3=ret>=45;
-  const b4=events>=2 && epart>=60;
-  const allFour=b1&&b2&&b3&&b4;
-
-  let bonus=0,details=[];
-  if(b1){bonus+=400;details.push({n:'社区健康达标奖',v:400,ok:true});}else{details.push({n:'社区健康达标奖',v:0,ok:false});}
-  if(b2){bonus+=300;details.push({n:'开局稳定性奖',v:300,ok:true});}else{details.push({n:'开局稳定性奖',v:0,ok:false});}
-  if(b3){bonus+=300;details.push({n:'留存质量奖',v:300,ok:true});}else{details.push({n:'留存质量奖',v:0,ok:false});}
-  if(b4){bonus+=200;details.push({n:'赛事组织奖',v:200,ok:true});}else{details.push({n:'赛事组织奖',v:0,ok:false});}
-  if(allFour){bonus+=300;details.push({n:'月度全优奖',v:300,ok:true});}else{details.push({n:'月度全优奖',v:0,ok:false});}
-
-  const total=tier.base+bonus;
-  let h=`<div class="res-row"><span class="res-label">固定服务费（${tier.name}）</span><span class="res-val" style="color:var(--accent2)">${$(tier.base)}/月</span></div>`;
-  details.forEach(d=>{
-    h+=`<div class="res-row"><span class="res-label">${d.ok?'&#10003;':'&#10007;'} ${d.n}</span><span class="res-val" style="color:${d.ok?'var(--green)':'var(--text3)'}">${d.ok?'+'+$(d.v):'-'}</span></div>`;
-  });
-  h+=`<div class="res-total"><span>月度总收入</span><span>${$(total)}</span></div>`;
-  h+=`<div class="res-cap">月度封顶: ${$(tier.cap)} / 收入范围: ${$(tier.base)} ~ ${$(tier.cap)}</div>`;
-  document.getElementById('b_result').innerHTML=h;
-}
-
-/* ============================================ */
-/* Type C Calculator                            */
-/* ============================================ */
-const C_TIERS=[
-  {name:'基础型',base:800,cap:1700},
-  {name:'标准型',base:1200,cap:2100},
-  {name:'高级型',base:2000,cap:2900}
-];
-
-function calcC(){
-  const ti=parseInt(document.getElementById('c_tier').value);
-  const tier=C_TIERS[ti];
-  const delivery=parseInt(document.getElementById('c_delivery').value);
-  const watch=parseInt(document.getElementById('c_watch').value);
-  const engage=parseFloat(document.getElementById('c_engage').value);
-  const brand=parseFloat(document.getElementById('c_brand').value);
-  document.getElementById('c_delivery_v').textContent=delivery+'%';
-  document.getElementById('c_watch_v').textContent=watch+'%';
-  document.getElementById('c_engage_v').textContent=engage+'%';
-  document.getElementById('c_brand_v').textContent=brand+'/10';
-
-  const b1=delivery>=100;
-  const b2=watch>=50;
-  const b3=engage>=5;
-  const b4=brand>=8;
-  const allFour=b1&&b2&&b3&&b4;
-
-  let bonus=0,details=[];
-  if(b1){bonus+=200;details.push({n:'内容完成率奖',v:200,ok:true});}else{details.push({n:'内容完成率奖',v:0,ok:false});}
-  if(b2){bonus+=200;details.push({n:'内容参与度奖',v:200,ok:true});}else{details.push({n:'内容参与度奖',v:0,ok:false});}
-  if(b3){bonus+=200;details.push({n:'互动质量奖',v:200,ok:true});}else{details.push({n:'互动质量奖',v:0,ok:false});}
-  if(b4){bonus+=150;details.push({n:'品牌一致性奖',v:150,ok:true});}else{details.push({n:'品牌一致性奖',v:0,ok:false});}
-  if(allFour){bonus+=150;details.push({n:'月度全优奖',v:150,ok:true});}else{details.push({n:'月度全优奖',v:0,ok:false});}
-
-  const total=tier.base+bonus;
-  let h=`<div class="res-row"><span class="res-label">固定服务费（${tier.name}）</span><span class="res-val" style="color:var(--accent2)">${$(tier.base)}/月</span></div>`;
-  details.forEach(d=>{
-    h+=`<div class="res-row"><span class="res-label">${d.ok?'&#10003;':'&#10007;'} ${d.n}</span><span class="res-val" style="color:${d.ok?'var(--green)':'var(--text3)'}">${d.ok?'+'+$(d.v):'-'}</span></div>`;
-  });
-  h+=`<div class="res-total"><span>月度总收入</span><span>${$(total)}</span></div>`;
-  h+=`<div class="res-cap">月度封顶: ${$(tier.cap)} / 收入范围: ${$(tier.base)} ~ ${$(tier.cap)}</div>`;
-  document.getElementById('c_result').innerHTML=h;
-}
-
-/* ============================================ */
-/* Type D Calculator                            */
-/* ============================================ */
-function calcD(){
-  const sessions=parseInt(document.getElementById('d_sessions').value);
-  const mentee=parseInt(document.getElementById('d_mentee').value);
-  const total_hist=parseInt(document.getElementById('d_total').value);
-  document.getElementById('d_sessions_v').textContent=sessions+'次';
-  document.getElementById('d_mentee_v').textContent=mentee;
-  document.getElementById('d_total_v').textContent=total_hist+'次';
-
-  const income=sessions*80;
-  const cap=240;
-  let honorLevel='--';
-  let honorColor='var(--text3)';
-  if(total_hist>=8 && mentee>=75){honorLevel='高级导师';honorColor='var(--accent2)';}
-  else if(total_hist>=3 && mentee>=70){honorLevel='认证导师';honorColor='var(--green)';}
-  else{honorLevel='普通房主';}
-
-  let h=`<div class="res-row"><span class="res-label">本月辅导次数</span><span class="res-val">${sessions}次 (上限3次/月)</span></div>`;
-  h+=`<div class="res-row"><span class="res-label">单次辅导津贴</span><span class="res-val" style="color:var(--accent2)">$80 (固定，一次性)</span></div>`;
-  h+=`<div class="res-row"><span class="res-label">被辅导方健康分</span><span class="res-val" style="color:${mentee>=70?'var(--green)':'var(--text3)'}">${mentee}</span></div>`;
-  h+=`<div class="res-row"><span class="res-label">荣誉等级</span><span class="res-val" style="color:${honorColor};font-family:'DM Sans'">${honorLevel}</span></div>`;
-  h+=`<div class="res-row"><span class="res-label" style="font-size:11px;color:var(--text3)">荣誉权益（非金钱）</span><span class="res-val" style="font-family:'DM Sans';font-size:11px;color:var(--text3)">${honorLevel==='高级导师'?'优先赛事+品牌曝光+产品标识':honorLevel==='认证导师'?'优先赛事资格+社区认证标识':'无'}</span></div>`;
-  h+=`<div class="res-total"><span>月度收入</span><span>${$(income)}</span></div>`;
-  h+=`<div class="res-cap">月度封顶: ${$(cap)} / 辅导完成即结算，与被辅导方后续表现无关</div>`;
-  document.getElementById('d_result').innerHTML=h;
-}
-
-/* ============================================ */
-/* Partner-A Calculator                         */
-/* ============================================ */
-function calcPA(){
-  const t1i=parseInt(document.getElementById('pa_tier1').value);
-  const b1=parseInt(document.getElementById('pa_bonus1').value);
-  const t2i=parseInt(document.getElementById('pa_tier2').value);
-  const b2=parseInt(document.getElementById('pa_bonus2').value);
-  document.getElementById('pa_bonus1_v').textContent=b1+'/4';
-  document.getElementById('pa_bonus2_v').textContent=b2+'/4';
-
-  const t1=A_TIERS[t1i];
-  // Bonus calculation for contract 1 (A type)
-  const aBonusAmounts=[300,400,300]; // first 3 bonuses
-  let aBonus=0;
-  for(let i=0;i<Math.min(b1,3);i++)aBonus+=aBonusAmounts[i];
-  if(b1>=4)aBonus+=200; // excellence bonus for all 3+excellence
-
-  let h=`<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px">合同一：区域市场服务商</div>`;
-  h+=`<div class="res-row"><span class="res-label">固定服务费（${t1.name}）</span><span class="res-val" style="color:var(--accent2)">${$(t1.base)}/月</span></div>`;
-  h+=`<div class="res-row"><span class="res-label">活跃度奖金（${b1}/4项达标）</span><span class="res-val" style="color:var(--green)">+${$(aBonus)}/月</span></div>`;
-
-  let contract1Total=t1.base+aBonus;
-  let contract2Total=0;
-
-  if(t2i>=0){
-    const t2=C_TIERS[t2i];
-    const cBonusAmounts=[200,200,200,150];
-    let cBonus=0;
-    for(let i=0;i<Math.min(b2,4);i++)cBonus+=cBonusAmounts[i];
-    if(b2>=4)cBonus+=150; // full bonus
-    contract2Total=t2.base+cBonus;
-
-    h+=`<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px;margin-top:12px;padding-top:8px;border-top:1px solid var(--border)">合同二：内容服务商</div>`;
-    h+=`<div class="res-row"><span class="res-label">固定服务费（${t2.name}）</span><span class="res-val" style="color:var(--accent2)">${$(t2.base)}/月</span></div>`;
-    h+=`<div class="res-row"><span class="res-label">质量奖金（${b2}/4项达标）</span><span class="res-val" style="color:var(--green)">+${$(cBonus)}/月</span></div>`;
+// ========== CALCULATOR SHOW/HIDE ==========
+function showCalc(type) {
+  // Hide all panels
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('visible'));
+  // Remove active from all cards
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('active'));
+  // Show selected
+  const panel = document.getElementById('calc' + type);
+  if (panel) {
+    panel.classList.add('visible');
+    // Mark card active
+    document.querySelector('.type-card[data-type="' + type + '"]').classList.add('active');
+    // Scroll into view
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
-  const grandTotal=contract1Total+contract2Total;
-  const originalAsk=2800;
-  const diff=grandTotal-originalAsk;
-  const diffColor=diff>=0?'var(--green)':'var(--red)';
-  const diffSign=diff>=0?'+':'';
-
-  h+=`<div class="res-total"><span>月度总收入（双合同）</span><span>${$(grandTotal)}</span></div>`;
-  h+=`<div style="display:flex;justify-content:space-between;font-size:12px;margin-top:6px;padding-top:6px;border-top:1px dashed var(--border2)"><span style="color:var(--text3)">vs Partner-A原始要求 (${$(originalAsk)}/月)</span><span style="color:${diffColor};font-weight:600;font-family:'DM Mono',monospace">${diffSign}${$(diff)}</span></div>`;
-
-  // Show range
-  const minIncome=t1.base+(t2i>=0?C_TIERS[t2i].base:0);
-  const maxIncome=t1.cap+(t2i>=0?C_TIERS[t2i].cap:0);
-  h+=`<div class="res-cap">收入范围: ${$(minIncome)} ~ ${$(maxIncome)}/月 / 中间值: ~${$(Math.round((minIncome+maxIncome)/2))}/月</div>`;
-
-  document.getElementById('pa_result').innerHTML=h;
 }
 
-/* ============================================ */
-/* Cost Overview Calculator                      */
-/* ============================================ */
-function calcCost(){
-  const nA=parseInt(document.getElementById('cost_a').value)||0;
-  const nB=parseInt(document.getElementById('cost_b').value)||0;
-  const nC=parseInt(document.getElementById('cost_c').value)||0;
-  const nD=parseInt(document.getElementById('cost_d').value)||0;
-
-  // New model costs (using mid-range estimates)
-  const aMin=800,aMax=2000,aMid=1400;
-  const bMin=3500,bMax=5000,bMid=4250; // using KOL-A tier as default
-  const cMin=1200,cMax=2100,cMid=1650; // using standard tier
-  const dUnit=80;
-
-  const newMin=nA*aMin+nB*bMin+nC*cMin+nD*dUnit;
-  const newMax=nA*aMax+nB*bMax+nC*cMax+nD*dUnit;
-  const newMid=nA*aMid+nB*bMid+nC*cMid+nD*dUnit;
-
-  // Old model costs (rough estimates from v3 data)
-  // A: $3/person * ~100 people per channel partner (variable, growing)
-  // B: $4,000/month (KOL-A)
-  // C: $1,200/month (KOL-B)
-  // D: $1.2/person * ~10 people per referral (continuous)
-  const oldAEst=nA*450; // average $3*150 people conservative
-  const oldBEst=nB*4000;
-  const oldCEst=nC*1200;
-  const oldDEst=nD*12; // $1.2 * avg 10 players per referral
-
-  const oldTotal=oldAEst+oldBEst+oldCEst+oldDEst;
-
-  let t=`<div class="stw"><table class="stb"><thead><tr><th>合作方类型</th><th>数量</th><th>新方案 (最低)</th><th>新方案 (中间值)</th><th>新方案 (满额)</th><th>旧方案 (估算)</th></tr></thead><tbody>`;
-  if(nA>0)t+=`<tr><td><span class="dot" style="background:var(--blue)"></span>区域市场服务商</td><td>${nA}</td><td>${$(nA*aMin)}</td><td class="hi">${$(nA*aMid)}</td><td>${$(nA*aMax)}</td><td class="wr">${$(oldAEst)}<br><span style="font-size:10px;color:var(--text3)">$3/人头(无上限)</span></td></tr>`;
-  if(nB>0)t+=`<tr><td><span class="dot" style="background:var(--purple)"></span>社区运营服务商</td><td>${nB}</td><td>${$(nB*bMin)}</td><td class="hi">${$(nB*bMid)}</td><td>${$(nB*bMax)}</td><td>${$(oldBEst)}<br><span style="font-size:10px;color:var(--text3)">底薪+人数绩效</span></td></tr>`;
-  if(nC>0)t+=`<tr><td><span class="dot" style="background:var(--teal)"></span>内容服务商</td><td>${nC}</td><td>${$(nC*cMin)}</td><td class="hi">${$(nC*cMid)}</td><td>${$(nC*cMax)}</td><td>${$(oldCEst)}<br><span style="font-size:10px;color:var(--text3)">固定月薪(无奖金)</span></td></tr>`;
-  if(nD>0)t+=`<tr><td><span class="dot" style="background:var(--orange)"></span>社区导师辅导</td><td>${nD}次</td><td colspan="2" style="text-align:center">${$(nD*dUnit)}</td><td>${$(nD*dUnit)}</td><td class="wr">${$(oldDEst)}<br><span style="font-size:10px;color:var(--text3)">$1.2/人头(持续)</span></td></tr>`;
-  t+=`<tr class="tot"><td colspan="2"><strong>月度总计</strong></td><td><strong>${$(newMin)}</strong></td><td class="hi"><strong>${$(newMid)}</strong></td><td><strong>${$(newMax)}</strong></td><td><strong>${$(oldTotal)}</strong></td></tr>`;
-  t+=`</tbody></table></div>`;
-
-  document.getElementById('costTable').innerHTML=t;
-
-  // Comparison summary
-  const savings=oldTotal-newMid;
-  let c=`<div class="mg" style="margin-top:12px">`;
-  c+=`<div class="mt"><div class="ml">新方案月度成本（中间值）</div><div class="mv" style="color:var(--accent)">${$(newMid)}</div></div>`;
-  c+=`<div class="mt"><div class="ml">旧方案月度成本</div><div class="mv" style="color:var(--red)">${$(oldTotal)}</div></div>`;
-  c+=`<div class="mt"><div class="ml">成本差额</div><div class="mv" style="color:${savings>0?'var(--green)':'var(--orange)'}">${savings>0?'旧方案少'+$(savings):'新方案少'+$(-savings)}</div></div>`;
-  c+=`<div class="mt"><div class="ml">关键区别</div><div class="mv" style="color:var(--green);font-size:13px;font-family:'DM Sans'">有封顶</div></div>`;
-  c+=`</div>`;
-
-  c+=`<div class="al s"><strong>规模增长后的成本对比：</strong>旧方案中，区域服务商的$3/人头成本随Club规模线性增长且无上限。假设单个渠道方带来500+有效玩家，仅人头费就达$1,500+/月。新方案标准级服务商无论服务5个Club还是50个Club，月度封顶均为$2,000。</div>`;
-
-  document.getElementById('costComparison').innerHTML=c;
+function closeCalc() {
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('active'));
 }
 
-/* ============================================ */
-/* Init all calculators                         */
-/* ============================================ */
-calcA();
-calcB();
-calcC();
-calcD();
-calcPA();
-calcCost();
+// ========== BONUS TOGGLE ==========
+function toggleBonus(el) {
+  el.classList.toggle('checked');
+  updateTierTotal(el.closest('.bonus-list'));
+}
+
+function updateTierTotal(list) {
+  const base = parseInt(list.dataset.base);
+  const cap = parseInt(list.dataset.cap);
+  let bonus = 0;
+  list.querySelectorAll('.bonus-item.checked').forEach(item => {
+    const amountText = item.querySelector('.bonus-amount').textContent;
+    const val = parseInt(amountText.replace(/[^0-9]/g, ''));
+    bonus += val;
+  });
+  let total = Math.min(base + bonus, cap);
+  const totalEl = list.closest('.tier-card').querySelector('[data-total]');
+  if (totalEl) {
+    totalEl.textContent = '$' + total.toLocaleString();
+    // Highlight if at cap
+    if (total >= cap) {
+      totalEl.style.color = 'var(--green)';
+    } else {
+      totalEl.style.color = 'var(--accent)';
+    }
+  }
+}
+
+// ========== MENTOR SLIDER ==========
+function updateMentor() {
+  const slider = document.getElementById('mentorSlider');
+  const count = parseInt(slider.value);
+  document.getElementById('mentorCount').textContent = count;
+  document.getElementById('mentorTotal').textContent = '$' + (count * 80);
+}
+
+// ========== COST CALCULATOR ==========
+function updateCost() {
+  let totalMin = 0, totalMax = 0;
+  document.querySelectorAll('.cost-row:not(.header)').forEach(row => {
+    const input = row.querySelector('.cost-input');
+    if (!input) return;
+    const count = parseInt(input.value) || 0;
+    const minPer = parseInt(row.dataset.minPer);
+    const maxPer = parseInt(row.dataset.maxPer);
+    const min = count * minPer;
+    const max = count * maxPer;
+    row.querySelector('[data-cost-min]').textContent = '$' + min.toLocaleString();
+    row.querySelector('[data-cost-max]').textContent = '$' + max.toLocaleString();
+    totalMin += min;
+    totalMax += max;
+  });
+  document.getElementById('costTotal').textContent = '$' + totalMin.toLocaleString() + ' ~ $' + totalMax.toLocaleString();
+}
+
+// ========== COMPLIANCE TOGGLE ==========
+function toggleCompliance(btn) {
+  btn.classList.toggle('open');
+  const body = btn.nextElementSibling;
+  body.classList.toggle('visible');
+}
+
+// ========== NAV ACTIVE STATE ==========
+document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Initialize cost calculator on load
+updateCost();
 </script>
+
 </body>
 </html>
